@@ -1,0 +1,9 @@
+[1] git clone --no-local /private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo /private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3/seed
+[2] git add -- scripts/release_check.py configs/release.json tests/test_release.py results/p5/REPORT.md README.md docs/ROADMAP.md
+[3] git clone --no-local /private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3/seed /private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3/repo
+[4] uv sync --locked
+[5] uv run --locked pytest tests/test_cli.py
+[6] uv run --locked prism verify
+[7] uv run --locked prism reproduce run sut
+[8] git status --short
+{"ok": true, "smoke_only": true, "output": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo/runs/20261019-p5-release-125611051852-check"}

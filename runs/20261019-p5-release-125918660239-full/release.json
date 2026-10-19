@@ -1,0 +1,603 @@
+{
+  "clone_status_after": "",
+  "comparison": {
+    "errors": [],
+    "ok": true,
+    "recipes": [
+      {
+        "anchors": 0,
+        "env_differences": 0,
+        "name": "sut",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 0,
+          "p95": 0,
+          "p99": 0
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 0,
+        "env_differences": 0,
+        "name": "calibrate",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 0,
+          "p95": 0,
+          "p99": 0
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 4,
+        "env_differences": 0,
+        "name": "baseline",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 1,
+          "p95": 1,
+          "p99": 1
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 4,
+        "env_differences": 0,
+        "name": "kvcache",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 4,
+          "p95": 4,
+          "p99": 4
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 2,
+        "env_differences": 0,
+        "name": "schedsim",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 0,
+          "p95": 0,
+          "p99": 0
+        },
+        "unanchored": 16
+      },
+      {
+        "anchors": 9,
+        "env_differences": 0,
+        "name": "p1-calibrate",
+        "new_derived": 2,
+        "t4_above": {
+          "p50": 3,
+          "p95": 5,
+          "p99": 5
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 36,
+        "env_differences": 0,
+        "name": "quant",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 15,
+          "p95": 20,
+          "p99": 24
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 8,
+        "env_differences": 0,
+        "name": "serve",
+        "new_derived": 8,
+        "t4_above": {
+          "p50": 8,
+          "p95": 8,
+          "p99": 8
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 1,
+        "env_differences": 0,
+        "name": "parallel",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 0,
+          "p95": 0,
+          "p99": 0
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 3,
+        "env_differences": 0,
+        "name": "p4-calibrate",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 3,
+          "p95": 3,
+          "p99": 3
+        },
+        "unanchored": 0
+      }
+    ],
+    "smoke_only": false,
+    "t4": {
+      "report": "results/p0/calibration.md",
+      "resolution_ms": 0.092584
+    }
+  },
+  "documents": {
+    "errors": [],
+    "ok": true,
+    "phases": [
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P0",
+        "report": "results/p0/REPORT.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P0",
+        "report": "results/p0/calibration.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P1",
+        "report": "results/p1/REPORT.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P2",
+        "report": "results/p2/quant.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P2",
+        "report": "results/p2/speculative.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P2",
+        "report": "results/p2/kernels.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P3",
+        "report": "results/p3/REPORT.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P4",
+        "report": "results/p4/REPORT.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": false,
+        "phase": "P5",
+        "report": "results/p5/REPORT.md",
+        "roadmap_pointer": true
+      }
+    ],
+    "readme_commands": [
+      [
+        "uv",
+        "sync",
+        "--locked"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "pytest"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "prism"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "verify"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/verify_inventory.py"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "--list"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "--all",
+        "--dry-run"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "--sample"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/release_check.py",
+        "--check"
+      ]
+    ],
+    "scope": "Pointers and merge history checked mechanically; semantic review in results/p5/REPORT.md."
+  },
+  "evidence_sha256": {
+    "00.json": "c7afd486fdb8f62b6877832cfaa5b0e5194ff43a93e829a11e12835dd5a1c52e",
+    "00.log": "b98dc1d5ff410f18b5893f568971f7d6b74d14d4d968f5498f274ae439f160db",
+    "01.json": "73f02c0f1b276927a2514b29ac68a6dde8d5fb1494abb04a40b569aab84df590",
+    "01.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "02.json": "c24298f0a5cb0d9296611cf5aec1a6e84ca0294b40b90761e4f335f7931672ac",
+    "02.log": "2af6ba014732f54e4555a20a494b6b1e330e30f718083ef7dd4f5adbd0832fb9",
+    "03.json": "13930652be0ba2146a5d2fd4a0d844ab4a1b291307fa0c0132a9abb3393af86f",
+    "03.log": "05c25adf769a9fd0f5936ca98dde1c4f7bed96c80ca8ffc9698ac580de000faa",
+    "04.json": "e7550373053353a07f1d807cab30b36cd9abf7fa7478ac625138b75b4e34711f",
+    "04.log": "8d0952fe548b7b0c3cb3e7e3797fef278b5f34fea6689eeb2fc264de79703f68",
+    "05.json": "9bbbfd567208d312bb751cbe5085b15ef3300b5ce445d4d58a27cc71294db827",
+    "05.log": "69326b6843d0b3a3be0f193f532539c8d05b4517a833830ad5dad9d683b9f448",
+    "06.json": "0266ceabf0d11038c36980f90d79f5fef64ce4aa2208137611c83ea0c8fe648d",
+    "06.log": "98b61d9087b710c56fa66acb10adc4dbd685a2cd1ef39c18e7628f4a543f6b4f",
+    "07.json": "4829980b9dbe0fe434606e8c2c11768984934c9908dbc039ba91614157bb5c59",
+    "07.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "08.json": "00e5aba6f4093cdf57a400ce45336cd9877888385843cf44a5f3d53858427ee8",
+    "08.log": "28f26ffccbf1a980851e61449081ea5cf4e4525642bd63d4085f5b72a4decb90",
+    "09.json": "61541cd891d8c5249d696b9e823a9e8c4ebfe43fda5569fd5167901e8f6ce511",
+    "09.log": "2bdeb892ccdfaed8f292a077e13b3b2dcfec8a26402f3eb502921a157140b840",
+    "10.json": "c83be39afbcbb0187181ec4e79e2058c763693592cbe65fe11717cddf4d3edc7",
+    "10.log": "98b61d9087b710c56fa66acb10adc4dbd685a2cd1ef39c18e7628f4a543f6b4f",
+    "11.json": "a3a10d02627eb19361240f45b6dc1b5df5e49076b61589e6724ad075fea63b60",
+    "11.log": "880bbbf02e7716642e2b499c6a9a127e70e7251d2bfd3b61caf58879e64a2290",
+    "12.json": "be566246c8df235fc6a70d8f78c2abc20299db7e8fd811cc26a6ade382b5c9ad",
+    "12.log": "94a96ea3740d502ac564019d6966c78f49420ada1388365602027f72415930f4",
+    "13.json": "029097576570f790cf3ddb9a91e9d80edd3521f6e620749ff8c09e84d8d040c6",
+    "13.log": "d9ccd1ef8fd9ccd432d999afe9bdff4a9ee92d0d04a24740dcef8cba95ca842c",
+    "14.json": "e1f0906203789094706f747a8418645e77458c115c7a0a1cf8e7352ca31162ec",
+    "14.log": "dc2aa466da6f6e77983e9656760b2d17d7985fe084f6d28216609238a58f64c9",
+    "15.json": "ec0a276a26d7f449986d8d87163b29918844d1b0897ee5a7f81eca31e5ff21d1",
+    "15.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "candidate.patch": "ebdcc2395ff0efff29f3267b3a96e10335fa5bd154939217d3a195aa49134fc0",
+    "candidate/README.md": "e78ac3c41b03f39a671d4f2126a3cdf4a89c09a87e777a1efdee4891876e95e4",
+    "candidate/configs/release.json": "df7a6a9b02d06dcd96200e580a059b92b4d22a22c73d925346be08c9c52a77e0",
+    "candidate/docs/ROADMAP.md": "8c597887ec89bcc28cd9f03c3914aff216763f2515666eb25176c44fb0ddfb23",
+    "candidate/results/p5/REPORT.md": "398aaa15c54f5f37db10d1f6d1f7e602794943563dfbe31e55a155ca1b4b7561",
+    "candidate/scripts/release_check.py": "82864fddb3baad3dfc29d60ef599a75018ab1d5e486a28911a251e11aa2a296f",
+    "candidate/tests/test_release.py": "bb878203376a1ea52e0265a5ccd874e4edeb302a585247fe66abc3ce061e8c3c",
+    "config.json": "3264369f58cdc4a025d84c7891cebc0bf4996b755b23fb32b675dec825cff275",
+    "readme-check/20261019-p5-release-130115539505-check/00.json": "adee6683b24c3fe9d9d050d8762e8c4ee083770c4fcceab0f07c1e4cb5a47a20",
+    "readme-check/20261019-p5-release-130115539505-check/00.log": "219bf215243a4902839cdb6d7c1b758cbcd5c333ac02f842c73168654bede4c3",
+    "readme-check/20261019-p5-release-130115539505-check/01.json": "0750941e6ce1969f8de5ccc6c91db536d3b342c76fbaed3c484ffe0920e4e396",
+    "readme-check/20261019-p5-release-130115539505-check/01.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "readme-check/20261019-p5-release-130115539505-check/02.json": "839b2de260b7b6d36ae1dbf2e9de5e108253f9b8ec1e0f60fbe6e96a94bfb390",
+    "readme-check/20261019-p5-release-130115539505-check/02.log": "f0d99f68164f9749b3e48f1bc0fb4a8b3ac49e6250150d2df5e4229f764f6856",
+    "readme-check/20261019-p5-release-130115539505-check/03.json": "bdd09d45196aab56cc008e6f6b24e4c5d28cd9cb7ba6e5df6ef997c32e762c80",
+    "readme-check/20261019-p5-release-130115539505-check/03.log": "c1c21a9459239381f3e9d90daa141e769049ad9975081aeadf397e53e5a1cfab",
+    "readme-check/20261019-p5-release-130115539505-check/04.json": "8dee37e09bf2c3709d08b51c1487bcbf58232a7b15cda878e6226ad7b6694da1",
+    "readme-check/20261019-p5-release-130115539505-check/04.log": "beab09bf556ff8fd72b6ff9baaaec7a89e49e389c0cc5ca44c755a7502a2db33",
+    "readme-check/20261019-p5-release-130115539505-check/05.json": "23d4518fc67bc09d8d66ddf4a5204e6b37ef43be42104bf95dce0edc7ec69329",
+    "readme-check/20261019-p5-release-130115539505-check/05.log": "98b61d9087b710c56fa66acb10adc4dbd685a2cd1ef39c18e7628f4a543f6b4f",
+    "readme-check/20261019-p5-release-130115539505-check/06.json": "01f0113b82aeb25bb609af507e6a80a4186c57eba17ab602823172a9d05d0a9d",
+    "readme-check/20261019-p5-release-130115539505-check/06.log": "060f3aa2b39dbb22761e65478988694fd613ec073cc27dee2dfd1157e68b3783",
+    "readme-check/20261019-p5-release-130115539505-check/07.json": "74139e04e8ca42bcb50babf8a8858cf01fff75b5e9cdfdff71cf1d10ecdef0c6",
+    "readme-check/20261019-p5-release-130115539505-check/07.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "readme-check/20261019-p5-release-130115539505-check/candidate.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "readme-check/20261019-p5-release-130115539505-check/candidate/README.md": "e78ac3c41b03f39a671d4f2126a3cdf4a89c09a87e777a1efdee4891876e95e4",
+    "readme-check/20261019-p5-release-130115539505-check/candidate/configs/release.json": "df7a6a9b02d06dcd96200e580a059b92b4d22a22c73d925346be08c9c52a77e0",
+    "readme-check/20261019-p5-release-130115539505-check/candidate/docs/ROADMAP.md": "8c597887ec89bcc28cd9f03c3914aff216763f2515666eb25176c44fb0ddfb23",
+    "readme-check/20261019-p5-release-130115539505-check/candidate/results/p5/REPORT.md": "398aaa15c54f5f37db10d1f6d1f7e602794943563dfbe31e55a155ca1b4b7561",
+    "readme-check/20261019-p5-release-130115539505-check/candidate/scripts/release_check.py": "82864fddb3baad3dfc29d60ef599a75018ab1d5e486a28911a251e11aa2a296f",
+    "readme-check/20261019-p5-release-130115539505-check/candidate/tests/test_release.py": "bb878203376a1ea52e0265a5ccd874e4edeb302a585247fe66abc3ce061e8c3c",
+    "readme-check/20261019-p5-release-130115539505-check/config.json": "3264369f58cdc4a025d84c7891cebc0bf4996b755b23fb32b675dec825cff275",
+    "readme-check/20261019-p5-release-130115539505-check/release.json": "c4698c797a2a1a6cfd4216b3ac36d1633b8a1cbb1b8895f16380884cf33c9945",
+    "readme-check/20261019-p5-release-130115539505-check/reproduction.json": "060f3aa2b39dbb22761e65478988694fd613ec073cc27dee2dfd1157e68b3783",
+    "readme-check/20261019-p5-release-130115539505-check/reproduction.tar.gz": "685c1ec217f39d34335f92e57a060ec7f171a604af9474be76f0ae0fe1768c4c",
+    "reproduction.json": "d9ccd1ef8fd9ccd432d999afe9bdff4a9ee92d0d04a24740dcef8cba95ca842c",
+    "reproduction.tar.gz": "7db1d9232ef22671a44c9e670616cba86c5f619722e3ffa6f1da0204a35fbb0d"
+  },
+  "finished_at": "2026-10-19T13:01:25.321625+00:00",
+  "ok": true,
+  "smoke_only": false,
+  "source": {
+    "base_commit": "3a72da1e7b609359c568e4d07d117f4f7091bfac",
+    "candidate_sha256": {
+      "README.md": "e78ac3c41b03f39a671d4f2126a3cdf4a89c09a87e777a1efdee4891876e95e4",
+      "configs/release.json": "df7a6a9b02d06dcd96200e580a059b92b4d22a22c73d925346be08c9c52a77e0",
+      "docs/ROADMAP.md": "8c597887ec89bcc28cd9f03c3914aff216763f2515666eb25176c44fb0ddfb23",
+      "results/p5/REPORT.md": "398aaa15c54f5f37db10d1f6d1f7e602794943563dfbe31e55a155ca1b4b7561",
+      "scripts/release_check.py": "82864fddb3baad3dfc29d60ef599a75018ab1d5e486a28911a251e11aa2a296f",
+      "tests/test_release.py": "bb878203376a1ea52e0265a5ccd874e4edeb302a585247fe66abc3ce061e8c3c"
+    },
+    "clone_clean_before_sync": true,
+    "patch_sha256": "ebdcc2395ff0efff29f3267b3a96e10335fa5bd154939217d3a195aa49134fc0",
+    "snapshot_commit": "d0a872d41299a5fe66912ebedec402e214ceda49",
+    "snapshot_tree": "2964eb62976f202ed809ec58a5695555acbd4294",
+    "venv_absent_before_sync": true
+  },
+  "started_at": "2026-10-19T12:59:18.660649+00:00",
+  "steps": [
+    {
+      "argv": [
+        "git",
+        "clone",
+        "--no-local",
+        "/Users/wangchen/Developer/prism-wt-release",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/seed"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w",
+      "elapsed_seconds": 1.2140838749983232,
+      "log": "00.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "scripts/release_check.py",
+        "configs/release.json",
+        "tests/test_release.py",
+        "results/p5/REPORT.md",
+        "README.md",
+        "docs/ROADMAP.md"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/seed",
+      "elapsed_seconds": 0.0768175830016844,
+      "log": "01.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "user.name=Prism release snapshot",
+        "-c",
+        "user.email=release@prism.invalid",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "commit",
+        "-m",
+        "Snapshot P5-T2 candidate inputs for independent replay"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/seed",
+      "elapsed_seconds": 0.07316416699904948,
+      "log": "02.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "--no-local",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/seed",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w",
+      "elapsed_seconds": 0.2934537499968428,
+      "log": "03.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "sync",
+        "--locked"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+      "elapsed_seconds": 0.23568316700402647,
+      "log": "04.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+      "elapsed_seconds": 36.39229987499857,
+      "log": "05.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+      "elapsed_seconds": 0.892235666004126,
+      "log": "06.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+      "elapsed_seconds": 0.39970845799689414,
+      "log": "07.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+      "elapsed_seconds": 0.04037774999596877,
+      "log": "08.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "prism"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+      "elapsed_seconds": 0.186772209002811,
+      "log": "09.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/verify_inventory.py"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+      "elapsed_seconds": 0.13214891600364354,
+      "log": "10.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "--list"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+      "elapsed_seconds": 0.18538866699964274,
+      "log": "11.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "--all",
+        "--dry-run"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+      "elapsed_seconds": 0.18441475000145147,
+      "log": "12.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "--sample"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+      "elapsed_seconds": 76.37164075000328,
+      "log": "13.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/release_check.py",
+        "--check"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+      "elapsed_seconds": 5.529574249994766,
+      "log": "14.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+      "elapsed_seconds": 0.07541920799849322,
+      "log": "15.log",
+      "returncode": 0
+    }
+  ]
+}

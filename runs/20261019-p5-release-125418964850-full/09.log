@@ -1,0 +1,17 @@
+prism 0.1.0: P0–P4 experiments; see prism reproduce --list
+usage: prism [-h] [--version] {env,sut,record,verify,reproduce} ...
+
+Prism command-line entry point. Repository experiments, provenance
+verification and isolated reproduction.
+
+positional arguments:
+  {env,sut,record,verify,reproduce}
+    env                 Describe the experiment environment
+    sut                 Check the reference model
+    record              Save and summarize experiment records
+    verify              Verify committed artifact SHA-256 inventory
+    reproduce           Reproduce recipes in a repository clone
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit

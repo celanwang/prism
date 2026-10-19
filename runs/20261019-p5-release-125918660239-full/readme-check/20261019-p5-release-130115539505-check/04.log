@@ -1,0 +1,9 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.1.1, pluggy-1.7.0
+rootdir: /private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6/repo
+configfile: pyproject.toml
+collected 1 item
+
+tests/test_cli.py .                                                      [100%]
+
+============================== 1 passed in 0.74s ===============================

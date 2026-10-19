@@ -1,0 +1,154 @@
+{
+  "clone_status_after": "",
+  "comparison": {
+    "errors": [],
+    "ok": true,
+    "recipes": [
+      {
+        "anchors": 0,
+        "env_differences": 0,
+        "name": "sut",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 0,
+          "p95": 0,
+          "p99": 0
+        },
+        "unanchored": 0
+      }
+    ],
+    "smoke_only": true,
+    "t4": {
+      "report": "results/p0/calibration.md",
+      "resolution_ms": 0.092584
+    }
+  },
+  "finished_at": "2026-10-19T12:56:15.407735+00:00",
+  "ok": true,
+  "smoke_only": true,
+  "source": {
+    "base_commit": "dfb918fa5f288ad5de16dc35583e81d9eee271d2",
+    "candidate_sha256": {
+      "README.md": "e78ac3c41b03f39a671d4f2126a3cdf4a89c09a87e777a1efdee4891876e95e4",
+      "configs/release.json": "df7a6a9b02d06dcd96200e580a059b92b4d22a22c73d925346be08c9c52a77e0",
+      "docs/ROADMAP.md": "8c597887ec89bcc28cd9f03c3914aff216763f2515666eb25176c44fb0ddfb23",
+      "results/p5/REPORT.md": "bbe853857f7cefc3ce070447a94de65bb86effa6b1ede386b1803b62419d0e13",
+      "scripts/release_check.py": "7902ab22758ec6700768f637c94afad28c31af911b46330264a00a067a4510ea",
+      "tests/test_release.py": "8bdc80ad78424e700db5f5f179222a9abe7142817556adafcd07c5f64e3895bc"
+    },
+    "clone_clean_before_sync": true,
+    "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "snapshot_commit": "dfb918fa5f288ad5de16dc35583e81d9eee271d2",
+    "snapshot_tree": "eb6627c4d42e5a154f06d7dd17fc3eef4deaf0f4",
+    "venv_absent_before_sync": true
+  },
+  "started_at": "2026-10-19T12:56:11.052198+00:00",
+  "steps": [
+    {
+      "argv": [
+        "git",
+        "clone",
+        "--no-local",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3/seed"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3",
+      "elapsed_seconds": 0.2924238339983276,
+      "log": "00.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "scripts/release_check.py",
+        "configs/release.json",
+        "tests/test_release.py",
+        "results/p5/REPORT.md",
+        "README.md",
+        "docs/ROADMAP.md"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3/seed",
+      "elapsed_seconds": 0.07684675000200514,
+      "log": "01.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "--no-local",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3/seed",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3/repo"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3",
+      "elapsed_seconds": 0.2967940830058069,
+      "log": "02.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "sync",
+        "--locked"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3/repo",
+      "elapsed_seconds": 0.24156533399946056,
+      "log": "03.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "tests/test_cli.py"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3/repo",
+      "elapsed_seconds": 1.432712708003237,
+      "log": "04.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3/repo",
+      "elapsed_seconds": 0.9373622499988414,
+      "log": "05.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "run",
+        "sut"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3/repo",
+      "elapsed_seconds": 0.7883288750017527,
+      "log": "06.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4hla9tn3/repo",
+      "elapsed_seconds": 0.07688066699483898,
+      "log": "07.log",
+      "returncode": 0
+    }
+  ]
+}

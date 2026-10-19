@@ -1,0 +1,32 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.1.1, pluggy-1.7.0
+rootdir: /Users/wangchen/Developer/prism-wt-release
+configfile: pyproject.toml
+testpaths: tests
+collected 751 items
+
+tests/test_ablating.py ............................................      [  5%]
+tests/test_baseline.py .............................                     [  9%]
+tests/test_calibrate.py .................                                [ 11%]
+tests/test_cli.py .                                                      [ 12%]
+tests/test_env.py ......                                                 [ 12%]
+tests/test_kvcache.py .......................................            [ 18%]
+tests/test_measure.py ..........................                         [ 21%]
+tests/test_p1_calibrate.py ............                                  [ 23%]
+tests/test_p4_calibrate.py .................                             [ 25%]
+tests/test_paged.py .................................................... [ 32%]
+..........................................................               [ 40%]
+tests/test_parallel_models.py .......................................... [ 45%]
+.......................................................                  [ 52%]
+tests/test_quant.py .............................                        [ 56%]
+tests/test_record.py ..................................................  [ 63%]
+tests/test_release.py ..........                                         [ 64%]
+tests/test_reproduce.py ...............................                  [ 68%]
+tests/test_schedsim.py .............................................     [ 74%]
+tests/test_serve.py ........................                             [ 78%]
+tests/test_serve_load.py .....................                           [ 80%]
+tests/test_speculative.py .............................................. [ 87%]
+.....................................................................    [ 96%]
+tests/test_sut.py ............................                           [100%]
+
+============================= 751 passed in 37.79s =============================

@@ -1,0 +1,73 @@
+[
+  {
+    "command": [
+      "uv",
+      "sync",
+      "--locked"
+    ],
+    "returncode": 0,
+    "log": "01-sync.log",
+    "elapsed_seconds": 0.01051216600171756
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "pytest"
+    ],
+    "returncode": 0,
+    "log": "02-pytest.log",
+    "elapsed_seconds": 37.913530375000846
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "ruff",
+      "check",
+      "."
+    ],
+    "returncode": 0,
+    "log": "03-ruff-check.log",
+    "elapsed_seconds": 0.025399750003998633
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "ruff",
+      "format",
+      "--check",
+      "."
+    ],
+    "returncode": 0,
+    "log": "04-ruff-format.log",
+    "elapsed_seconds": 0.022478625003714114
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "python",
+      "scripts/release_check.py",
+      "--check"
+    ],
+    "returncode": 0,
+    "log": "05-release-check.log",
+    "elapsed_seconds": 6.458609624998644
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "returncode": 0,
+    "log": "06-git-status.log",
+    "elapsed_seconds": 0.012081542001396883
+  }
+]

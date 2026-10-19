@@ -1,0 +1,6 @@
+[codex/p5-release d0a872d] Snapshot P5-T2 candidate inputs for independent replay
+ 6 files changed, 795 insertions(+), 1 deletion(-)
+ create mode 100644 configs/release.json
+ create mode 100644 results/p5/REPORT.md
+ create mode 100644 scripts/release_check.py
+ create mode 100644 tests/test_release.py

@@ -1,0 +1,40 @@
+{
+  "notes": [
+    "每个配方使用独立进程、完整正式配置；--sample 选择代表配方并包含依赖，不使用 smoke/check 降配。",
+    "依赖是执行前置关系；T4 阈值、P0 服务模型、P3 load 的历史校准输入冻结重放，不自动用新拟合替换。",
+    "schedsim 全网格只有 λ=100/s、B=4 的 static/continuous 两点可锚定；其余显式 unanchored。",
+    "P1 before 模拟要求 config 与确定性产物一致；新拟合、新 after 模拟与 P3 新派生模拟不计历史一致。",
+    "T4 只有报告无标准 run；报告指纹单列比较，不能宣称标准 run 覆盖或逐字节重建历史报告。",
+    "env 不同明确报告 env_equal=false；不据此静默宣称环境一致。config 不等或冻结模拟结果不等返回失败。",
+    "性能漂移按 T4 0.092584 ms 经验尺度标注，无百分比合格线，无显著性保证；模拟数字不是实测。",
+    "复跑产物只在新建 runs/.reproduce 会话内，默认不入库、不进 inventory；原入库记录从不覆盖。",
+    "发布范围为仓库 clone 中的 CLI；wheel 不含脚本/配置/SUT/inventory，不能单独执行全仓复现。"
+  ],
+  "ok": true,
+  "recipes": [
+    {
+      "argv": [
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4timpoec/repo/.venv/bin/python",
+        "-m",
+        "prism",
+        "sut",
+        "check"
+      ],
+      "missing_anchors": [],
+      "name": "sut",
+      "ok": true,
+      "records": []
+    }
+  ],
+  "session": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4timpoec/repo/runs/.reproduce/32606407c8294b8cb582baff4f78cbda",
+  "t4": {
+    "report": "results/p0/calibration.md",
+    "resolution_ms": 0.092584
+  },
+  "verification": {
+    "checked": 1591,
+    "errors": [],
+    "ok": true,
+    "source_commit": "124fe7c4ef5c655655cfb11012f1fd1fac184910"
+  }
+}

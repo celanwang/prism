@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "scripts/verify_inventory.py"
+  ],
+  "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+  "log": "10.log"
+}

@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "git",
+    "clone",
+    "--no-local",
+    "/Users/wangchen/Developer/prism-wt-release",
+    "/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-tiyj3ban/seed"
+  ],
+  "cwd": "/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-tiyj3ban",
+  "log": "00.log"
+}

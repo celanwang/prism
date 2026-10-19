@@ -1,0 +1,839 @@
+diff --git a/README.md b/README.md
+index 221d8ac..eac7b2f 100644
+--- a/README.md
++++ b/README.md
+@@ -27,3 +27,38 @@ uv run --locked python -m prism
+ - `results/` — 阶段验收报告与正式证据摘要
+ - `runs/` — 单次运行产物（不入库）
+ - `docs/` — ROADMAP 与设计文档
++
++## 复现与验证（v0.1.0 仓库候选）
++
++以上“P0 尚未开始”为立项时的历史说明；当前 P0–P4 已验收合并，
++P5 的候选审阅和独立复跑见 [发布审阅报告](results/p5/REPORT.md)。
++请在完整仓库 clone 根目录执行上面的环境与测试命令，然后执行：
++
++```sh
++uv run --locked prism verify
++uv run --locked python scripts/verify_inventory.py
++uv run --locked prism reproduce --list
++uv run --locked prism reproduce --all --dry-run
++uv run --locked prism reproduce --sample
++uv run --locked python scripts/release_check.py --check
++```
++
++`verify` 按冻结的 inventory 检查历史工件，缺失或篡改均返回非零。
++`--list` 展示配方与依赖，`--all --dry-run` 仅列全量计划；
++`--sample` 执行 P0–P4 的完整代表配方（包含依赖），会实际测量，不是 smoke。
++复跑的日志、原始记录与比对 JSON 在新建的 `runs/.reproduce/` 会话中。
++配置哈希必须相等；环境指纹差异单列报告；p50/p95/p99 漂移按 P0-T4
++0.092584 ms 经验扰动尺度标注，不设速度合格线，也不代表统计显著性。
++新拟合的模拟结果不冒充历史相同，模拟与实测边界详见配置和阶段报告。
++
++发布脚本的 `--check` 是小规模 clone、新 venv、CLI 校验流程；
++去掉该参数才执行全量测试、README 全部 shell 命令和完整抽样的正式发布审阅。
++每次新建 `runs/<UTC日期>-p5-release-*/`，其中有候选快照补丁与哈希、逐进程日志、
++比对 JSON、原始复跑记录归档；未提交候选只纳入 P5-T2 白名单源文件，
++先在临时仓库中提交快照，再从快照进行干净 clone，不带入开发 venv。
++独立进程仍在同一硬件上运行，不等于跨硬件或第三方独立验收。
++
++发布范围为仓库内 CLI；wheel 不包含 scripts/configs/inventory/SUT，
++不能单独完成复现。现有实验限 CPU；MPS/CUDA/多卡未实测。
++`runs/` 默认忽略新产物，但已有部分正式历史证据明确入库并受 inventory 保护；
++P5 只新增发布目录，不覆盖历史记录。阶段状态以 ROADMAP 和 results/ 报告为准。
+diff --git a/configs/release.json b/configs/release.json
+new file mode 100644
+index 0000000..06f7864
+--- /dev/null
++++ b/configs/release.json
+@@ -0,0 +1,13 @@
++{
++  "version": 1,
++  "candidate_version": "0.1.0",
++  "timeout_seconds": 1800,
++  "phases": {
++    "P0": {"reports": ["results/p0/REPORT.md", "results/p0/calibration.md"], "prs": [1, 2, 3, 4, 5]},
++    "P1": {"reports": ["results/p1/REPORT.md"], "prs": [6, 7, 9, 10]},
++    "P2": {"reports": ["results/p2/quant.md", "results/p2/speculative.md", "results/p2/kernels.md"], "prs": [11, 14, 16]},
++    "P3": {"reports": ["results/p3/REPORT.md"], "prs": [12, 15]},
++    "P4": {"reports": ["results/p4/REPORT.md"], "prs": [8, 13]},
++    "P5": {"reports": ["results/p5/REPORT.md"], "prs": [17]}
++  }
++}
+diff --git a/docs/ROADMAP.md b/docs/ROADMAP.md
+index 7c53453..cc710da 100644
+--- a/docs/ROADMAP.md
++++ b/docs/ROADMAP.md
+@@ -11,7 +11,7 @@
+ | P2 推理优化 | "权重量化在 CPU 上的精度–时延–内存三角长什么样？投机采样的接受率–收益曲线何时值得？" | INT8/INT4 权重量化实现与逐层精度对照；投机采样回路（草稿–验证）与接受率统计；算子融合/分块的逐项消融 | 完成（2026-10-19，PR #11/#14/#16，证据见 results/p2/） |
+ | P3 服务与部署 | "并发与流式如何改变尾时延？队列多长开始雪崩？" | HTTP 并发推理服务；流式响应；队列/背压压测报告；部署等价性检查（服务输出 vs 本地推理） | 完成（2026-10-19，PR #12/#15，证据见 results/p3/REPORT.md） |
+ | P4 训练系统（模拟为主） | "给定显存预算，并行策略与 micro-batch 的解析预测与实测差多少？" | 数据/张量/流水线并行的显存–通信解析模型；模拟器；单机小规模实测校准与偏差分析 | 完成（2026-10-19，PR #8/#13，证据见 results/p4/REPORT.md） |
+-| P5 复现与发布 | 整合 | 统一 CLI、全仓复现入口、工件完整性校验、独立进程复跑、发布候选审阅 | 未开始 |
++| P5 复现与发布 | 整合 | 统一 CLI、全仓复现入口、工件完整性校验、独立进程复跑、发布候选审阅 | 候选审阅完成（2026-10-19，P5-T1 PR #17；P5-T2 本分支，待规划层独立验收与合并；证据见 results/p5/REPORT.md） |
+ 
+ ## 边界
+ 
+diff --git a/results/p5/REPORT.md b/results/p5/REPORT.md
+new file mode 100644
+index 0000000..818416b
+--- /dev/null
++++ b/results/p5/REPORT.md
+@@ -0,0 +1,127 @@
++# P5：独立进程复跑与 v0.1.0 发布候选审阅
++
++建议 **v0.1.0 作为完整仓库 clone 的研究 CLI 候选**。P0–P4 的冻结证据校验通过，
++同机干净 clone、新 venv 的完整代表配方复跑通过；性能漂移如实保留，
++不以速度相等为放行条件。执行层收口完成；规划层的独立验收、合并与实际发布仍待进行。
++本任务不打 tag、不 push、不修改版本或历史证据。
++
++## 证据链总览
++
++| 阶段 | 正式报告与证据入口 | 已合并 PR | 审阅结论与范围 |
++| --- | --- | --- | --- |
++| P0 | [基准闭环](../p0/REPORT.md)、[T4 标定](../p0/calibration.md)、SUT MANIFEST、baseline runs | [#1](https://github.com/celanwang/prism/pull/1)、[#2](https://github.com/celanwang/prism/pull/2)、[#3](https://github.com/celanwang/prism/pull/3)、[#4](https://github.com/celanwang/prism/pull/4)、[#5](https://github.com/celanwang/prism/pull/5) | 测量协议、计时原始样本、配置/环境哈希完整；T1 单独为本地验收 merge `86fd087`，没有 PR，不能将 #1 算作 T1 |
++| P1 | [KV/分页/调度校准](../p1/REPORT.md)，其中链接原字节 evidence 归档与 manifest | [#6](https://github.com/celanwang/prism/pull/6)、[#7](https://github.com/celanwang/prism/pull/7)、[#9](https://github.com/celanwang/prism/pull/9)、[#10](https://github.com/celanwang/prism/pull/10) | 真实 KV cache/分页回路与调度模拟分列；KV cache 量化没有实现，不能把阶段完成解读为愿景中所有子题均完成 |
++| P2 | [量化](../p2/quant.md)、[投机解码](../p2/speculative.md)、[算子消融](../p2/kernels.md) | [#11](https://github.com/celanwang/prism/pull/11)、[#14](https://github.com/celanwang/prism/pull/14)、[#16](https://github.com/celanwang/prism/pull/16) | 分项报告而非不存在的 REPORT.md；精度损失、反量化成本与算子负结果均保留 |
++| P3 | [服务/负载与雪崩](../p3/REPORT.md)，服务等价性与负载归档在对应 runs | [#12](https://github.com/celanwang/prism/pull/12)、[#15](https://github.com/celanwang/prism/pull/15) | loopback HTTP/SSE 为实测；理想队列预测与实测的偏差明确，不作为生产容量保证 |
++| P4 | [解析模型及真实单机训练步校准](../p4/REPORT.md) | [#8](https://github.com/celanwang/prism/pull/8)、[#13](https://github.com/celanwang/prism/pull/13) | 常驻数组存储对齐与激活比例成立；绝对激活量存在偏差，多卡通信仅解析模型 |
++| P5 | [复现清单](../../configs/reproduce.json)、[冻结 inventory](../../artifacts/inventory-v1.json)、本报告与下列独立复跑记录 | [#17](https://github.com/celanwang/prism/pull/17)；P5-T2 当前分支待验收 | 复用已合并 CLI，无测量协议或依赖修改 |
++
++PR 指针均与 clone 中 `git log` 的 merge 记录对应。`prism verify` 校验
++**1591** 个冻结文件，`source_commit=124fe7c4ef5c655655cfb11012f1fd1fac184910`；
++该提交是 inventory 的历史锚点，不是本次候选提交。历史报告、配置、代码和关键 runs
++保持原字节；P5 的新增文件不在旧 inventory 中，由候选快照、发布记录和本次 git diff 追踪。
++
++## 独立复跑
++
++首轮完整证据：[release.json](../../runs/20261019-p5-release-125418964850-full/release.json)、
++[完整比对](../../runs/20261019-p5-release-125418964850-full/reproduction.json)、
++[原始记录及逐配方日志归档](../../runs/20261019-p5-release-125418964850-full/reproduction.tar.gz)。
++源基线为 rebase 到 PR #17 后的 `3a72da1e7b609359c568e4d07d117f4f7091bfac`，
++临时候选提交为 `dfb918fa5f288ad5de16dc35583e81d9eee271d2`。
++[candidate.patch](../../runs/20261019-p5-release-125418964850-full/candidate.patch) 与 `candidate/`
++保存当时六个白名单输入；补丁 SHA-256：
++`193f10df25abdaffbfea82af39901619aad3a931cd48280192c8d87276b48e0b`。
++
++流程为临时 seed clone → 仅白名单候选输入提交 → 第二次干净 clone →
++`uv sync --locked` 新建 `.venv` → 全量 pytest → verify → README 命令 → 完整抽样 →
++clone 状态复核。Python/uv/git/BLAS 的继承覆盖变量清除，未复制原 venv；
++uv 的下载缓存可以复用。临时目录结束前归档日志和原始结果，不依赖已消失的绝对路径。
++归档中 `reproduction/<会话>/<配方>/runs/` 对应比对 JSON 的相对 run 路径。
++
++运行于 **Apple M4 Max / CPU / arm64 / 16 逻辑 CPU / 48 GiB RAM**，
++macOS 15.8、Python 3.12.15、NumPy 2.5.4；各配方在独立进程执行并设原生线程上限 1。
++采集区间为 2026-10-19 12:54:18–12:56:19 UTC。
++所有 67 次历史锚点比对的配置哈希相等，环境指纹均为
++`bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3`，本机环境差异数 0；
++代码与测试也覆盖 `env_equal=false` 的显式报告路径，不把环境不等静默解释为一致。
++
++P5-T1 抽样为 baseline、p1-calibrate、quant、serve、p4-calibrate，含依赖共 **10** 个配方。
++共 **93** 个标准 run：**67** 次有锚点比对（同一个历史 before 锚点可在不同配方中重复比对）、
++**16** 个 unanchored 调度网格点、**10** 个 new-derived 新拟合模拟结果。
++其中 5 次冻结模拟/解析产物比对完全相等，62 次实测只要求配置一致并报告性能漂移。
++T4 自身没有标准 run，只比对报告中的配置/环境指纹；本次均相等，未冒充历史报告逐字节重建。
++
++| 配方 | 历史锚点比对数 | env 差异 | 超过 T4 的 p50/p95/p99 漂移计数 | 额外结果 |
++| --- | ---: | ---: | --- | --- |
++| sut / calibrate | 0 / 0 | 不适用 | 不适用 | SUT 正确性通过；T4 报告指纹相等 |
++| baseline | 4 | 0 | 1 / 1 / 1 | 无缺失 |
++| kvcache | 4 | 0 | 3 / 3 / 3 | 无缺失 |
++| schedsim | 2 | 0 | 不适用（模拟） | 16 unanchored；两个冻结点确定性相等 |
++| p1-calibrate | 9 | 0 | 0 / 3 / 5 | 两个 before 确定性相等；2 new-derived after |
++| quant | 36 | 0 | 12 / 15 / 15 | 无缺失 |
++| serve | 8 | 0 | 8 / 8 / 8 | 8 new-derived 模拟结果 |
++| parallel | 1 | 0 | 不适用（解析） | predictions.json 相等 |
++| p4-calibrate | 3 | 0 | 3 / 2 / 2 | 无缺失 |
++
++合计 p50/p95/p99 分别有 27/32/34 次漂移超过 **0.092584 ms**。
++标注使用冻结的 P0-T4 经验扰动尺度；它不是显著性检验、速度合格线或跨环境保证，
++没有因为漂移而改历史记录或重新拟合历史输入，也没有据此宣称历史优化收益稳定。
++完整 signed drift 与每个 run 的 config hash 在 reproduction.json；原始分位数、samples、
++预热/重复、配置与 env.lock 在归档中，不能将不同工作负载的漂移计数解释成时延分布。
++
++测量协议原样保留：T4 预热100/重复2000；baseline prefill 100/1000、decode 10/200；
++kvcache 10/200；P1 校准 prefill 100/1000、decode 10/200；quant 3/30 且两个相反顺序批次；
++serve 2/5 个完整轮次（请求分位数与轮次分位数分别记录）；P4 校准 1 次存储诊断、5 次预热、30 次测量。
++每项 p50/p95/p99 使用既有 P0 协议；模拟没有实测计时分布。
++抽样配置文件 SHA-256 为 `055ca68a289463af9914b9dd5532c0ba38bc84befaad88deca7025eef9920ad0`；
++发布清单 SHA-256 为 `df7a6a9b02d06dcd96200e580a059b92b4d22a22c73d925346be08c9c52a77e0`。
++这些是文件字节哈希；每个测量的 canonical config hash 是另一口径，已逐项与历史相等核验。
++
++首轮 clone 中：pytest **750 passed**，ruff check 全绿，format **87 files already formatted**；
++README 11 条 shell 命令均实际执行成功，`--all --dry-run` 只核验全量计划，不宣称全量配方都重测。
++clone 最后 `git status --short` 为空。
++
++负结果保留：[首次尝试](../../runs/20261019-p5-release-125334130717-full/release.json)
++在文档核对前因 macOS `/var` 为软链接而被安全路径检查拒绝，尚未运行正式抽样。
++修复为规范化临时目录路径后才得到上述通过结果。随后增加归档排除既有发布目录和证据文件哈希，
++并测试防止未来 clone 把旧发布归档再次嵌套复制；最终验收记录见下节。
++
++## 文档逐项核对与差异清单
++
++| 文档 | 核对结果 | 处理与保留边界 |
++| --- | --- | --- |
++| README | 两个 shell 代码块共 11 条命令全部通过；包含 sync、pytest、两条 ruff、模块入口、两个 verify、list、全量 dry-run、完整 sample、release --check | 仅追加复现与验证指引；旧的“P0 尚未开始”及“runs 不入库”未擅自改写，追加说明明确它们的历史性与已入库例外 |
++| ROADMAP | P0/P1/P3/P4 的 REPORT 与 P2 三个分项报告均存在并受 inventory 覆盖；各阶段 PR 与合并历史对应 | 只改 P5 状态与证据指针为“候选审阅完成，待规划层独立验收与合并”；未修改 P0–P4 状态或扩大验收范围 |
++| DESIGN | kaleido-p3 工件已冻结入库；运行无需开发者的 kaleido 工作目录；实际 CPU 证据与无 CUDA/多卡实测的边界相符 | 设计愿景是探索范围，不代表所有子题都已交付；MPS 是允许范围，本次没有 MPS 实验 |
++| AGENTS | 规格→codex 分支执行→diff/独立验收的流程一致；白名单、locked 依赖、禁 push/删文件/改历史均遵守 | P5-T2 为低风险独立验证工具任务；本脚本的独立进程不是 Kimi 的独立验收，不替代规划层最终合并决定 |
++| 历史 results | P0/P1 尚无 PR、P2 草稿、P4 待验收等措辞是当时的交付状态；现在已合并的指针见本报告总览 | 历史报告受 inventory 保护，原样保留；未为文案一致而改历史哈希。P1 未实现 KV 量化等范围差异显式保留 |
++| P5 inventory 边界 | 冻结清单覆盖 P0–P4 和关键输入，不覆盖自身或新增 P5 记录 | 本任务白名单不包含 inventory；P5 候选输入用 patch/哈希，新增证据用发布摘要哈希和 git 追踪，不声称旧 inventory 覆盖全仓每一个文件 |
++
++机械检查只证明报告路径、ROADMAP 指针、合并 PR、冻结覆盖和命令可执行性；
++边界与结论的语义核对由本节人工审阅说明，不能仅凭文档中存在“完成”二字认定全部愿景达成。
++
++## 已知边界与免责声明汇总
++
++- 实测限同一台 Apple Silicon CPU、小型 FP32 NumPy SUT；本次新 clone/新进程只增加同机复跑证据，
++  不代表跨硬件、跨 OS、第三方复现或置信区间。没有 MPS/CUDA/多卡实测，模拟不表述为实测。
++- P0 tracemalloc 只覆盖增量分配且漏掉部分 native 内存；RSS 是进程生命周期高水位。
++  经验 T4 不是可扣除的固定计时成本，增加 repeat 不能消除单样本扰动。
++- P1 分页与 continuous batching 的适用范围见报告；调度预测依赖服务时间代理，
++  未用本次新拟合覆盖历史模型。unanchored/new-derived 不计为历史一致；KV 量化仍为空缺。
++- P2 压缩载荷不等于峰值内存或速度收益；INT4 有输出/精度损失，INT8 可因反量化而变慢。
++  投机实现校验 FP32 target 的 greedy 逐 token 等价，未验证随机采样分布；
++  算子消融的可分辨性和顺序漂移限制按原报告保留，本次代表抽样未重测所有算子。
++- P3 是 loopback、无 TLS、单进程串行推理；请求线程不等于并行推理。
++  成功请求分位数不含拒绝/丢弃；短窗、有界队列的“雪崩”代理不是无限队列发散证明，
++  原模拟存在低估尾时延的负结果，不能做生产容量保证；本次抽样不是重跑整个负载扫描。
++- P4 DP/TP/PP/ZeRO 通信及时间为理想解析假设；真实校准只有单机 DP=TP=PP=1，
++  ndarray 存储不等于 GPU 显存，常驻存储对齐和激活比例正确不等于绝对峰值/时间预测正确。
++- CLI 发布范围是完整仓库 clone。wheel 缺少 scripts/configs/inventory/SUT，不能独立做全仓复现。
++  smoke/test 只证明流程或正确性；本报告的实验证据来自完整 sample，未把 `--check` 当正式实验。
++
++## 版本建议与收口
++
++v0.1.0 的研究 CLI 候选证据成立：冻结工件完整、完整代表配方配置一致、
++确定性模拟可重建、性能及环境差异有明确记录、README 可执行、阶段证据与状态对应。
++不以仍未探索的愿景子题阻止本次已批准范围收口；这些空缺与负结果均已显式说明。
++最终发布与 P5 合并由规划层按 AGENTS 独立验收决定。本任务没有执行发布动作。
+diff --git a/scripts/release_check.py b/scripts/release_check.py
+new file mode 100644
+index 0000000..58a27cb
+--- /dev/null
++++ b/scripts/release_check.py
+@@ -0,0 +1,412 @@
++"""Audit a release candidate in a clean temporary clone and a new uv environment.
++
++--check runs a small process/CLI smoke, never release evidence. The default runs
++all tests, every README shell command, and P5-T1's full representative sample.
++Only P5-T2's six allowed source files may be snapshotted from an uncommitted
++worktree. A second clone of that committed snapshot receives no developer venv,
++PYTHONPATH or uv project overrides. Logs, patch and replay records survive cleanup.
++"""
++
++from __future__ import annotations
++
++import argparse
++import hashlib
++import json
++import math
++import os
++import re
++import shlex
++import shutil
++import signal
++import subprocess
++import tarfile
++import tempfile
++import time
++from datetime import UTC, datetime
++from pathlib import Path
++
++from prism.reproduce import load_recipes, read_json, safe_path, topological_order, write_json_new
++
++ROOT = Path(__file__).resolve().parents[1]
++SNAPSHOT_FILES = (
++    "scripts/release_check.py",
++    "configs/release.json",
++    "tests/test_release.py",
++    "results/p5/REPORT.md",
++    "README.md",
++    "docs/ROADMAP.md",
++)
++
++
++def clean_env() -> dict[str, str]:
++    """Retain OS/tool discovery, discard inherited Python/uv/git/BLAS overrides."""
++    prefixes = ("PYTHON", "UV_", "GIT_", "CONDA", "VIRTUAL_ENV")
++    env = {k: v for k, v in os.environ.items() if not k.startswith(prefixes)}
++    for name in (
++        "VECLIB_MAXIMUM_THREADS",
++        "OPENBLAS_NUM_THREADS",
++        "OMP_NUM_THREADS",
++        "MKL_NUM_THREADS",
++        "BLIS_NUM_THREADS",
++    ):
++        env.pop(name, None)
++    env["PYTHONDONTWRITEBYTECODE"] = "1"
++    return env
++
++
++def git(root: Path, *args: str) -> str:
++    return subprocess.check_output(["git", *args], cwd=root, env=clean_env()).decode().strip()
++
++
++def load_manifest(root: Path, path: Path) -> dict:
++    config = read_json(path)
++    if config.get("version") != 1 or config.get("candidate_version") != "0.1.0":
++        raise ValueError("invalid release version")
++    timeout = config.get("timeout_seconds")
++    if type(timeout) not in (float, int) or not math.isfinite(timeout) or timeout <= 0:
++        raise ValueError("timeout_seconds must be finite and positive")
++    phases = config.get("phases")
++    if not isinstance(phases, dict) or set(phases) != {f"P{i}" for i in range(6)}:
++        raise ValueError("phases must cover P0–P5")
++    for phase, entry in phases.items():
++        if not isinstance(entry, dict) or not entry.get("reports") or not entry.get("prs"):
++            raise ValueError(f"missing evidence: {phase}")
++        for name in entry["reports"]:
++            if not isinstance(name, str) or not name.startswith(f"results/{phase.lower()}/"):
++                raise ValueError(f"invalid report: {name}")
++            safe_path(root, name)
++        if any(type(n) is not int or n <= 0 for n in entry["prs"]):
++            raise ValueError(f"invalid PR: {phase}")
++    return config
++
++
++def readme_commands(text: str) -> list[list[str]]:
++    commands = []
++    for block in re.findall(r"```(?:sh|bash)\n(.*?)```", text, re.S):
++        for line in block.splitlines():
++            if not line.strip() or line.lstrip().startswith("#"):
++                continue
++            argv = shlex.split(line)
++            if argv[:3] != ["uv", "run", "--locked"] and argv != ["uv", "sync", "--locked"]:
++                raise ValueError(f"unsupported README command: {line}")
++            if any(c in line for c in ("|", ";", "&&", "$", "`", ">", "<", "\\")):
++                raise ValueError(f"README commands must be standalone argv: {line}")
++            commands.append(argv)
++    if not commands:
++        raise ValueError("no README shell commands")
++    return commands
++
++
++def audit_documents(root: Path, config: dict) -> dict:
++    """Check evidence pointers; semantic limitations are reviewed in the P5 report."""
++    roadmap = (root / "docs/ROADMAP.md").read_text()
++    inventory = read_json(root / "artifacts/inventory-v1.json")
++    covered = {entry["path"] for entry in inventory["files"]}
++    history = git(root, "log", "--format=%s")
++    rows, errors = [], []
++    for phase, evidence in config["phases"].items():
++        lines = [line for line in roadmap.splitlines() if line.startswith(f"| {phase} ")]
++        if len(lines) != 1 or "完成" not in lines[0]:
++            errors.append(f"{phase}: missing completed/candidate-reviewed ROADMAP row")
++        for name in evidence["reports"]:
++            path = safe_path(root, name)
++            ok = path.is_file() and path.stat().st_size > 0
++            pointer = (
++                name in lines[0] or f"results/{phase.lower()}/" in lines[0] if lines else False
++            )
++            immutable = name in covered
++            rows.append(
++                {
++                    "phase": phase,
++                    "report": name,
++                    "exists": ok,
++                    "roadmap_pointer": pointer,
++                    "inventory_covered": immutable,
++                }
++            )
++            if not ok or not pointer or (phase != "P5" and not immutable):
++                errors.append(f"{phase}: evidence/pointer/inventory mismatch: {name}")
++        for number in evidence["prs"]:
++            if not re.search(rf"Merge pull request #{number}\b", history):
++                errors.append(f"{phase}: no local merge evidence for PR #{number}")
++    agents = (root / "AGENTS.md").read_text()
++    design = (root / "DESIGN.md").read_text()
++    for value in ("Codex", "Kimi", "uv run --locked pytest", "git push"):
++        if value not in agents:
++            errors.append(f"AGENTS convention missing: {value}")
++    if "无 CUDA" not in design or "模拟" not in design:
++        errors.append("DESIGN hardware boundary missing")
++    return {
++        "ok": not errors,
++        "errors": errors,
++        "phases": rows,
++        "readme_commands": readme_commands((root / "README.md").read_text()),
++        "scope": (
++            "Pointers and merge history checked mechanically; "
++            "semantic review in results/p5/REPORT.md."
++        ),
++    }
++
++
++def review_comparison(report: dict, config: dict, *, check: bool) -> dict:
++    """Fail closed for missing recipes/anchors/hashes; env drift remains explicit."""
++    expected = topological_order(config["recipes"], ["sut"] if check else config["sample"])
++    recipes = report.get("recipes", [])
++    errors, rows = [], []
++    if not report.get("ok") or [r.get("name") for r in recipes] != expected:
++        errors.append("failed or incomplete recipe order")
++    for recipe in recipes:
++        name = recipe["name"]
++        if not recipe.get("ok") or recipe.get("missing_anchors"):
++            errors.append(f"{name}: failed/missing anchors")
++        records = recipe.get("records", [])
++        matched = [r for r in records if "anchor" in r]
++        anchors = config["recipes"].get(name, {}).get("anchors", [])
++        if sorted(r["anchor"] for r in matched) != sorted(anchors):
++            errors.append(f"{name}: incomplete anchor coverage")
++        for row in matched:
++            if row.get("config_equal") is not True or row.get("config_hash") != row.get(
++                "historical_config_hash"
++            ):
++                errors.append(f"{name}: config mismatch")
++            if type(row.get("env_equal")) is not bool or row["env_equal"] != (
++                row.get("env_fingerprint") == row.get("historical_env_fingerprint")
++            ):
++                errors.append(f"{name}: absent/inconsistent env comparison")
++            if row.get("deterministic_equal") is False:
++                errors.append(f"{name}: deterministic output mismatch")
++            if "drift_ms" in row and set(row.get("t4_annotation", {})) != {"p50", "p95", "p99"}:
++                errors.append(f"{name}: missing T4 annotations")
++        if name == "calibrate" and recipe.get("report_config_equal") is not True:
++            errors.append("calibrate: report config mismatch")
++        rows.append(
++            {
++                "name": name,
++                "anchors": len(matched),
++                "env_differences": sum(r.get("env_equal") is False for r in matched),
++                "unanchored": sum(r.get("status") == "unanchored" for r in records),
++                "new_derived": sum(r.get("status") == "new-derived" for r in records),
++                "t4_above": {
++                    q: sum(r.get("t4_annotation", {}).get(q) == "above-resolution" for r in matched)
++                    for q in ("p50", "p95", "p99")
++                },
++            }
++        )
++    return {
++        "ok": not errors,
++        "errors": errors,
++        "recipes": rows,
++        "smoke_only": check,
++        "t4": report.get("t4"),
++    }
++
++
++class Runner:
++    def __init__(self, output: Path, timeout: float):
++        self.output, self.timeout, self.steps = output, timeout, []
++
++    def run(self, argv: list[str], cwd: Path) -> None:
++        log = self.output / f"{len(self.steps):02d}.log"
++        step = {"argv": argv, "cwd": str(cwd), "log": log.name}
++        self.steps.append(step)
++        write_json_new(self.output / f"{len(self.steps) - 1:02d}.json", step)
++        print(f"[{len(self.steps)}] {shlex.join(argv)}", flush=True)
++        start = time.monotonic()
++        with log.open("x") as stream:
++            process = subprocess.Popen(
++                argv,
++                cwd=cwd,
++                env=clean_env(),
++                stdout=stream,
++                stderr=subprocess.STDOUT,
++                start_new_session=True,
++            )
++            try:
++                step["returncode"] = process.wait(timeout=self.timeout)
++                if step["returncode"]:
++                    raise RuntimeError(f"exit {step['returncode']}: {shlex.join(argv)}; {log}")
++            finally:
++                for sig in (signal.SIGTERM, signal.SIGKILL):
++                    try:
++                        os.killpg(process.pid, sig)
++                    except ProcessLookupError:
++                        pass
++                process.wait()
++                step["elapsed_seconds"] = time.monotonic() - start
++
++
++def prepare_clone(root: Path, temporary: Path, output: Path, runner: Runner) -> tuple[Path, dict]:
++    changed = git(root, "diff", "--name-only", "HEAD").splitlines()
++    changed += git(root, "ls-files", "--others", "--exclude-standard").splitlines()
++    for name in changed:
++        if name not in SNAPSHOT_FILES and not re.fullmatch(r"runs/\d{8}-p5-release-[^/]+/.*", name):
++            raise ValueError(f"dirty file outside release whitelist: {name}")
++        if not (root / name).is_file():
++            raise ValueError(f"deleted/missing source: {name}")
++    base = git(root, "rev-parse", "HEAD")
++    temporary = temporary.resolve()
++    seed, clone = temporary / "seed", temporary / "repo"
++    runner.run(["git", "clone", "--no-local", str(root), str(seed)], temporary)
++    if git(seed, "rev-parse", "HEAD") != base:
++        raise ValueError("source HEAD changed while cloning")
++    fingerprints = {}
++    for name in SNAPSHOT_FILES:
++        source = safe_path(root, name)
++        if source.is_file():
++            raw = source.read_bytes()
++            target = seed / name
++            target.parent.mkdir(parents=True, exist_ok=True)
++            target.write_bytes(raw)
++            archived = output / "candidate" / name
++            archived.parent.mkdir(parents=True, exist_ok=True)
++            archived.write_bytes(raw)
++            fingerprints[name] = hashlib.sha256(raw).hexdigest()
++    runner.run(["git", "add", "--", *fingerprints], seed)
++    if git(seed, "diff", "--cached", "--name-only"):
++        runner.run(
++            [
++                "git",
++                "-c",
++                "user.name=Prism release snapshot",
++                "-c",
++                "user.email=release@prism.invalid",
++                "-c",
++                "core.hooksPath=/dev/null",
++                "commit",
++                "-m",
++                "Snapshot P5-T2 candidate inputs for independent replay",
++            ],
++            seed,
++        )
++    snapshot = git(seed, "rev-parse", "HEAD")
++    patch = subprocess.check_output(
++        ["git", "diff", "--binary", base, snapshot], cwd=seed, env=clean_env()
++    )
++    (output / "candidate.patch").write_bytes(patch)
++    runner.run(["git", "clone", "--no-local", str(seed), str(clone)], temporary)
++    if git(clone, "status", "--porcelain") or (clone / ".venv").exists():
++        raise ValueError("clone is not clean or inherited a venv")
++    return clone, {
++        "base_commit": base,
++        "snapshot_commit": snapshot,
++        "snapshot_tree": git(clone, "rev-parse", "HEAD^{tree}"),
++        "candidate_sha256": fingerprints,
++        "patch_sha256": hashlib.sha256(patch).hexdigest(),
++        "clone_clean_before_sync": True,
++        "venv_absent_before_sync": True,
++    }
++
++
++def archive_replays(clone: Path, output: Path, existing: set[str]) -> None:
++    base = clone / "runs/.reproduce"
++    if base.exists():
++        with tarfile.open(output / "reproduction.tar.gz", "w:gz") as archive:
++            for path in sorted(base.rglob("*")):
++                parts = path.relative_to(base).parts
++                # Keep raw measurements, generated reports, comparison JSON and logs;
++                # immutable code/config/SUT copies are recoverable from git + patch.
++                if path.is_file() and (len(parts) <= 2 or parts[2] in ("runs", "results")):
++                    archive.add(path, arcname=str(Path("reproduction") / path.relative_to(base)))
++    for child in clone.glob("runs/*-p5-release-*"):
++        if child.name in existing:
++            continue
++        shutil.copytree(child, output / "readme-check" / child.name)
++
++
++def release_check(root: Path = ROOT, *, check: bool = False, runs_dir: Path | None = None) -> Path:
++    config = load_manifest(root, root / "configs/release.json")
++    stamp = datetime.now(UTC).strftime("%Y%m%d-p5-release-%H%M%S%f")
++    output = (runs_dir or root / "runs") / (stamp + ("-check" if check else "-full"))
++    output.mkdir(parents=True, exist_ok=False)
++    write_json_new(output / "config.json", config)
++    runner = Runner(output, config["timeout_seconds"])
++    result = {
++        "ok": False,
++        "smoke_only": check,
++        "steps": runner.steps,
++        "started_at": datetime.now(UTC).isoformat(),
++    }
++    clone = None
++    existing = set()
++    # Keep the directory alive until every failure log and partial replay is copied.
++    with tempfile.TemporaryDirectory(prefix="prism-release-") as directory:
++        try:
++            clone, result["source"] = prepare_clone(root, Path(directory), output, runner)
++            existing = {p.name for p in clone.glob("runs/*-p5-release-*")}
++            commands = [
++                ["uv", "sync", "--locked"],
++                ["uv", "run", "--locked", "pytest", "tests/test_cli.py"]
++                if check
++                else ["uv", "run", "--locked", "pytest"],
++                ["uv", "run", "--locked", "prism", "verify"],
++            ]
++            if not check:
++                result["documents"] = audit_documents(clone, config)
++                if not result["documents"]["ok"]:
++                    raise ValueError(f"document mismatch: {result['documents']['errors']}")
++                commands.extend(result["documents"]["readme_commands"])
++            replay = ["uv", "run", "--locked", "prism", "reproduce"]
++            replay += ["run", "sut"] if check else ["--sample"]
++            commands.append(replay)
++            executed = set()
++            for command in commands:
++                key = tuple(command)
++                if key not in executed:
++                    runner.run(command, clone)
++                    executed.add(key)
++            reports = sorted((clone / "runs/.reproduce").glob("*/report.json"))
++            if len(reports) != 1:
++                raise ValueError(f"expected one P5-T1 replay report, got {len(reports)}")
++            report = read_json(reports[0])
++            write_json_new(output / "reproduction.json", report)
++            result["comparison"] = review_comparison(report, load_recipes(clone), check=check)
++            if not result["comparison"]["ok"]:
++                raise ValueError(f"comparison failed: {result['comparison']['errors']}")
++            runner.run(["git", "status", "--short"], clone)
++            result["clone_status_after"] = git(clone, "status", "--porcelain")
++            if result["clone_status_after"]:
++                raise ValueError("clone changed tracked/unignored files")
++            result["ok"] = True
++        except (Exception, KeyboardInterrupt) as error:
++            result["error"] = f"{type(error).__name__}: {error}"
++        finally:
++            try:
++                if clone is not None:
++                    archive_replays(clone, output, existing)
++            except OSError as error:
++                result.update(ok=False, archive_error=str(error))
++            result["finished_at"] = datetime.now(UTC).isoformat()
++            result["evidence_sha256"] = {
++                path.relative_to(output).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
++                for path in sorted(output.rglob("*"))
++                if path.is_file()
++            }
++            write_json_new(output / "release.json", result)
++    print(
++        json.dumps(
++            {"ok": result["ok"], "smoke_only": check, "output": str(output)}, ensure_ascii=False
++        ),
++        flush=True,
++    )
++    return output
++
++
++def main() -> None:
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument(
++        "--check", action="store_true", help="Small clone/CLI smoke; not release evidence"
++    )
++    parser.add_argument(
++        "--runs-dir", type=Path, help="Parent for a new timestamped evidence directory"
++    )
++    args = parser.parse_args()
++    try:
++        output = release_check(check=args.check, runs_dir=args.runs_dir)
++        if not read_json(output / "release.json")["ok"]:
++            parser.exit(1, f"Release check failed: {output / 'release.json'}\n")
++    except (OSError, ValueError) as error:
++        parser.exit(1, f"Release check failed: {error}\n")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/tests/test_release.py b/tests/test_release.py
+new file mode 100644
+index 0000000..a05f12f
+--- /dev/null
++++ b/tests/test_release.py
+@@ -0,0 +1,207 @@
++"""Release manifest, failure evidence, comparisons and an actual clean-clone smoke."""
++
++import copy
++import hashlib
++import importlib.util
++import json
++import subprocess
++import sys
++from pathlib import Path
++
++import pytest
++
++from prism.reproduce import load_recipes, read_json, topological_order
++
++ROOT = Path(__file__).resolve().parents[1]
++SPEC = importlib.util.spec_from_file_location("release_check", ROOT / "scripts/release_check.py")
++release = importlib.util.module_from_spec(SPEC)
++SPEC.loader.exec_module(release)
++
++
++def test_manifest_covers_phase_reports_and_rejects_bad_inputs(tmp_path):
++    config = release.load_manifest(ROOT, ROOT / "configs/release.json")
++    assert set(config["phases"]) == {f"P{i}" for i in range(6)}
++    for change in ("version", "timeout", "missing-phase", "path", "pr", "duplicate-json"):
++        value = copy.deepcopy(config)
++        if change == "version":
++            value["version"] = 2
++        elif change == "timeout":
++            value["timeout_seconds"] = float("inf")
++        elif change == "missing-phase":
++            value["phases"].pop("P3")
++        elif change == "path":
++            value["phases"]["P2"]["reports"] = ["results/p2/../../README.md"]
++        elif change == "pr":
++            value["phases"]["P1"]["prs"] = [True]
++        path = tmp_path / "manifest.json"
++        path.write_text(
++            '{"version":1,"version":1}' if change == "duplicate-json" else json.dumps(value)
++        )
++        with pytest.raises(ValueError):
++            release.load_manifest(ROOT, path)
++
++
++def test_readme_commands_all_parsed_and_shell_rejected():
++    commands = release.readme_commands((ROOT / "README.md").read_text())
++    assert ["uv", "sync", "--locked"] in commands
++    assert ["uv", "run", "--locked", "prism", "reproduce", "--sample"] in commands
++    for text in ("no commands", "```sh\nrm x\n```", "```sh\nuv run --locked x; env\n```"):
++        with pytest.raises(ValueError):
++            release.readme_commands(text)
++
++
++def test_documents_missing_evidence_is_not_a_pass(tmp_path, monkeypatch):
++    config = release.load_manifest(ROOT, ROOT / "configs/release.json")
++    for name in (
++        "docs/ROADMAP.md",
++        "artifacts/inventory-v1.json",
++        "README.md",
++        "AGENTS.md",
++        "DESIGN.md",
++    ):
++        target = tmp_path / name
++        target.parent.mkdir(parents=True, exist_ok=True)
++        target.write_bytes((ROOT / name).read_bytes())
++    monkeypatch.setattr(release, "git", lambda *args: "Merge pull request #17")
++    result = release.audit_documents(tmp_path, config)
++    assert not result["ok"]
++    assert any("evidence/pointer" in error for error in result["errors"])
++    assert any("no local merge" in error for error in result["errors"])
++
++
++def test_document_audit_current_evidence_and_merged_prs():
++    config = release.load_manifest(ROOT, ROOT / "configs/release.json")
++    result = release.audit_documents(ROOT, config)
++    assert result["ok"], result["errors"]
++    assert all(row["inventory_covered"] for row in result["phases"] if row["phase"] != "P5")
++
++
++def comparison_fixture():
++    config = {
++        "sample": ["measured"],
++        "recipes": {
++            "sut": {"depends": [], "anchors": []},
++            "measured": {"depends": ["sut"], "anchors": ["history/arm"]},
++        },
++    }
++    row = {
++        "anchor": "history/arm",
++        "status": "matched",
++        "config_equal": True,
++        "config_hash": "a" * 64,
++        "historical_config_hash": "a" * 64,
++        "env_fingerprint": "b" * 64,
++        "historical_env_fingerprint": "c" * 64,
++        "env_equal": False,
++        "drift_ms": {q: 1.0 for q in ("p50", "p95", "p99")},
++        "t4_annotation": dict.fromkeys(("p50", "p95", "p99"), "above-resolution"),
++    }
++    report = {
++        "ok": True,
++        "recipes": [
++            {"name": "sut", "ok": True, "records": [], "missing_anchors": []},
++            {"name": "measured", "ok": True, "records": [row], "missing_anchors": []},
++        ],
++    }
++    return config, report
++
++
++def test_comparison_reports_environment_and_requires_full_coverage():
++    config, report = comparison_fixture()
++    result = release.review_comparison(report, config, check=False)
++    assert result["ok"] and result["recipes"][1]["env_differences"] == 1
++    for mutate in (
++        lambda r: r["recipes"].pop(),
++        lambda r: r["recipes"][1]["records"].clear(),
++        lambda r: r["recipes"][1]["records"][0].update(config_equal=False),
++        lambda r: r["recipes"][1]["records"][0].update(historical_config_hash="d" * 64),
++        lambda r: r["recipes"][1]["records"][0].update(env_equal=True),
++        lambda r: r["recipes"][1]["records"][0].pop("env_equal"),
++        lambda r: r["recipes"][1]["records"][0].update(deterministic_equal=False),
++        lambda r: r["recipes"][1]["records"][0].pop("t4_annotation"),
++    ):
++        value = copy.deepcopy(report)
++        mutate(value)
++        assert not release.review_comparison(value, config, check=False)["ok"]
++
++
++def test_process_failure_preserves_output_and_status(tmp_path):
++    runner = release.Runner(tmp_path, 10)
++    with pytest.raises(RuntimeError, match="exit 7"):
++        runner.run(
++            [sys.executable, "-c", "print('failure evidence');raise SystemExit(7)"], tmp_path
++        )
++    assert "failure evidence" in (tmp_path / "00.log").read_text()
++    assert runner.steps[0]["returncode"] == 7
++    assert (tmp_path / "00.json").is_file()
++
++
++def test_archiving_excludes_already_committed_release_sessions(tmp_path):
++    clone, output = tmp_path / "clone", tmp_path / "output"
++    output.mkdir()
++    for name in ("20261019-p5-release-history", "20261019-p5-release-new"):
++        path = clone / "runs" / name
++        path.mkdir(parents=True)
++        (path / "release.json").write_text("{}")
++    release.archive_replays(clone, output, {"20261019-p5-release-history"})
++    assert not (output / "readme-check/20261019-p5-release-history").exists()
++    assert (output / "readme-check/20261019-p5-release-new/release.json").is_file()
++
++
++def test_failed_release_persists_summary_and_stops(tmp_path, monkeypatch):
++    def fail(*args):
++        raise ValueError("candidate source rejected")
++
++    monkeypatch.setattr(release, "prepare_clone", fail)
++    output = release.release_check(check=True, runs_dir=tmp_path)
++    result = read_json(output / "release.json")
++    assert not result["ok"] and result["steps"] == []
++    assert "candidate source rejected" in result["error"]
++
++
++def test_isolation_discards_developer_overrides(monkeypatch):
++    for name in (
++        "PYTHONPATH",
++        "VIRTUAL_ENV",
++        "UV_PROJECT",
++        "UV_PROJECT_ENVIRONMENT",
++        "GIT_DIR",
++        "OMP_NUM_THREADS",
++    ):
++        monkeypatch.setenv(name, "polluted")
++    env = release.clean_env()
++    assert not any(value == "polluted" for value in env.values())
++
++
++def test_check_real_clone_new_venv_and_replay(tmp_path):
++    process = subprocess.run(
++        [
++            sys.executable,
++            str(ROOT / "scripts/release_check.py"),
++            "--check",
++            "--runs-dir",
++            str(tmp_path),
++        ],
++        cwd=ROOT,
++        capture_output=True,
++        text=True,
++        timeout=180,
++    )
++    assert process.returncode == 0, process.stdout + process.stderr
++    outputs = list(tmp_path.glob("*-p5-release-*-check"))
++    assert len(outputs) == 1
++    result = read_json(outputs[0] / "release.json")
++    assert result["ok"] and result["smoke_only"]
++    assert result["source"]["clone_clean_before_sync"]
++    assert result["source"]["venv_absent_before_sync"]
++    assert result["clone_status_after"] == ""
++    report = read_json(outputs[0] / "reproduction.json")
++    assert [r["name"] for r in report["recipes"]] == topological_order(
++        load_recipes()["recipes"], ["sut"]
++    )
++    archive = outputs[0] / "reproduction.tar.gz"
++    assert archive.is_file()
++    assert (
++        result["evidence_sha256"][archive.name] == hashlib.sha256(archive.read_bytes()).hexdigest()
++    )
++    assert all(s["returncode"] == 0 for s in result["steps"])

@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "git",
+    "clone",
+    "--no-local",
+    "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6/seed",
+    "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6/repo"
+  ],
+  "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6",
+  "log": "02.log"
+}

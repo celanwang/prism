@@ -1,0 +1,44 @@
+{
+  "source_inputs": [
+    {
+      "path": "README.md",
+      "sha256": "e78ac3c41b03f39a671d4f2126a3cdf4a89c09a87e777a1efdee4891876e95e4",
+      "full_replay_input_sha256": "e78ac3c41b03f39a671d4f2126a3cdf4a89c09a87e777a1efdee4891876e95e4",
+      "equal": true
+    },
+    {
+      "path": "configs/release.json",
+      "sha256": "df7a6a9b02d06dcd96200e580a059b92b4d22a22c73d925346be08c9c52a77e0",
+      "full_replay_input_sha256": "df7a6a9b02d06dcd96200e580a059b92b4d22a22c73d925346be08c9c52a77e0",
+      "equal": true
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "sha256": "8c597887ec89bcc28cd9f03c3914aff216763f2515666eb25176c44fb0ddfb23",
+      "full_replay_input_sha256": "8c597887ec89bcc28cd9f03c3914aff216763f2515666eb25176c44fb0ddfb23",
+      "equal": true
+    },
+    {
+      "path": "results/p5/REPORT.md",
+      "sha256": "d4ff29ba83a2509162378b631d45e681b0504c5d67aacac4633d4ad71f568423",
+      "full_replay_input_sha256": "398aaa15c54f5f37db10d1f6d1f7e602794943563dfbe31e55a155ca1b4b7561",
+      "equal": false
+    },
+    {
+      "path": "scripts/release_check.py",
+      "sha256": "82864fddb3baad3dfc29d60ef599a75018ab1d5e486a28911a251e11aa2a296f",
+      "full_replay_input_sha256": "82864fddb3baad3dfc29d60ef599a75018ab1d5e486a28911a251e11aa2a296f",
+      "equal": true
+    },
+    {
+      "path": "tests/test_release.py",
+      "sha256": "bb878203376a1ea52e0265a5ccd874e4edeb302a585247fe66abc3ce061e8c3c",
+      "full_replay_input_sha256": "bb878203376a1ea52e0265a5ccd874e4edeb302a585247fe66abc3ce061e8c3c",
+      "equal": true
+    }
+  ],
+  "generated_after_replay": [
+    "results/p5/REPORT.md"
+  ],
+  "ok": true
+}
