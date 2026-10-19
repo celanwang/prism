@@ -1,0 +1,17 @@
+event: meta
+data: {"prompt_ids": [256, 316], "queue_wait_ms": 0.03149999974993989}
+
+event: token
+data: {"token_id": 32, "index": 2}
+
+event: token
+data: {"token_id": 273, "index": 3}
+
+event: token
+data: {"token_id": 32, "index": 4}
+
+event: token
+data: {"token_id": 265, "index": 5}
+
+event: done
+data: {"token_ids": [256, 316, 32, 273, 32, 265], "queue_wait_ms": 0.03149999974993989, "inference_ms": 0.756499997805804}

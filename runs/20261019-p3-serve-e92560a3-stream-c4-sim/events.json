@@ -1,0 +1,4767 @@
+{
+  "events": [
+    {
+      "ids": [],
+      "kind": "start",
+      "time_ms": 0.0
+    },
+    {
+      "ids": [
+        0
+      ],
+      "kind": "arrival",
+      "time_ms": 6.862455432688011
+    },
+    {
+      "admitted": [
+        0
+      ],
+      "batched_tokens": 24,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.28167138671874997,
+      "prefill_tokens": 23,
+      "time_ms": 6.862455432688011
+    },
+    {
+      "ids": [
+        0
+      ],
+      "kind": "prefill_end",
+      "time_ms": 7.144126819406761
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 7.144126819406761,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 7.990490756906761
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 7.990490756906761
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 7.990490756906761,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 8.83685469440676
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 8.83685469440676
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 8.83685469440676,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 9.68321863190676
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 9.68321863190676
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 9.68321863190676,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 10.52958256940676
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 10.52958256940676
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 10.52958256940676,
+      "width": 1
+    },
+    {
+      "ids": [
+        1
+      ],
+      "kind": "arrival",
+      "time_ms": 10.720787019664371
+    },
+    {
+      "completed": [],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 11.37594650690676
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 11.37594650690676
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 11.37594650690676,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 12.222310444406759
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 12.222310444406759
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 12.222310444406759,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 13.068674381906758
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 13.068674381906758
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 13.068674381906758,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 13.915038319406758
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 13.915038319406758
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 13.915038319406758,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 14.761402256906758
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 14.761402256906758
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 14.761402256906758,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 15.607766194406757
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 15.607766194406757
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 15.607766194406757,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 16.45413013190676
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 16.45413013190676
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 16.45413013190676,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 17.30049406940676
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 17.30049406940676
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 17.30049406940676,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 18.14685800690676
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        0
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 18.14685800690676
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        0
+      ],
+      "kind": "decode_start",
+      "time_ms": 18.14685800690676,
+      "width": 1
+    },
+    {
+      "ids": [
+        2
+      ],
+      "kind": "arrival",
+      "time_ms": 18.55923506389132
+    },
+    {
+      "completed": [
+        0
+      ],
+      "ids": [
+        0
+      ],
+      "kind": "decode_end",
+      "time_ms": 18.993221944406763
+    },
+    {
+      "admitted": [
+        1
+      ],
+      "batched_tokens": 10,
+      "ids": [
+        1
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.11021923828124999,
+      "prefill_tokens": 9,
+      "time_ms": 18.993221944406763
+    },
+    {
+      "ids": [
+        1
+      ],
+      "kind": "prefill_end",
+      "time_ms": 19.103441182688012
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        1
+      ],
+      "kind": "decode_start",
+      "time_ms": 19.103441182688012,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        1
+      ],
+      "kind": "decode_end",
+      "time_ms": 19.949805120188014
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        1
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 19.949805120188014
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        1
+      ],
+      "kind": "decode_start",
+      "time_ms": 19.949805120188014,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        1
+      ],
+      "kind": "decode_end",
+      "time_ms": 20.796169057688015
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        1
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 20.796169057688015
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        1
+      ],
+      "kind": "decode_start",
+      "time_ms": 20.796169057688015,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        1
+      ],
+      "kind": "decode_end",
+      "time_ms": 21.642532995188017
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        1
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 21.642532995188017
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        1
+      ],
+      "kind": "decode_start",
+      "time_ms": 21.642532995188017,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        1
+      ],
+      "kind": "decode_end",
+      "time_ms": 22.488896932688018
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        1
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 22.488896932688018
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        1
+      ],
+      "kind": "decode_start",
+      "time_ms": 22.488896932688018,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        1
+      ],
+      "kind": "decode_end",
+      "time_ms": 23.33526087018802
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        1
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 23.33526087018802
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        1
+      ],
+      "kind": "decode_start",
+      "time_ms": 23.33526087018802,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        1
+      ],
+      "kind": "decode_end",
+      "time_ms": 24.18162480768802
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        1
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 24.18162480768802
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        1
+      ],
+      "kind": "decode_start",
+      "time_ms": 24.18162480768802,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        1
+      ],
+      "kind": "decode_end",
+      "time_ms": 25.027988745188022
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        1
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 25.027988745188022
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        1
+      ],
+      "kind": "decode_start",
+      "time_ms": 25.027988745188022,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        1
+      ],
+      "kind": "decode_end",
+      "time_ms": 25.874352682688023
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        1
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 25.874352682688023
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        1
+      ],
+      "kind": "decode_start",
+      "time_ms": 25.874352682688023,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        1
+      ],
+      "kind": "decode_end",
+      "time_ms": 26.720716620188025
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        1
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 26.720716620188025
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        1
+      ],
+      "kind": "decode_start",
+      "time_ms": 26.720716620188025,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        1
+      ],
+      "kind": "decode_end",
+      "time_ms": 27.567080557688026
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        1
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 27.567080557688026
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        1
+      ],
+      "kind": "decode_start",
+      "time_ms": 27.567080557688026,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        1
+      ],
+      "kind": "decode_end",
+      "time_ms": 28.413444495188028
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        1
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 28.413444495188028
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        1
+      ],
+      "kind": "decode_start",
+      "time_ms": 28.413444495188028,
+      "width": 1
+    },
+    {
+      "ids": [
+        3
+      ],
+      "kind": "arrival",
+      "time_ms": 28.47469157013328
+    },
+    {
+      "completed": [
+        1
+      ],
+      "ids": [
+        1
+      ],
+      "kind": "decode_end",
+      "time_ms": 29.25980843268803
+    },
+    {
+      "admitted": [
+        2
+      ],
+      "batched_tokens": 13,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.146958984375,
+      "prefill_tokens": 12,
+      "time_ms": 29.25980843268803
+    },
+    {
+      "ids": [
+        2
+      ],
+      "kind": "prefill_end",
+      "time_ms": 29.40676741706303
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 29.40676741706303,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 30.25313135456303
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 30.25313135456303
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 30.25313135456303,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 31.099495292063033
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 31.099495292063033
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 31.099495292063033,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 31.945859229563034
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 31.945859229563034
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 31.945859229563034,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 32.792223167063035
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 32.792223167063035
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 32.792223167063035,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 33.63858710456304
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 33.63858710456304
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 33.63858710456304,
+      "width": 1
+    },
+    {
+      "ids": [
+        4
+      ],
+      "kind": "arrival",
+      "time_ms": 34.42280410864924
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 34.48495104206304
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 34.48495104206304
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 34.48495104206304,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 35.33131497956304
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 35.33131497956304
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 35.33131497956304,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 36.17767891706304
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 36.17767891706304
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 36.17767891706304,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 37.02404285456304
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 37.02404285456304
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 37.02404285456304,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 37.870406792063044
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 37.870406792063044
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 37.870406792063044,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 38.716770729563045
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 38.716770729563045
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 38.716770729563045,
+      "width": 1
+    },
+    {
+      "ids": [
+        5
+      ],
+      "kind": "reject",
+      "time_ms": 38.9084792809819
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 39.563134667063046
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 39.563134667063046
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 39.563134667063046,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 40.40949860456305
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 40.40949860456305
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 40.40949860456305,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 41.25586254206305
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 41.25586254206305
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 41.25586254206305,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 42.10222647956305
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        2
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 42.10222647956305
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        2
+      ],
+      "kind": "decode_start",
+      "time_ms": 42.10222647956305,
+      "width": 1
+    },
+    {
+      "completed": [
+        2
+      ],
+      "ids": [
+        2
+      ],
+      "kind": "decode_end",
+      "time_ms": 42.94859041706305
+    },
+    {
+      "admitted": [
+        3
+      ],
+      "batched_tokens": 18,
+      "ids": [
+        3
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.20819189453125,
+      "prefill_tokens": 17,
+      "time_ms": 42.94859041706305
+    },
+    {
+      "ids": [
+        3
+      ],
+      "kind": "prefill_end",
+      "time_ms": 43.1567823115943
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        3
+      ],
+      "kind": "decode_start",
+      "time_ms": 43.1567823115943,
+      "width": 1
+    },
+    {
+      "ids": [
+        6
+      ],
+      "kind": "arrival",
+      "time_ms": 43.69382546743813
+    },
+    {
+      "completed": [],
+      "ids": [
+        3
+      ],
+      "kind": "decode_end",
+      "time_ms": 44.0031462490943
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        3
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 44.0031462490943
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        3
+      ],
+      "kind": "decode_start",
+      "time_ms": 44.0031462490943,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        3
+      ],
+      "kind": "decode_end",
+      "time_ms": 44.8495101865943
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        3
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 44.8495101865943
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        3
+      ],
+      "kind": "decode_start",
+      "time_ms": 44.8495101865943,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        3
+      ],
+      "kind": "decode_end",
+      "time_ms": 45.6958741240943
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        3
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 45.6958741240943
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        3
+      ],
+      "kind": "decode_start",
+      "time_ms": 45.6958741240943,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        3
+      ],
+      "kind": "decode_end",
+      "time_ms": 46.542238061594304
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        3
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 46.542238061594304
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        3
+      ],
+      "kind": "decode_start",
+      "time_ms": 46.542238061594304,
+      "width": 1
+    },
+    {
+      "ids": [
+        7
+      ],
+      "kind": "reject",
+      "time_ms": 47.203419009393635
+    },
+    {
+      "completed": [],
+      "ids": [
+        3
+      ],
+      "kind": "decode_end",
+      "time_ms": 47.388601999094305
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        3
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 47.388601999094305
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        3
+      ],
+      "kind": "decode_start",
+      "time_ms": 47.388601999094305,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        3
+      ],
+      "kind": "decode_end",
+      "time_ms": 48.23496593659431
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        3
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 48.23496593659431
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        3
+      ],
+      "kind": "decode_start",
+      "time_ms": 48.23496593659431,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        3
+      ],
+      "kind": "decode_end",
+      "time_ms": 49.08132987409431
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        3
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 49.08132987409431
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        3
+      ],
+      "kind": "decode_start",
+      "time_ms": 49.08132987409431,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        3
+      ],
+      "kind": "decode_end",
+      "time_ms": 49.92769381159431
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        3
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 49.92769381159431
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        3
+      ],
+      "kind": "decode_start",
+      "time_ms": 49.92769381159431,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        3
+      ],
+      "kind": "decode_end",
+      "time_ms": 50.77405774909431
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        3
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 50.77405774909431
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        3
+      ],
+      "kind": "decode_start",
+      "time_ms": 50.77405774909431,
+      "width": 1
+    },
+    {
+      "ids": [
+        8
+      ],
+      "kind": "reject",
+      "time_ms": 51.199381312683485
+    },
+    {
+      "completed": [
+        3
+      ],
+      "ids": [
+        3
+      ],
+      "kind": "decode_end",
+      "time_ms": 51.62042168659431
+    },
+    {
+      "admitted": [
+        4
+      ],
+      "batched_tokens": 30,
+      "ids": [
+        4
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.35515087890624997,
+      "prefill_tokens": 29,
+      "time_ms": 51.62042168659431
+    },
+    {
+      "ids": [
+        4
+      ],
+      "kind": "prefill_end",
+      "time_ms": 51.97557256550056
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        4
+      ],
+      "kind": "decode_start",
+      "time_ms": 51.97557256550056,
+      "width": 1
+    },
+    {
+      "ids": [
+        9
+      ],
+      "kind": "arrival",
+      "time_ms": 52.62570292209019
+    },
+    {
+      "completed": [],
+      "ids": [
+        4
+      ],
+      "kind": "decode_end",
+      "time_ms": 52.821936503000565
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        4
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 52.821936503000565
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        4
+      ],
+      "kind": "decode_start",
+      "time_ms": 52.821936503000565,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        4
+      ],
+      "kind": "decode_end",
+      "time_ms": 53.668300440500566
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        4
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 53.668300440500566
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        4
+      ],
+      "kind": "decode_start",
+      "time_ms": 53.668300440500566,
+      "width": 1
+    },
+    {
+      "ids": [
+        10
+      ],
+      "kind": "reject",
+      "time_ms": 53.702514533209886
+    },
+    {
+      "completed": [],
+      "ids": [
+        4
+      ],
+      "kind": "decode_end",
+      "time_ms": 54.51466437800057
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        4
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 54.51466437800057
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        4
+      ],
+      "kind": "decode_start",
+      "time_ms": 54.51466437800057,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        4
+      ],
+      "kind": "decode_end",
+      "time_ms": 55.36102831550057
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        4
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 55.36102831550057
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        4
+      ],
+      "kind": "decode_start",
+      "time_ms": 55.36102831550057,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        4
+      ],
+      "kind": "decode_end",
+      "time_ms": 56.20739225300057
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        4
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 56.20739225300057
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        4
+      ],
+      "kind": "decode_start",
+      "time_ms": 56.20739225300057,
+      "width": 1
+    },
+    {
+      "ids": [
+        11
+      ],
+      "kind": "reject",
+      "time_ms": 56.828821300744956
+    },
+    {
+      "completed": [],
+      "ids": [
+        4
+      ],
+      "kind": "decode_end",
+      "time_ms": 57.05375619050057
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        4
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 57.05375619050057
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        4
+      ],
+      "kind": "decode_start",
+      "time_ms": 57.05375619050057,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        4
+      ],
+      "kind": "decode_end",
+      "time_ms": 57.90012012800057
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        4
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 57.90012012800057
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        4
+      ],
+      "kind": "decode_start",
+      "time_ms": 57.90012012800057,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        4
+      ],
+      "kind": "decode_end",
+      "time_ms": 58.746484065500574
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        4
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 58.746484065500574
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        4
+      ],
+      "kind": "decode_start",
+      "time_ms": 58.746484065500574,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        4
+      ],
+      "kind": "decode_end",
+      "time_ms": 59.592848003000576
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        4
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 59.592848003000576
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        4
+      ],
+      "kind": "decode_start",
+      "time_ms": 59.592848003000576,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        4
+      ],
+      "kind": "decode_end",
+      "time_ms": 60.43921194050058
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        4
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 60.43921194050058
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        4
+      ],
+      "kind": "decode_start",
+      "time_ms": 60.43921194050058,
+      "width": 1
+    },
+    {
+      "completed": [
+        4
+      ],
+      "ids": [
+        4
+      ],
+      "kind": "decode_end",
+      "time_ms": 61.28557587800058
+    },
+    {
+      "admitted": [
+        6
+      ],
+      "batched_tokens": 31,
+      "ids": [
+        6
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.3673974609375,
+      "prefill_tokens": 30,
+      "time_ms": 61.28557587800058
+    },
+    {
+      "ids": [
+        6
+      ],
+      "kind": "prefill_end",
+      "time_ms": 61.652973338938075
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        6
+      ],
+      "kind": "decode_start",
+      "time_ms": 61.652973338938075,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        6
+      ],
+      "kind": "decode_end",
+      "time_ms": 62.49933727643808
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        6
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 62.49933727643808
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        6
+      ],
+      "kind": "decode_start",
+      "time_ms": 62.49933727643808,
+      "width": 1
+    },
+    {
+      "ids": [
+        12
+      ],
+      "kind": "arrival",
+      "time_ms": 63.127184833362406
+    },
+    {
+      "completed": [],
+      "ids": [
+        6
+      ],
+      "kind": "decode_end",
+      "time_ms": 63.34570121393808
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        6
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 63.34570121393808
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        6
+      ],
+      "kind": "decode_start",
+      "time_ms": 63.34570121393808,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        6
+      ],
+      "kind": "decode_end",
+      "time_ms": 64.19206515143807
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        6
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 64.19206515143807
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        6
+      ],
+      "kind": "decode_start",
+      "time_ms": 64.19206515143807,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        6
+      ],
+      "kind": "decode_end",
+      "time_ms": 65.03842908893807
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        6
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 65.03842908893807
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        6
+      ],
+      "kind": "decode_start",
+      "time_ms": 65.03842908893807,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        6
+      ],
+      "kind": "decode_end",
+      "time_ms": 65.88479302643808
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        6
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 65.88479302643808
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        6
+      ],
+      "kind": "decode_start",
+      "time_ms": 65.88479302643808,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        6
+      ],
+      "kind": "decode_end",
+      "time_ms": 66.73115696393808
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        6
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 66.73115696393808
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        6
+      ],
+      "kind": "decode_start",
+      "time_ms": 66.73115696393808,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        6
+      ],
+      "kind": "decode_end",
+      "time_ms": 67.57752090143808
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        6
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 67.57752090143808
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        6
+      ],
+      "kind": "decode_start",
+      "time_ms": 67.57752090143808,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        6
+      ],
+      "kind": "decode_end",
+      "time_ms": 68.42388483893808
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        6
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 68.42388483893808
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        6
+      ],
+      "kind": "decode_start",
+      "time_ms": 68.42388483893808,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        6
+      ],
+      "kind": "decode_end",
+      "time_ms": 69.27024877643808
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        6
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 69.27024877643808
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        6
+      ],
+      "kind": "decode_start",
+      "time_ms": 69.27024877643808,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        6
+      ],
+      "kind": "decode_end",
+      "time_ms": 70.11661271393808
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        6
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 70.11661271393808
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        6
+      ],
+      "kind": "decode_start",
+      "time_ms": 70.11661271393808,
+      "width": 1
+    },
+    {
+      "completed": [
+        6
+      ],
+      "ids": [
+        6
+      ],
+      "kind": "decode_end",
+      "time_ms": 70.96297665143808
+    },
+    {
+      "admitted": [
+        9
+      ],
+      "batched_tokens": 18,
+      "ids": [
+        9
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.20819189453125,
+      "prefill_tokens": 17,
+      "time_ms": 70.96297665143808
+    },
+    {
+      "ids": [
+        9
+      ],
+      "kind": "prefill_end",
+      "time_ms": 71.17116854596934
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        9
+      ],
+      "kind": "decode_start",
+      "time_ms": 71.17116854596934,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        9
+      ],
+      "kind": "decode_end",
+      "time_ms": 72.01753248346934
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        9
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 72.01753248346934
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        9
+      ],
+      "kind": "decode_start",
+      "time_ms": 72.01753248346934,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        9
+      ],
+      "kind": "decode_end",
+      "time_ms": 72.86389642096934
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        9
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 72.86389642096934
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        9
+      ],
+      "kind": "decode_start",
+      "time_ms": 72.86389642096934,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        9
+      ],
+      "kind": "decode_end",
+      "time_ms": 73.71026035846934
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        9
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 73.71026035846934
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        9
+      ],
+      "kind": "decode_start",
+      "time_ms": 73.71026035846934,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        9
+      ],
+      "kind": "decode_end",
+      "time_ms": 74.55662429596934
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        9
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 74.55662429596934
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        9
+      ],
+      "kind": "decode_start",
+      "time_ms": 74.55662429596934,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        9
+      ],
+      "kind": "decode_end",
+      "time_ms": 75.40298823346934
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        9
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 75.40298823346934
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        9
+      ],
+      "kind": "decode_start",
+      "time_ms": 75.40298823346934,
+      "width": 1
+    },
+    {
+      "ids": [
+        13
+      ],
+      "kind": "arrival",
+      "time_ms": 76.17671247627749
+    },
+    {
+      "completed": [],
+      "ids": [
+        9
+      ],
+      "kind": "decode_end",
+      "time_ms": 76.24935217096935
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        9
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 76.24935217096935
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        9
+      ],
+      "kind": "decode_start",
+      "time_ms": 76.24935217096935,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        9
+      ],
+      "kind": "decode_end",
+      "time_ms": 77.09571610846935
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        9
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 77.09571610846935
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        9
+      ],
+      "kind": "decode_start",
+      "time_ms": 77.09571610846935,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        9
+      ],
+      "kind": "decode_end",
+      "time_ms": 77.94208004596935
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        9
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 77.94208004596935
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        9
+      ],
+      "kind": "decode_start",
+      "time_ms": 77.94208004596935,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        9
+      ],
+      "kind": "decode_end",
+      "time_ms": 78.78844398346935
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        9
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 78.78844398346935
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        9
+      ],
+      "kind": "decode_start",
+      "time_ms": 78.78844398346935,
+      "width": 1
+    },
+    {
+      "completed": [
+        9
+      ],
+      "ids": [
+        9
+      ],
+      "kind": "decode_end",
+      "time_ms": 79.63480792096935
+    },
+    {
+      "admitted": [
+        12
+      ],
+      "batched_tokens": 13,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.146958984375,
+      "prefill_tokens": 12,
+      "time_ms": 79.63480792096935
+    },
+    {
+      "ids": [
+        12
+      ],
+      "kind": "prefill_end",
+      "time_ms": 79.78176690534436
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 79.78176690534436,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 80.62813084284436
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 80.62813084284436
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 80.62813084284436,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 81.47449478034436
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 81.47449478034436
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 81.47449478034436,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 82.32085871784436
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 82.32085871784436
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 82.32085871784436,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 83.16722265534436
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 83.16722265534436
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 83.16722265534436,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 84.01358659284436
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 84.01358659284436
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 84.01358659284436,
+      "width": 1
+    },
+    {
+      "ids": [
+        14
+      ],
+      "kind": "arrival",
+      "time_ms": 84.0871032900395
+    },
+    {
+      "ids": [
+        15
+      ],
+      "kind": "reject",
+      "time_ms": 84.51947440948572
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 84.85995053034436
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 84.85995053034436
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 84.85995053034436,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 85.70631446784436
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 85.70631446784436
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 85.70631446784436,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 86.55267840534437
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 86.55267840534437
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 86.55267840534437,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 87.39904234284437
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 87.39904234284437
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 87.39904234284437,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 88.24540628034437
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 88.24540628034437
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 88.24540628034437,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 89.09177021784437
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 89.09177021784437
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 89.09177021784437,
+      "width": 1
+    },
+    {
+      "ids": [
+        16
+      ],
+      "kind": "reject",
+      "time_ms": 89.8849506404528
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 89.93813415534437
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 89.93813415534437
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 89.93813415534437,
+      "width": 1
+    },
+    {
+      "ids": [
+        17
+      ],
+      "kind": "reject",
+      "time_ms": 90.29418864527662
+    },
+    {
+      "ids": [
+        18
+      ],
+      "kind": "reject",
+      "time_ms": 90.66855654908782
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 90.78449809284437
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 90.78449809284437
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 90.78449809284437,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 91.63086203034437
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 91.63086203034437
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 91.63086203034437,
+      "width": 1
+    },
+    {
+      "ids": [
+        19
+      ],
+      "kind": "reject",
+      "time_ms": 91.70032858925849
+    },
+    {
+      "completed": [],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 92.47722596784438
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        12
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 92.47722596784438
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        12
+      ],
+      "kind": "decode_start",
+      "time_ms": 92.47722596784438,
+      "width": 1
+    },
+    {
+      "completed": [
+        12
+      ],
+      "ids": [
+        12
+      ],
+      "kind": "decode_end",
+      "time_ms": 93.32358990534438
+    },
+    {
+      "admitted": [
+        13
+      ],
+      "batched_tokens": 13,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.146958984375,
+      "prefill_tokens": 12,
+      "time_ms": 93.32358990534438
+    },
+    {
+      "ids": [
+        13
+      ],
+      "kind": "prefill_end",
+      "time_ms": 93.47054888971938
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 93.47054888971938,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 94.31691282721938
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 94.31691282721938
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 94.31691282721938,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 95.16327676471938
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 95.16327676471938
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 95.16327676471938,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 96.00964070221939
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 96.00964070221939
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 96.00964070221939,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 96.85600463971939
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 96.85600463971939
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 96.85600463971939,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 97.70236857721939
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 97.70236857721939
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 97.70236857721939,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 98.54873251471939
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 98.54873251471939
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 98.54873251471939,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 99.39509645221939
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 99.39509645221939
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 99.39509645221939,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 100.24146038971939
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 100.24146038971939
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 100.24146038971939,
+      "width": 1
+    },
+    {
+      "ids": [
+        20
+      ],
+      "kind": "arrival",
+      "time_ms": 100.63214535177505
+    },
+    {
+      "completed": [],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 101.0878243272194
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 101.0878243272194
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 101.0878243272194,
+      "width": 1
+    },
+    {
+      "ids": [
+        21
+      ],
+      "kind": "reject",
+      "time_ms": 101.30867209341464
+    },
+    {
+      "completed": [],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 101.9341882647194
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 101.9341882647194
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 101.9341882647194,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 102.7805522022194
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 102.7805522022194
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 102.7805522022194,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 103.6269161397194
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 103.6269161397194
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 103.6269161397194,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 104.4732800772194
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        13
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 104.4732800772194
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        13
+      ],
+      "kind": "decode_start",
+      "time_ms": 104.4732800772194,
+      "width": 1
+    },
+    {
+      "completed": [
+        13
+      ],
+      "ids": [
+        13
+      ],
+      "kind": "decode_end",
+      "time_ms": 105.3196440147194
+    },
+    {
+      "admitted": [
+        14
+      ],
+      "batched_tokens": 11,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.1224658203125,
+      "prefill_tokens": 10,
+      "time_ms": 105.3196440147194
+    },
+    {
+      "ids": [
+        14
+      ],
+      "kind": "prefill_end",
+      "time_ms": 105.4421098350319
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 105.4421098350319,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 106.2884737725319
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 106.2884737725319
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 106.2884737725319,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 107.1348377100319
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 107.1348377100319
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 107.1348377100319,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 107.9812016475319
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 107.9812016475319
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 107.9812016475319,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 108.8275655850319
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 108.8275655850319
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 108.8275655850319,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 109.6739295225319
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 109.6739295225319
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 109.6739295225319,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 110.52029346003191
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 110.52029346003191
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 110.52029346003191,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 111.36665739753191
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 111.36665739753191
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 111.36665739753191,
+      "width": 1
+    },
+    {
+      "ids": [
+        22
+      ],
+      "kind": "arrival",
+      "time_ms": 111.87398018956517
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 112.21302133503191
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 112.21302133503191
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 112.21302133503191,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 113.05938527253191
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 113.05938527253191
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 113.05938527253191,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 113.90574921003191
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 113.90574921003191
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 113.90574921003191,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 114.75211314753192
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 114.75211314753192
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 114.75211314753192,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 115.59847708503192
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 115.59847708503192
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 115.59847708503192,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 116.44484102253192
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 116.44484102253192
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 116.44484102253192,
+      "width": 1
+    },
+    {
+      "ids": [
+        23
+      ],
+      "kind": "reject",
+      "time_ms": 116.52983518437324
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 117.29120496003192
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 117.29120496003192
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 117.29120496003192,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 118.13756889753192
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        14
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 118.13756889753192
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        14
+      ],
+      "kind": "decode_start",
+      "time_ms": 118.13756889753192,
+      "width": 1
+    },
+    {
+      "completed": [
+        14
+      ],
+      "ids": [
+        14
+      ],
+      "kind": "decode_end",
+      "time_ms": 118.98393283503192
+    },
+    {
+      "admitted": [
+        20
+      ],
+      "batched_tokens": 21,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.244931640625,
+      "prefill_tokens": 20,
+      "time_ms": 118.98393283503192
+    },
+    {
+      "ids": [
+        20
+      ],
+      "kind": "prefill_end",
+      "time_ms": 119.22886447565692
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 119.22886447565692,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 120.07522841315692
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 120.07522841315692
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 120.07522841315692,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 120.92159235065692
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 120.92159235065692
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 120.92159235065692,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 121.76795628815692
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 121.76795628815692
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 121.76795628815692,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 122.61432022565693
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 122.61432022565693
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 122.61432022565693,
+      "width": 1
+    },
+    {
+      "ids": [],
+      "kind": "horizon",
+      "time_ms": 123.06337500000001
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 123.46068416315693
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 123.46068416315693
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 123.46068416315693,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 124.30704810065693
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 124.30704810065693
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 124.30704810065693,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 125.15341203815693
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 125.15341203815693
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 125.15341203815693,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 125.99977597565693
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 125.99977597565693
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 125.99977597565693,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 126.84613991315693
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 126.84613991315693
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 126.84613991315693,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 127.69250385065693
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 127.69250385065693
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 127.69250385065693,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 128.53886778815692
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 128.53886778815692
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 128.53886778815692,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 129.38523172565692
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 129.38523172565692
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 129.38523172565692,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 130.23159566315692
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 130.23159566315692
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 130.23159566315692,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 131.07795960065692
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 131.07795960065692
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 131.07795960065692,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 131.92432353815693
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        20
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 131.92432353815693
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        20
+      ],
+      "kind": "decode_start",
+      "time_ms": 131.92432353815693,
+      "width": 1
+    },
+    {
+      "completed": [
+        20
+      ],
+      "ids": [
+        20
+      ],
+      "kind": "decode_end",
+      "time_ms": 132.77068747565693
+    },
+    {
+      "admitted": [
+        22
+      ],
+      "batched_tokens": 29,
+      "ids": [
+        22
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.342904296875,
+      "prefill_tokens": 28,
+      "time_ms": 132.77068747565693
+    },
+    {
+      "ids": [
+        22
+      ],
+      "kind": "prefill_end",
+      "time_ms": 133.11359177253192
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        22
+      ],
+      "kind": "decode_start",
+      "time_ms": 133.11359177253192,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        22
+      ],
+      "kind": "decode_end",
+      "time_ms": 133.95995571003192
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        22
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 133.95995571003192
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        22
+      ],
+      "kind": "decode_start",
+      "time_ms": 133.95995571003192,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        22
+      ],
+      "kind": "decode_end",
+      "time_ms": 134.80631964753192
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        22
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 134.80631964753192
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        22
+      ],
+      "kind": "decode_start",
+      "time_ms": 134.80631964753192,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        22
+      ],
+      "kind": "decode_end",
+      "time_ms": 135.65268358503192
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        22
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 135.65268358503192
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        22
+      ],
+      "kind": "decode_start",
+      "time_ms": 135.65268358503192,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        22
+      ],
+      "kind": "decode_end",
+      "time_ms": 136.49904752253192
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        22
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 136.49904752253192
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        22
+      ],
+      "kind": "decode_start",
+      "time_ms": 136.49904752253192,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        22
+      ],
+      "kind": "decode_end",
+      "time_ms": 137.34541146003193
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        22
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 137.34541146003193
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        22
+      ],
+      "kind": "decode_start",
+      "time_ms": 137.34541146003193,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        22
+      ],
+      "kind": "decode_end",
+      "time_ms": 138.19177539753193
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        22
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 138.19177539753193
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        22
+      ],
+      "kind": "decode_start",
+      "time_ms": 138.19177539753193,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        22
+      ],
+      "kind": "decode_end",
+      "time_ms": 139.03813933503193
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        22
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 139.03813933503193
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        22
+      ],
+      "kind": "decode_start",
+      "time_ms": 139.03813933503193,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        22
+      ],
+      "kind": "decode_end",
+      "time_ms": 139.88450327253193
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        22
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 139.88450327253193
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        22
+      ],
+      "kind": "decode_start",
+      "time_ms": 139.88450327253193,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        22
+      ],
+      "kind": "decode_end",
+      "time_ms": 140.73086721003193
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        22
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 140.73086721003193
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        22
+      ],
+      "kind": "decode_start",
+      "time_ms": 140.73086721003193,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        22
+      ],
+      "kind": "decode_end",
+      "time_ms": 141.57723114753193
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        22
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 141.57723114753193
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        22
+      ],
+      "kind": "decode_start",
+      "time_ms": 141.57723114753193,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        22
+      ],
+      "kind": "decode_end",
+      "time_ms": 142.42359508503193
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        22
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 142.42359508503193
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        22
+      ],
+      "kind": "decode_start",
+      "time_ms": 142.42359508503193,
+      "width": 1
+    },
+    {
+      "completed": [],
+      "ids": [
+        22
+      ],
+      "kind": "decode_end",
+      "time_ms": 143.26995902253194
+    },
+    {
+      "admitted": [],
+      "batched_tokens": 1,
+      "ids": [
+        22
+      ],
+      "kind": "iteration",
+      "prefill_ms": 0.0,
+      "prefill_tokens": 0,
+      "time_ms": 143.26995902253194
+    },
+    {
+      "cost_ms": 0.8463639375,
+      "ids": [
+        22
+      ],
+      "kind": "decode_start",
+      "time_ms": 143.26995902253194,
+      "width": 1
+    },
+    {
+      "completed": [
+        22
+      ],
+      "ids": [
+        22
+      ],
+      "kind": "decode_end",
+      "time_ms": 144.11632296003194
+    }
+  ],
+  "mode": "模拟"
+}

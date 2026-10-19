@@ -1,0 +1,76 @@
+{
+  "mode": "实测",
+  "concurrency": 1,
+  "endpoint": "stream",
+  "requests": 16,
+  "completed": 16,
+  "429": 0,
+  "503": 0,
+  "request_e2e_ms": {
+    "p50": 10.547604000748834,
+    "p95": 11.093729495769367,
+    "p99": 11.114879499655217
+  },
+  "request_queue_wait_ms": {
+    "p50": 0.06831249993410893,
+    "p95": 0.16703125038475264,
+    "p99": 0.168606249280856
+  },
+  "request_ttft_ms": {
+    "p50": 4.250958503689617,
+    "p95": 7.983156501722988,
+    "p99": 8.886731303937268
+  },
+  "rejection_e2e_ms": {
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "round_measurement_ms": {
+    "p50": 78.125021,
+    "p95": 78.15129019999999,
+    "p99": 78.15362524
+  },
+  "config_hash": "2bf9c18dbd00cd8087aaf0c4da3392fcdb0331e64d12947f6b034999ce566eea",
+  "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+  "simulation": {
+    "mode": "模拟",
+    "config_hash": "9495c8d83835f2af47d547d66ca8e092328e4dc0417b34202ede9bfd0d5288cf",
+    "arrivals": 24,
+    "completed": 16,
+    "rejected": 8,
+    "timed_out": 0,
+    "wait_ms": {
+      "mean": 10.425332632146093,
+      "stdev": 5.768526556217293,
+      "p50": 10.618233774150404,
+      "p95": 16.363795648217085,
+      "p99": 17.69500993054528
+    },
+    "latency_ms": {
+      "mean": 20.96848571075939,
+      "stdev": 4.8716600911596775,
+      "p50": 21.591612684590483,
+      "p95": 26.243743817713955,
+      "p99": 28.807883713007072
+    },
+    "max_queue_length": 2,
+    "mean_queue_length": 1.0194662695180905,
+    "mean_in_system": 1.963702680776209,
+    "window_output_tokens": 170,
+    "throughput_tokens_per_s": 1087.9997075456786,
+    "completed_output_tokens": 195,
+    "drained_throughput_tokens_per_s": 1099.1890601658076,
+    "observation_ms": 156.250042,
+    "drained_until_ms": 177.40351234080254,
+    "late_window_mean_queues": [
+      0.7604732817341504,
+      0.7818974532204754,
+      1.3917795143537979,
+      1.0538432453506021
+    ],
+    "queue_slope_per_s": 5.006846033213895,
+    "avalanche": false,
+    "avalanche_reasons": []
+  }
+}

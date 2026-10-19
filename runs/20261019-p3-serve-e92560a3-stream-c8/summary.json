@@ -1,0 +1,76 @@
+{
+  "mode": "实测",
+  "concurrency": 8,
+  "endpoint": "stream",
+  "requests": 16,
+  "completed": 6,
+  "429": 10,
+  "503": 0,
+  "request_e2e_ms": {
+    "p50": 26.1049170003389,
+    "p95": 34.808853750291746,
+    "p99": 35.388703549688216
+  },
+  "request_queue_wait_ms": {
+    "p50": 13.071000499621732,
+    "p95": 22.991896001258283,
+    "p99": 23.214212800303358
+  },
+  "request_ttft_ms": {
+    "p50": 17.494042000180343,
+    "p95": 31.953718749718973,
+    "p99": 31.984543748694705
+  },
+  "rejection_e2e_ms": {
+    "p50": 4.390500500448979,
+    "p95": 4.714268600582727,
+    "p99": 4.737053722565179
+  },
+  "round_measurement_ms": {
+    "p50": 34.7128125,
+    "p95": 35.64058155,
+    "p99": 35.72304991
+  },
+  "config_hash": "1997062222daf16bdd8ab9cb92fd9c774787884cd3ba04f027dc64b65fecbef1",
+  "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+  "simulation": {
+    "mode": "模拟",
+    "config_hash": "d4f7b787a29cf3f52ad1e73912a70392f97aa79c96201940e30c5e7b45c85b22",
+    "arrivals": 24,
+    "completed": 8,
+    "rejected": 16,
+    "timed_out": 0,
+    "wait_ms": {
+      "mean": 15.861012241929142,
+      "stdev": 7.734860521646394,
+      "p50": 17.099680057163283,
+      "p95": 23.230831153703154,
+      "p99": 23.76112101167714
+    },
+    "latency_ms": {
+      "mean": 26.861875162339313,
+      "stdev": 7.1296767169212565,
+      "p50": 29.131678254731714,
+      "p95": 32.929182448145106,
+      "p99": 33.08583499688987
+    },
+    "max_queue_length": 2,
+    "mean_queue_length": 1.6342095398368648,
+    "mean_in_system": 2.578445951094982,
+    "window_output_tokens": 76,
+    "throughput_tokens_per_s": 1094.6966627956178,
+    "completed_output_tokens": 102,
+    "drained_throughput_tokens_per_s": 1110.1638998749554,
+    "observation_ms": 69.425625,
+    "drained_until_ms": 91.87832536392949,
+    "late_window_mean_queues": [
+      1.6523269244945435,
+      1.7604591127819373,
+      1.8855942182578198,
+      1.7273907324862394
+    ],
+    "queue_slope_per_s": 2.883231582640017,
+    "avalanche": false,
+    "avalanche_reasons": []
+  }
+}

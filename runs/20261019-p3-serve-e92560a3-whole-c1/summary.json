@@ -1,0 +1,76 @@
+{
+  "mode": "实测",
+  "concurrency": 1,
+  "endpoint": "whole",
+  "requests": 16,
+  "completed": 16,
+  "429": 0,
+  "503": 0,
+  "request_e2e_ms": {
+    "p50": 9.06039649999002,
+    "p95": 9.577864746461273,
+    "p99": 9.733540144588915
+  },
+  "request_queue_wait_ms": {
+    "p50": 0.02852150282706134,
+    "p95": 0.03292699875601102,
+    "p99": 0.036651798654929735
+  },
+  "request_ttft_ms": {
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "rejection_e2e_ms": {
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "round_measurement_ms": {
+    "p50": 68.075333,
+    "p95": 68.243633,
+    "p99": 68.258593
+  },
+  "config_hash": "afd5424107b21053eea682d3cea65e3b05a41e8cdfd79c0682015c2e053171c3",
+  "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+  "simulation": {
+    "mode": "模拟",
+    "config_hash": "d5858f52953466626b01e70862c3994706da8e8fb165472ae68e6ed76935e643",
+    "arrivals": 24,
+    "completed": 14,
+    "rejected": 10,
+    "timed_out": 0,
+    "wait_ms": {
+      "mean": 11.299003469987527,
+      "stdev": 6.283395454103093,
+      "p50": 11.375186753898564,
+      "p95": 20.50407624531139,
+      "p99": 20.65295772489356
+    },
+    "latency_ms": {
+      "mean": 21.69505382545629,
+      "stdev": 4.674909491650198,
+      "p50": 23.24886728303212,
+      "p95": 27.614830396678585,
+      "p99": 27.79555298954201
+    },
+    "max_queue_length": 2,
+    "mean_queue_length": 1.1372662364630326,
+    "mean_in_system": 2.0815026477211496,
+    "window_output_tokens": 148,
+    "throughput_tokens_per_s": 1087.031039569061,
+    "completed_output_tokens": 168,
+    "drained_throughput_tokens_per_s": 1097.057208069932,
+    "observation_ms": 136.150666,
+    "drained_until_ms": 153.13695472232004,
+    "late_window_mean_queues": [
+      1.0395487128139298,
+      1.2211470610288855,
+      1.6932699634925763,
+      0.7919279507913346
+    ],
+    "queue_slope_per_s": -4.849936114600085,
+    "avalanche": false,
+    "avalanche_reasons": []
+  }
+}

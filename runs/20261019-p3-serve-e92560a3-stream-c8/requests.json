@@ -1,0 +1,146 @@
+[
+  {
+    "round": 0,
+    "request_id": 0,
+    "status": 429,
+    "e2e_ms": 4.0740839976933785,
+    "queue_wait_ms": null,
+    "inference_ms": null,
+    "ttft_ms": null
+  },
+  {
+    "round": 0,
+    "request_id": 1,
+    "status": 200,
+    "e2e_ms": 32.63441700255498,
+    "queue_wait_ms": 23.269792000064626,
+    "inference_ms": 6.6866249981103465,
+    "ttft_ms": 31.992249998438638
+  },
+  {
+    "round": 0,
+    "request_id": 2,
+    "status": 200,
+    "e2e_ms": 15.836625003430527,
+    "queue_wait_ms": 0.396707997424528,
+    "inference_ms": 13.284749999002088,
+    "ttft_ms": 6.682875005935784
+  },
+  {
+    "round": 0,
+    "request_id": 3,
+    "status": 429,
+    "e2e_ms": 4.566999996313825,
+    "queue_wait_ms": null,
+    "inference_ms": null,
+    "ttft_ms": null
+  },
+  {
+    "round": 0,
+    "request_id": 4,
+    "status": 429,
+    "e2e_ms": 4.439166004885919,
+    "queue_wait_ms": null,
+    "inference_ms": null,
+    "ttft_ms": null
+  },
+  {
+    "round": 0,
+    "request_id": 5,
+    "status": 429,
+    "e2e_ms": 4.387916997075081,
+    "queue_wait_ms": null,
+    "inference_ms": null,
+    "ttft_ms": null
+  },
+  {
+    "round": 0,
+    "request_id": 6,
+    "status": 429,
+    "e2e_ms": 4.742750003060792,
+    "queue_wait_ms": null,
+    "inference_ms": null,
+    "ttft_ms": null
+  },
+  {
+    "round": 0,
+    "request_id": 7,
+    "status": 200,
+    "e2e_ms": 27.06062499783002,
+    "queue_wait_ms": 13.429958999040537,
+    "inference_ms": 10.77366599929519,
+    "ttft_ms": 17.822875001002103
+  },
+  {
+    "round": 1,
+    "request_id": 0,
+    "status": 429,
+    "e2e_ms": 3.9649579994147643,
+    "queue_wait_ms": null,
+    "inference_ms": null,
+    "ttft_ms": null
+  },
+  {
+    "round": 1,
+    "request_id": 1,
+    "status": 429,
+    "e2e_ms": 4.679457997553982,
+    "queue_wait_ms": null,
+    "inference_ms": null,
+    "ttft_ms": null
+  },
+  {
+    "round": 1,
+    "request_id": 2,
+    "status": 200,
+    "e2e_ms": 25.149209002847783,
+    "queue_wait_ms": 12.712042000202928,
+    "inference_ms": 10.015207997639664,
+    "ttft_ms": 17.165208999358583
+  },
+  {
+    "round": 1,
+    "request_id": 3,
+    "status": 200,
+    "e2e_ms": 14.925542003766168,
+    "queue_wait_ms": 0.10162499529542401,
+    "inference_ms": 12.999083002796397,
+    "ttft_ms": 9.749875003763009
+  },
+  {
+    "round": 1,
+    "request_id": 4,
+    "status": 429,
+    "e2e_ms": 4.393084003822878,
+    "queue_wait_ms": null,
+    "inference_ms": null,
+    "ttft_ms": null
+  },
+  {
+    "round": 1,
+    "request_id": 5,
+    "status": 429,
+    "e2e_ms": 3.8274999969871715,
+    "queue_wait_ms": null,
+    "inference_ms": null,
+    "ttft_ms": null
+  },
+  {
+    "round": 1,
+    "request_id": 6,
+    "status": 429,
+    "e2e_ms": 3.6718750052386895,
+    "queue_wait_ms": null,
+    "inference_ms": null,
+    "ttft_ms": null
+  },
+  {
+    "round": 1,
+    "request_id": 7,
+    "status": 200,
+    "e2e_ms": 35.533665999537334,
+    "queue_wait_ms": 22.158208004839253,
+    "inference_ms": 10.666416994354222,
+    "ttft_ms": 31.83812500355998
+  }
+]
