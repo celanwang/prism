@@ -1,0 +1,41 @@
+{
+  "task": "P2-T3",
+  "phase": "P2",
+  "sut_path": "data/sut/kaleido-p3",
+  "device": "cpu",
+  "threads": 1,
+  "calibration": {
+    "report": "results/p0/calibration.md",
+    "resolution_ms": 0.092584,
+    "rationale": "T4 empirical perturbation scale; not a significance guarantee. Use T4 warmup=100/repeat=2000 for each arm and workload; never divide the threshold by repeat or token count."
+  },
+  "recipes": [
+    {
+      "name": "qkv",
+      "variant": "qkv_split",
+      "warmup": 100,
+      "repeat": 2000,
+      "orders": [["baseline", "qkv_split"], ["qkv_split", "baseline"]],
+      "prefill": {"length": 128, "seed": 42},
+      "decode": {"prompt_ids": [256, 316, 32, 396, 337, 32, 270, 32, 259, 32, 385, 32, 356, 279, 32, 268, 32, 299], "tokens": 32}
+    },
+    {
+      "name": "attention",
+      "variant": "attention_bt",
+      "warmup": 100,
+      "repeat": 2000,
+      "orders": [["baseline", "attention_bt"], ["attention_bt", "baseline"]],
+      "prefill": {"length": 128, "seed": 42},
+      "decode": {"prompt_ids": [256, 316, 32, 396, 337, 32, 270, 32, 259, 32, 385, 32, 356, 279, 32, 268, 32, 299], "tokens": 32}
+    },
+    {
+      "name": "mlp",
+      "variant": "mlp_reuse",
+      "warmup": 100,
+      "repeat": 2000,
+      "orders": [["baseline", "mlp_reuse"], ["mlp_reuse", "baseline"]],
+      "prefill": {"length": 128, "seed": 42},
+      "decode": {"prompt_ids": [256, 316, 32, 396, 337, 32, 270, 32, 259, 32, 385, 32, 356, 279, 32, 268, 32, 299], "tokens": 32}
+    }
+  ]
+}

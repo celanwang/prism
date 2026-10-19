@@ -1,0 +1,146 @@
+{
+  "batch": 1,
+  "calibration": {
+    "rationale": "T4 empirical perturbation scale; not a significance guarantee. Use T4 warmup=100/repeat=2000 for each arm and workload; never divide the threshold by repeat or token count.",
+    "report": "results/p0/calibration.md",
+    "resolution_ms": 0.092584
+  },
+  "manifest_sha256": "8f5f36885a574011e647b4fb046862100f5aa6d4ba99e279d42c0975ac3abfb0",
+  "order": [
+    "baseline",
+    "mlp_reuse"
+  ],
+  "phase": "P2",
+  "recipe": {
+    "decode": {
+      "prompt_ids": [
+        256,
+        316,
+        32,
+        396,
+        337,
+        32,
+        270,
+        32,
+        259,
+        32,
+        385,
+        32,
+        356,
+        279,
+        32,
+        268,
+        32,
+        299
+      ],
+      "tokens": 32
+    },
+    "name": "mlp",
+    "orders": [
+      [
+        "baseline",
+        "mlp_reuse"
+      ],
+      [
+        "mlp_reuse",
+        "baseline"
+      ]
+    ],
+    "prefill": {
+      "length": 128,
+      "seed": 42
+    },
+    "repeat": 2000,
+    "variant": "mlp_reuse",
+    "warmup": 100
+  },
+  "runtime": {
+    "cpu_model": "Apple M4 Max",
+    "device": "cpu",
+    "thread_environment": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "sources_sha256": {
+    "scripts/kernel_bench.py": "55dae08a909a023f1bcd0629dd7821813ef7c3f2cb190cc8c1f7c9f4e831cf79",
+    "src/prism/ablating.py": "493b16c13849898d7fc2969c6e225d47aa1d217f241a751b5a76cf225c128277",
+    "src/prism/kvcache.py": "88ba181d6b7b714dfcb0f520923dc46c993e54f19bbde558fc65dc9e8aeb988e",
+    "src/prism/measure.py": "f40ecfdc1052e1f0fa753db6a76f9a099cf61b02eb535648400539a0f14305f5",
+    "src/prism/sut.py": "d4cae3336f899e91e28da89550ecc4cd9ddcfea61d4f37c9d5149982947bf517"
+  },
+  "sut_config": {
+    "context_length": 128,
+    "dropout": 0.0,
+    "heads": 4,
+    "layers": 2,
+    "vocab_size": 512,
+    "width": 128
+  },
+  "sut_path": "data/sut/kaleido-p3",
+  "task": "P2-T3",
+  "workload": {
+    "arm": "mlp_reuse",
+    "batch_size": 1,
+    "continuation_ids": [
+      32,
+      259,
+      32,
+      103,
+      373,
+      32,
+      103,
+      114,
+      261,
+      103,
+      32,
+      259,
+      32,
+      103,
+      114,
+      261,
+      103,
+      32,
+      284,
+      32,
+      259,
+      32,
+      115,
+      32,
+      98,
+      114,
+      261,
+      103,
+      32,
+      259,
+      32,
+      103
+    ],
+    "name": "decode",
+    "prefill_ids": [
+      256,
+      316,
+      32,
+      396,
+      337,
+      32,
+      270,
+      32,
+      259,
+      32,
+      385,
+      32,
+      356,
+      279,
+      32,
+      268,
+      32,
+      299
+    ],
+    "scratch_scope": "last shape retained across layers/calls; warmed before timing; logits/cache own storage",
+    "timing_scope": "32 teacher-forced cached steps; prefill excluded; fresh cache reference each sample"
+  }
+}
