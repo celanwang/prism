@@ -1,0 +1,67 @@
+[
+  {
+    "command": [
+      "uv",
+      "sync",
+      "--locked"
+    ],
+    "exit_code": 0,
+    "output": "Resolved 9 packages in 2ms\nChecked 8 packages in 0.15ms\n"
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "pytest"
+    ],
+    "exit_code": 0,
+    "output": "============================= test session starts ==============================\nplatform darwin -- Python 3.12.15, pytest-9.1.1, pluggy-1.7.0\nrootdir: /Users/wangchen/Developer/prism-wt-p3load\nconfigfile: pyproject.toml\ntestpaths: tests\ncollected 666 items\n\ntests/test_baseline.py .............................                     [  4%]\ntests/test_calibrate.py .................                                [  6%]\ntests/test_cli.py .                                                      [  7%]\ntests/test_env.py ......                                                 [  7%]\ntests/test_kvcache.py .......................................            [ 13%]\ntests/test_measure.py ..........................                         [ 17%]\ntests/test_p1_calibrate.py ............                                  [ 19%]\ntests/test_p4_calibrate.py .................                             [ 22%]\ntests/test_paged.py .................................................... [ 29%]\n..........................................................               [ 38%]\ntests/test_parallel_models.py .......................................... [ 44%]\n.......................................................                  [ 53%]\ntests/test_quant.py .............................                        [ 57%]\ntests/test_record.py ..................................................  [ 65%]\ntests/test_schedsim.py .............................................     [ 71%]\ntests/test_serve.py ........................                             [ 75%]\ntests/test_serve_load.py .....................                           [ 78%]\ntests/test_speculative.py .............................................. [ 85%]\n.....................................................................    [ 95%]\ntests/test_sut.py ............................                           [100%]\n\n============================= 666 passed in 20.35s =============================\n"
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "ruff",
+      "check",
+      "."
+    ],
+    "exit_code": 0,
+    "output": "All checks passed!\n"
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "ruff",
+      "format",
+      "--check",
+      "."
+    ],
+    "exit_code": 0,
+    "output": "73 files already formatted\n"
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "python",
+      "scripts/serve_load.py",
+      "--check"
+    ],
+    "exit_code": 0,
+    "output": "r40-c1-q2: successes=6, 429=0, client_full=8, avalanche=0/2\nr40-c8-q2: successes=12, 429=2, client_full=0, avalanche=0/2\nr160-c1-q2: successes=8, 429=0, client_full=56, avalanche=0/2\nr160-c8-q2: successes=11, 429=46, client_full=7, avalanche=0/2\n{\n  \"path\": \"runs/20261019-p3-load-121333469665-78a04d-check\",\n  \"evidence\": \"smoke 非实验证据\",\n  \"hardware_device\": \"Apple M4 Max / CPU / 1 native thread\",\n  \"env_fingerprint\": \"bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3\",\n  \"config_hash\": \"1eca3e8c1234f827cad35133cec495dfdb194dac4bf5832670226aac0186e07e\",\n  \"warmup\": 0,\n  \"repeat\": 2,\n  \"sources_sha256\": {\n    \"src/prism/serve.py\": \"d33f2471798dfcaa1b01bc155d0588dea8c4bda95956a91854b4d3395311ead7\",\n    \"src/prism/schedsim.py\": \"6d6d2354f109171039ad10897a24eb7174b21c032ea41bdaa5ed1a3f50a3f3a2\",\n    \"scripts/serve_load.py\": \"cac290593363458109644da5f95b84e3c5d3bba0deb973b815c21befd07984f3\"\n  }\n}\n"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "exit_code": 0,
+    "output": "?? configs/p3_load.json\n?? results/p3/\n?? scripts/serve_load.py\n?? tests/test_serve_load.py\n"
+  }
+]

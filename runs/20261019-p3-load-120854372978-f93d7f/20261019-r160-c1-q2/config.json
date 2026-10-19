@@ -1,0 +1,79 @@
+{
+  "arrival_rate_per_s": 160,
+  "arrival_rates_per_s": [
+    10,
+    40,
+    160
+  ],
+  "calibrated_recipe": "runs/20261019-p1-calibrate-100535736151-prefill-1/calibrated_schedsim.json",
+  "calibrated_recipe_sha256": "b413cf026ee28e9492c52c95e4416045f5760ff9d6fd7f4a46714f9fa6f658e4",
+  "check": {
+    "arrival_rates_per_s": [
+      40,
+      160
+    ],
+    "concurrency": [
+      1,
+      8
+    ],
+    "duration_ms": 150,
+    "queue_capacities": [
+      2
+    ],
+    "repeat": 2,
+    "warmup": 0
+  },
+  "client_concurrency": 1,
+  "client_timeout_s": 10,
+  "concurrency": [
+    1,
+    8,
+    64
+  ],
+  "device": "cpu",
+  "duration_ms": 2000,
+  "evidence": "\u5b9e\u6d4b loopback CPU / calibrated \u6a21\u62df",
+  "hardware_device": "Apple M4 Max / CPU / 1 native thread",
+  "http_pending": 0,
+  "http_workers": 128,
+  "measurement_unit": "whole round including arrival window and drain",
+  "native_threads": 1,
+  "output_length": {
+    "kind": "uniform",
+    "max": 64,
+    "min": 32
+  },
+  "p99_threshold_ms": 1000,
+  "phase": "P3",
+  "prompt_length": {
+    "kind": "uniform",
+    "max": 32,
+    "min": 8
+  },
+  "queue_capacities": [
+    2,
+    64
+  ],
+  "queue_capacity": 2,
+  "queue_growth": {
+    "min_queue": 20,
+    "min_slope_per_s": 1
+  },
+  "queue_sample_ms": 1,
+  "repeat": 3,
+  "seed": 20261019,
+  "semantics": {
+    "arrival": "Seeded T3 Poisson arrivals and lengths replayed identically across C/Q and rounds; token IDs use a separate seeded RNG. Open loop: full C-slot client pool drops arrivals immediately, without a hidden executor queue or retries.",
+    "avalanche": "T3 unchanged: p99 > threshold OR four strictly increasing final-half-window time-weighted queue means, slope > min_slope_per_s, horizon queue >= min_queue. Evaluate each round separately; report triggering repeat count.",
+    "connection_pool": "C prestarted HTTP client threads, at most C live sockets. Server sends Connection: close, so each call opens a fresh socket; no keepalive reuse.",
+    "limits": "Single process serial CPU inference, loopback, no TLS, local client threads compete with server. Fixed seed does not fix OS timing/admission. Not production capacity or proof of divergence.",
+    "measurement": "P0 measure() times whole rounds with tracemalloc; warmup excluded. Successful request E2E includes dispatch lag; wire_ms starts inside client thread. Quantiles use NumPy linear; timeouts and 429 are separate, never zero-latency successes.",
+    "queue": "Sample actual service.queue.qsize() at queue_sample_ms; integrate piecewise-constant samples. This is a sampled finite-window proxy with observed sampling gaps, not an exact event trace.",
+    "simulation": "P1-T4 calibrated T3 service model, static batch_size=1 and batch_timeout_ms=0. Serial FIFO adapter adds the same C client cap and immediate client-full drops, Q excludes active inference. Ideal zero HTTP transport/rejection cost, no socket failures; client timeout represented at response deadline while inference drains. Unbounded-client adapter verified against T3.",
+    "throughput": "Successful full responses received by horizon / arrival window seconds; drained successful requests / max(horizon,last response) separately. No token/s comparison: HTTP whole endpoint exposes no token timestamps."
+  },
+  "server_socket_timeout_s": 10,
+  "sut_path": "data/sut/kaleido-p3",
+  "task": "P3-T2",
+  "warmup": 1
+}

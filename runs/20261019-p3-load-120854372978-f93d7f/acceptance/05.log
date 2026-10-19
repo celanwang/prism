@@ -1,0 +1,18 @@
+r40-c1-q2: successes=6, 429=0, client_full=8, avalanche=0/2
+r40-c8-q2: successes=12, 429=2, client_full=0, avalanche=0/2
+r160-c1-q2: successes=8, 429=0, client_full=56, avalanche=0/2
+r160-c8-q2: successes=11, 429=46, client_full=7, avalanche=0/2
+{
+  "path": "runs/20261019-p3-load-121333469665-78a04d-check",
+  "evidence": "smoke 非实验证据",
+  "hardware_device": "Apple M4 Max / CPU / 1 native thread",
+  "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+  "config_hash": "1eca3e8c1234f827cad35133cec495dfdb194dac4bf5832670226aac0186e07e",
+  "warmup": 0,
+  "repeat": 2,
+  "sources_sha256": {
+    "src/prism/serve.py": "d33f2471798dfcaa1b01bc155d0588dea8c4bda95956a91854b4d3395311ead7",
+    "src/prism/schedsim.py": "6d6d2354f109171039ad10897a24eb7174b21c032ea41bdaa5ed1a3f50a3f3a2",
+    "scripts/serve_load.py": "cac290593363458109644da5f95b84e3c5d3bba0deb973b815c21befd07984f3"
+  }
+}

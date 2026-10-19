@@ -1,0 +1,57 @@
+{
+  "rate": 40,
+  "concurrency": 1,
+  "queue_capacity": 64,
+  "config_hash": "34ee438ec397754a826806943a1b98eb54334ac5e5f920bbb3a59b98b1c40834",
+  "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+  "point": "20261019-r40-c1-q64",
+  "latency_ms": {
+    "p50": 34.7440940843957,
+    "p95": 46.448418193278435,
+    "p99": 47.11784220119864
+  },
+  "completed": 104,
+  "arrivals": 264,
+  "rejected": 0,
+  "timed_out": 0,
+  "client_full": 160,
+  "http_503": 0,
+  "transport_errors": 0,
+  "throughput_requests_per_s": 17.333333333333332,
+  "avalanche_rounds": 0,
+  "simulation": {
+    "arrivals": 88,
+    "completed": 40,
+    "rejected": 0,
+    "timed_out": 0,
+    "client_full": 48,
+    "http_503": 0,
+    "transport_errors": 0,
+    "latency_ms": {
+      "p50": 25.991731809672643,
+      "p95": 33.7644185567323,
+      "p99": 33.84720318821451
+    },
+    "wait_ms": {
+      "p50": 0.0,
+      "p95": 0.0,
+      "p99": 0.0
+    },
+    "throughput_requests_per_s": 20.0,
+    "drained_throughput_requests_per_s": 20.0,
+    "drained_until_ms": 2000,
+    "avalanche": false,
+    "avalanche_reasons": [],
+    "late_window_mean_queues": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "queue_slope_per_s": 0.0,
+    "horizon_queue": 0,
+    "mean_queue_length": 0.0,
+    "max_queue_length": 0
+  },
+  "p99_relative_deviation": -0.2816478512814099
+}
