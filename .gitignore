@@ -2,6 +2,7 @@
 __pycache__/
 *.egg-info/
 dist/
-runs/
+/runs/*
+!/runs/*-baseline-*/
 .pytest_cache/
 .ruff_cache/
