@@ -1,0 +1,9 @@
+Task specification: tasks/p1-t4-report.md, section 5
+uv sync --locked: exit 0; Resolved 9 packages in 3ms; Checked 8 packages in 0.28ms
+uv run --locked pytest: exit 0; 460 passed in 6.19s
+uv run --locked ruff check .: exit 0; All checks passed!
+uv run --locked ruff format --check .: exit 0; 50 files already formatted
+uv run --locked python scripts/p1_calibrate.py --check: exit 0; 7 measured points and 4 simulations, smoke only, session 100745529269-check
+uv run --locked python scripts/p1_calibrate.py --replay runs/20261019-p1-calibrate-100535736151-prefill-1/calibration.json: exit 0; all 4 complete simulation summaries identical, session 100801167628-replay
+Additional audit: source SHA-256 values match; 174 archived evidence copies match original bytes; all run schemas load; all report evidence links resolve.
+git status --short: reviewed before commit; only whitelisted task files staged. Pre-existing untracked .idea/ left untouched.

@@ -1,0 +1,447 @@
+{
+  "calibrated_recipe": "runs/20261019-p1-calibrate-100535736151-prefill-1/calibrated_schedsim.json",
+  "deviations": [
+    {
+      "after_ms": 0.00938601263970197,
+      "after_relative_deviation": -0.9808936129471716,
+      "before_ms": 0.01224658203125,
+      "before_relative_deviation": -0.9750705709287532,
+      "kind": "prefill",
+      "measured_p50_ms": 0.49125,
+      "size": 1
+    },
+    {
+      "after_ms": 0.300352404470463,
+      "after_relative_deviation": -0.6497519602882855,
+      "before_ms": 0.391890625,
+      "before_relative_deviation": -0.5430070772043818,
+      "kind": "prefill",
+      "measured_p50_ms": 0.857542,
+      "size": 32
+    },
+    {
+      "after_ms": 1.201409617881852,
+      "after_relative_deviation": -0.2954557624754603,
+      "before_ms": 1.5675625,
+      "before_relative_deviation": -0.08073224161322566,
+      "kind": "prefill",
+      "measured_p50_ms": 1.7052295,
+      "size": 128
+    },
+    {
+      "after_ms": 0.5257505,
+      "after_relative_deviation": 0.0,
+      "before_ms": 0.8463639375,
+      "before_relative_deviation": 0.6098205089676568,
+      "kind": "decode",
+      "measured_p50_ms": 0.5257505,
+      "size": 1
+    },
+    {
+      "after_ms": 1.0298335,
+      "after_relative_deviation": 0.0,
+      "before_ms": 1.142591315625,
+      "before_relative_deviation": 0.10949130672579593,
+      "kind": "decode",
+      "measured_p50_ms": 1.0298335,
+      "size": 2
+    },
+    {
+      "after_ms": 2.0622705000000003,
+      "after_relative_deviation": 0.0,
+      "before_ms": 1.735046071875,
+      "before_relative_deviation": -0.1586719240395478,
+      "kind": "decode",
+      "measured_p50_ms": 2.0622705000000003,
+      "size": 4
+    },
+    {
+      "after_ms": 4.163520500000001,
+      "after_relative_deviation": 0.0,
+      "before_ms": 2.919955584375,
+      "before_relative_deviation": -0.2986811078809389,
+      "kind": "decode",
+      "measured_p50_ms": 4.163520500000001,
+      "size": 8
+    }
+  ],
+  "evidence": "CPU 实测 / serial batch-one proxy",
+  "measurements": {
+    "decode": [
+      {
+        "captured_at": "2026-10-19T10:05:39.168592+00:00",
+        "config_hash": "c62697e09b21a28659c12774d0d2ac5b8d48a26d706a2a2900bfb86f9aef3382",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 84705280,
+        "mean": 0.54326542,
+        "p50": 0.5257505,
+        "p95": 0.6330211499999999,
+        "p99": 0.6996564199999996,
+        "path": "runs/20261019-p1-calibrate-100535736151-decode-1",
+        "peak_tracemalloc_bytes": 86974,
+        "size": 1,
+        "stdev": 0.04700002071381561
+      },
+      {
+        "captured_at": "2026-10-19T10:05:39.383496+00:00",
+        "config_hash": "6b874c7fcfc2305fd0a40dd44b14c5049e13fdfec3b33873337ccfdd1dd7a2b7",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 84885504,
+        "mean": 1.041103755,
+        "p50": 1.0298335,
+        "p95": 1.1069348,
+        "p99": 1.15509383,
+        "path": "runs/20261019-p1-calibrate-100535736151-decode-2",
+        "peak_tracemalloc_bytes": 86821,
+        "size": 2,
+        "stdev": 0.03384425844190395
+      },
+      {
+        "captured_at": "2026-10-19T10:05:39.809275+00:00",
+        "config_hash": "344b8ce3a1ebf39abdd96230e4b6d4233e01bb7fc45612389359b903606e73dd",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 85278720,
+        "mean": 2.076301235,
+        "p50": 2.0622705000000003,
+        "p95": 2.17395145,
+        "p99": 2.2789741699999992,
+        "path": "runs/20261019-p1-calibrate-100535736151-decode-4",
+        "peak_tracemalloc_bytes": 86668,
+        "size": 4,
+        "stdev": 0.06450574601510008
+      },
+      {
+        "captured_at": "2026-10-19T10:05:40.667569+00:00",
+        "config_hash": "6f2a4f1aad9b6334fa9e0af7a6ccb43311d804d28d5e129cc72c757a9fcd8d1e",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 85819392,
+        "mean": 4.20301001,
+        "p50": 4.163520500000001,
+        "p95": 4.40180625,
+        "p99": 4.639801159999998,
+        "path": "runs/20261019-p1-calibrate-100535736151-decode-8",
+        "peak_tracemalloc_bytes": 86668,
+        "size": 8,
+        "stdev": 0.21484459257346972
+      }
+    ],
+    "prefill": [
+      {
+        "captured_at": "2026-10-19T10:05:36.256064+00:00",
+        "config_hash": "ccf40cb17677fee31be70044e88cc2bad642ba00c4effb5d4fde2bad97327fc1",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 49577984,
+        "mean": 0.500371885,
+        "p50": 0.49125,
+        "p95": 0.54945805,
+        "p99": 0.60381767,
+        "path": "runs/20261019-p1-calibrate-100535736151-prefill-1",
+        "peak_tracemalloc_bytes": 48777,
+        "size": 1,
+        "stdev": 0.02753178612362322
+      },
+      {
+        "captured_at": "2026-10-19T10:05:37.187473+00:00",
+        "config_hash": "51f4aafce9b535ba6b8cba7f9101cd8dce2b8eea2a2848747853e83c24f9be91",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 55508992,
+        "mean": 0.876582924,
+        "p50": 0.857542,
+        "p95": 0.96133815,
+        "p99": 1.03310175,
+        "path": "runs/20261019-p1-calibrate-100535736151-prefill-32",
+        "peak_tracemalloc_bytes": 477281,
+        "size": 32,
+        "stdev": 0.05383399089047198
+      },
+      {
+        "captured_at": "2026-10-19T10:05:39.054304+00:00",
+        "config_hash": "3f337bad2ff0063fa8fb3a07dbfb98ef4519ed87af7f83d8f08b6cc7b219026f",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 84344832,
+        "mean": 1.727491341,
+        "p50": 1.7052295,
+        "p95": 1.9143627999999997,
+        "p99": 2.10538483,
+        "path": "runs/20261019-p1-calibrate-100535736151-prefill-128",
+        "peak_tracemalloc_bytes": 2212849,
+        "size": 128,
+        "stdev": 0.09106845845779206
+      }
+    ]
+  },
+  "original_recipe": "runs/20261019-p1-calibrate-100535736151-prefill-1/original_schedsim.json",
+  "original_sim_recipe_sha256": "862a3fcd6647e8f6fc3b25a449ad635968ce6d8ecaae73a8463161674ddce74f",
+  "phase": "P1",
+  "prefill_fit": {
+    "intercept_ms": 0.5142911550026608,
+    "method": "OLS p50_ms = intercept_ms + slope_ms_per_token * T",
+    "residuals_ms": [
+      -0.0324271676423627,
+      0.04289844052687619,
+      -0.010471272884512883
+    ],
+    "simulator_mapping": "Only slope is representable; intercept omitted, not absorbed.",
+    "slope_ms_per_token": 0.00938601263970197
+  },
+  "recipe": {
+    "calibration": {
+      "rationale": "Keep P0/T4 measurement protocol: prefill warmup=100/repeat=1000; decode warmup=10/repeat=200. Every timed decode call advances B independent batch-one caches once, serially in one process; prefill and cache setup are outside timing. Reuse immutable past caches so every sample starts at the same context length, without rollover. The empirical perturbation floor is a reference, not a significance guarantee.",
+      "report": "results/p0/calibration.md",
+      "resolution_ms": 0.092584
+    },
+    "decode": {
+      "batch_sizes": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "context_tokens": 32,
+      "repeat": 200,
+      "token_id": 42,
+      "warmup": 10
+    },
+    "device": "cpu",
+    "phase": "P1",
+    "prefill": {
+      "repeat": 1000,
+      "sequence_lengths": [
+        1,
+        32,
+        128
+      ],
+      "token_id": 42,
+      "warmup": 100
+    },
+    "sim_recipe": "configs/p1_schedsim.json",
+    "sut_path": "data/sut/kaleido-p3",
+    "task": "P1-T4",
+    "threads": 1
+  },
+  "runtime": {
+    "cpu_model": "Apple M4 Max",
+    "device": "cpu",
+    "machine": "arm64",
+    "thread_environment": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "simulations": [
+    {
+      "path": "runs/20261019-p1-calibrate-100535736151-before-static",
+      "policy": "static",
+      "stage": "before",
+      "summary": {
+        "arrivals": 487,
+        "avalanche": true,
+        "avalanche_reasons": [
+          "p99_threshold",
+          "finite_window_queue_growth_proxy"
+        ],
+        "completed": 487,
+        "completed_output_tokens": 17399,
+        "config_hash": "ec60034618acacd3762fc0de1ad3b15607981ccfd81fae1dc85634556975440f",
+        "drained_throughput_tokens_per_s": 1436.087369693951,
+        "drained_until_ms": 12115.558124926589,
+        "late_window_mean_queues": [
+          159.80810216550404,
+          195.09527238840892,
+          229.97198633826045,
+          268.7056357213638
+        ],
+        "latency_ms": {
+          "mean": 3560.7835608072205,
+          "p50": 3493.4599675715945,
+          "p95": 6725.465138953831,
+          "p99": 7068.234052429239,
+          "stdev": 2011.10536236813
+        },
+        "max_queue_length": 285,
+        "mean_in_system": 146.19897049524678,
+        "mean_queue_length": 143.60904868351,
+        "mode": "模拟",
+        "observation_ms": 5000,
+        "queue_slope_per_s": 58.078684563125215,
+        "rejected": 0,
+        "throughput_tokens_per_s": 1421.0,
+        "timed_out": 0,
+        "wait_ms": {
+          "mean": 3495.5135881326637,
+          "p50": 3417.4083392912767,
+          "p95": 6647.82101529024,
+          "p99": 7010.266644728584,
+          "stdev": 2010.148213559662
+        },
+        "window_output_tokens": 7105
+      }
+    },
+    {
+      "path": "runs/20261019-p1-calibrate-100535736151-before-continuous",
+      "policy": "continuous",
+      "stage": "before",
+      "summary": {
+        "arrivals": 487,
+        "avalanche": true,
+        "avalanche_reasons": [
+          "p99_threshold",
+          "finite_window_queue_growth_proxy"
+        ],
+        "completed": 487,
+        "completed_output_tokens": 17399,
+        "config_hash": "f32f2a6a46fa9cc10b8e793cabef925420754a1bb55464348acb1421d05281ea",
+        "drained_throughput_tokens_per_s": 2175.7678866386805,
+        "drained_until_ms": 7996.716978335185,
+        "late_window_mean_queues": [
+          100.67720359376034,
+          117.03394245191461,
+          140.365595010429,
+          167.06702530097846
+        ],
+        "latency_ms": {
+          "mean": 1531.7253193201097,
+          "p50": 1448.0075003735933,
+          "p95": 2893.622673396032,
+          "p99": 3013.69802752237,
+          "stdev": 839.7252706589929
+        },
+        "max_queue_length": 178,
+        "mean_in_system": 93.85303145646392,
+        "mean_queue_length": 89.8804710996053,
+        "mode": "模拟",
+        "observation_ms": 5000,
+        "queue_slope_per_s": 35.40790491051633,
+        "rejected": 0,
+        "throughput_tokens_per_s": 2172.0,
+        "timed_out": 0,
+        "wait_ms": {
+          "mean": 1466.4375085191662,
+          "p50": 1372.3987622518907,
+          "p95": 2806.6141796832917,
+          "p99": 2963.8145262702237,
+          "stdev": 838.5284098502785
+        },
+        "window_output_tokens": 10860
+      }
+    },
+    {
+      "path": "runs/20261019-p1-calibrate-100535736151-after-static",
+      "policy": "static",
+      "stage": "after",
+      "summary": {
+        "arrivals": 487,
+        "avalanche": true,
+        "avalanche_reasons": [
+          "p99_threshold",
+          "finite_window_queue_growth_proxy"
+        ],
+        "completed": 487,
+        "completed_output_tokens": 17399,
+        "config_hash": "da28e1cf266a8393cbca2a7cfc0d46f5ff33d7c2dadf81eca1fedd570389f33d",
+        "drained_throughput_tokens_per_s": 1229.4030829352882,
+        "drained_until_ms": 14152.396591082752,
+        "late_window_mean_queues": [
+          172.78140308019258,
+          210.36073906134214,
+          251.31626169744874,
+          292.5506074921269
+        ],
+        "latency_ms": {
+          "mean": 4504.7556837541,
+          "p50": 4403.071241419551,
+          "p95": 8618.826965339396,
+          "p99": 9127.939347851849,
+          "stdev": 2592.176718778552
+        },
+        "max_queue_length": 312,
+        "mean_in_system": 158.70896398925245,
+        "mean_queue_length": 156.08221201527124,
+        "mode": "模拟",
+        "observation_ms": 5000,
+        "queue_slope_per_s": 63.87690901969832,
+        "rejected": 0,
+        "throughput_tokens_per_s": 1242.6,
+        "timed_out": 0,
+        "wait_ms": {
+          "mean": 4428.767830680889,
+          "p50": 4293.736079982411,
+          "p95": 8509.884381015749,
+          "p99": 9055.558182788542,
+          "stdev": 2590.862573431653
+        },
+        "window_output_tokens": 6213
+      }
+    },
+    {
+      "path": "runs/20261019-p1-calibrate-100535736151-after-continuous",
+      "policy": "continuous",
+      "stage": "after",
+      "summary": {
+        "arrivals": 487,
+        "avalanche": true,
+        "avalanche_reasons": [
+          "p99_threshold",
+          "finite_window_queue_growth_proxy"
+        ],
+        "completed": 487,
+        "completed_output_tokens": 17399,
+        "config_hash": "a6370bd39bf81b1e4a027159db0ece0580d998829d00ce8010d511928ca5cb31",
+        "drained_throughput_tokens_per_s": 1868.9165908168611,
+        "drained_until_ms": 9309.671756081576,
+        "late_window_mean_queues": [
+          126.41129124064885,
+          149.592238879065,
+          174.90983419213967,
+          207.27531339829312
+        ],
+        "latency_ms": {
+          "mean": 2189.4997460442473,
+          "p50": 2095.3292644051653,
+          "p95": 4155.357831607528,
+          "p99": 4323.149064855601,
+          "stdev": 1223.1385978374706
+        },
+        "max_queue_length": 220,
+        "mean_in_system": 115.52381259070079,
+        "mean_queue_length": 111.55242904170521,
+        "mode": "模拟",
+        "observation_ms": 5000,
+        "queue_slope_per_s": 43.127478484076946,
+        "rejected": 0,
+        "throughput_tokens_per_s": 1864.6,
+        "timed_out": 0,
+        "wait_ms": {
+          "mean": 2113.430227529252,
+          "p50": 2010.385545997639,
+          "p95": 4044.448066872522,
+          "p99": 4269.780591458225,
+          "stdev": 1221.8493317222972
+        },
+        "window_output_tokens": 9323
+      }
+    }
+  ],
+  "sources_sha256": {
+    "scripts/p1_calibrate.py": "9f02cd154175c799fc1a71043ee27a6522141de82289e9fa4305f34bdea25c6f",
+    "src/prism/kvcache.py": "88ba181d6b7b714dfcb0f520923dc46c993e54f19bbde558fc65dc9e8aeb988e",
+    "src/prism/measure.py": "f40ecfdc1052e1f0fa753db6a76f9a099cf61b02eb535648400539a0f14305f5",
+    "src/prism/schedsim.py": "6d6d2354f109171039ad10897a24eb7174b21c032ea41bdaa5ed1a3f50a3f3a2",
+    "src/prism/sut.py": "d4cae3336f899e91e28da89550ecc4cd9ddcfea61d4f37c9d5149982947bf517"
+  },
+  "sut": {
+    "config": {
+      "context_length": 128,
+      "dropout": 0.0,
+      "heads": 4,
+      "layers": 2,
+      "vocab_size": 512,
+      "width": 128
+    },
+    "manifest_sha256": "8f5f36885a574011e647b4fb046862100f5aa6d4ba99e279d42c0975ac3abfb0"
+  },
+  "task": "P1-T4"
+}

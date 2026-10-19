@@ -1,0 +1,114 @@
+{
+  "phase": "P1",
+  "recipe": {
+    "allocation": {
+      "repeat": 200,
+      "warmup": 10
+    },
+    "block_sizes": [
+      8,
+      16,
+      32
+    ],
+    "budgets_bytes": [
+      65536,
+      114688,
+      131072
+    ],
+    "calibration": {
+      "rationale": "P0 T4 empirical perturbation reference, not a significance guarantee. Full decode calls retain P0 warmup=10/repeat=200; allocation and simulation timings are separate microbenchmarks.",
+      "report": "results/p0/calibration.md",
+      "resolution_ms": 0.092584
+    },
+    "decode": {
+      "max_new_tokens": 32,
+      "prompt_ids": [
+        256,
+        316,
+        32,
+        396,
+        337,
+        32,
+        270,
+        32,
+        259,
+        32,
+        385,
+        32,
+        356,
+        279,
+        32,
+        268,
+        32,
+        299
+      ],
+      "repeat": 200,
+      "warmup": 10
+    },
+    "device": "cpu",
+    "orders": [
+      [
+        "naive",
+        "continuous",
+        "paged"
+      ],
+      [
+        "paged",
+        "continuous",
+        "naive"
+      ]
+    ],
+    "phase": "P1",
+    "policies": [
+      "sliding",
+      "lru"
+    ],
+    "simulation": {
+      "passes": 2,
+      "repeat": 200,
+      "tokens": 257,
+      "warmup": 10
+    },
+    "sut_path": "data/sut/kaleido-p3",
+    "task": "P1-T2",
+    "threads": 1
+  },
+  "runtime": {
+    "cpu_model": "Apple M4 Max",
+    "device": "cpu",
+    "thread_environment": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "sources_sha256": {
+    "scripts/paged_bench.py": "715907c0828c3cd988a2bc42e58afcaf5ebd607b9f7d917ab6e5b83181d707dc",
+    "src/prism/kvcache.py": "88ba181d6b7b714dfcb0f520923dc46c993e54f19bbde558fc65dc9e8aeb988e",
+    "src/prism/paged.py": "5b7dd0b3c1912393da5eb491bda5f16e42643cb3959c44aee6e81a3321284a07",
+    "src/prism/sut.py": "d4cae3336f899e91e28da89550ecc4cd9ddcfea61d4f37c9d5149982947bf517"
+  },
+  "sut": {
+    "config": {
+      "context_length": 128,
+      "dropout": 0.0,
+      "heads": 4,
+      "layers": 2,
+      "vocab_size": 512,
+      "width": 128
+    },
+    "manifest_sha256": "8f5f36885a574011e647b4fb046862100f5aa6d4ba99e279d42c0975ac3abfb0"
+  },
+  "task": "P1-T2",
+  "workload": {
+    "block_size": 16,
+    "budget_bytes": 114688,
+    "generation_comparison": false,
+    "kind": "memory_simulation",
+    "payload": "float32 fill with logical block ID; reconstruct on each miss",
+    "policy": "lru",
+    "trace": "for each pass and each logical block: request block, request block 0"
+  }
+}

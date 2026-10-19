@@ -1,0 +1,440 @@
+{
+  "calibrated_recipe": "runs/20261019-p1-calibrate-100745529269-check-prefill-1/calibrated_schedsim.json",
+  "deviations": [
+    {
+      "after_ms": 0.008826322264882532,
+      "after_relative_deviation": -0.9859936774460063,
+      "before_ms": 0.01224658203125,
+      "before_relative_deviation": -0.980566132420057,
+      "kind": "prefill",
+      "measured_p50_ms": 0.6301669999999999,
+      "size": 1
+    },
+    {
+      "after_ms": 0.282442312476241,
+      "after_relative_deviation": -0.7148786876731358,
+      "before_ms": 0.391890625,
+      "before_relative_deviation": -0.6043922445296,
+      "kind": "prefill",
+      "measured_p50_ms": 0.990604,
+      "size": 32
+    },
+    {
+      "after_ms": 1.129769249904964,
+      "after_relative_deviation": -0.3640178134435454,
+      "before_ms": 1.5675625,
+      "before_relative_deviation": -0.11757040086038376,
+      "kind": "prefill",
+      "measured_p50_ms": 1.7764164999999998,
+      "size": 128
+    },
+    {
+      "after_ms": 0.569458,
+      "after_relative_deviation": 0.0,
+      "before_ms": 0.8463639375,
+      "before_relative_deviation": 0.48626226604947165,
+      "kind": "decode",
+      "measured_p50_ms": 0.569458,
+      "size": 1
+    },
+    {
+      "after_ms": 1.131875,
+      "after_relative_deviation": 0.0,
+      "before_ms": 1.142591315625,
+      "before_relative_deviation": 0.00946775538376595,
+      "kind": "decode",
+      "measured_p50_ms": 1.131875,
+      "size": 2
+    },
+    {
+      "after_ms": 2.138813,
+      "after_relative_deviation": 0.0,
+      "before_ms": 1.735046071875,
+      "before_relative_deviation": -0.1887808462567788,
+      "kind": "decode",
+      "measured_p50_ms": 2.138813,
+      "size": 4
+    },
+    {
+      "after_ms": 4.202187,
+      "after_relative_deviation": 0.0,
+      "before_ms": 2.919955584375,
+      "before_relative_deviation": -0.30513430640402256,
+      "kind": "decode",
+      "measured_p50_ms": 4.202187,
+      "size": 8
+    }
+  ],
+  "evidence": "smoke only; 非实验证据",
+  "measurements": {
+    "decode": [
+      {
+        "captured_at": "2026-10-19T10:07:45.549507+00:00",
+        "config_hash": "82708e4461fb1011bb6384076a42685e3ebd5c310e863053a02083c1c58f2ddd",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 51134464,
+        "mean": 0.569458,
+        "p50": 0.569458,
+        "p95": 0.5889951999999999,
+        "p99": 0.59073184,
+        "path": "runs/20261019-p1-calibrate-100745529269-check-decode-1",
+        "peak_tracemalloc_bytes": 82410,
+        "size": 1,
+        "stdev": 0.030699748011995154
+      },
+      {
+        "captured_at": "2026-10-19T10:07:45.555196+00:00",
+        "config_hash": "02897596f0d16fe05635a48d47044054c85024426fceeeb10663fc15c5cbf0be",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 51314688,
+        "mean": 1.131875,
+        "p50": 1.131875,
+        "p95": 1.14155,
+        "p99": 1.14241,
+        "path": "runs/20261019-p1-calibrate-100745529269-check-decode-2",
+        "peak_tracemalloc_bytes": 82934,
+        "size": 2,
+        "stdev": 0.015202795795510824
+      },
+      {
+        "captured_at": "2026-10-19T10:07:45.563585+00:00",
+        "config_hash": "7166b558f67c7273a03f303089aad1ff49dfdbf4f29877a69bd8dc33821df6dc",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 51576832,
+        "mean": 2.138813,
+        "p50": 2.138813,
+        "p95": 2.1557068999999998,
+        "p99": 2.15720858,
+        "path": "runs/20261019-p1-calibrate-100745529269-check-decode-4",
+        "peak_tracemalloc_bytes": 83390,
+        "size": 4,
+        "stdev": 0.026546202779305184
+      },
+      {
+        "captured_at": "2026-10-19T10:07:45.577988+00:00",
+        "config_hash": "1f9174c1b1998e60c1659c73dd990ee30d8f12ad9136d78abd77083edc7e22b5",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 51937280,
+        "mean": 4.202187,
+        "p50": 4.202187,
+        "p95": 4.2405306000000005,
+        "p99": 4.243938920000001,
+        "path": "runs/20261019-p1-calibrate-100745529269-check-decode-8",
+        "peak_tracemalloc_bytes": 82880,
+        "size": 8,
+        "stdev": 0.060251154611343775
+      }
+    ],
+    "prefill": [
+      {
+        "captured_at": "2026-10-19T10:07:45.535895+00:00",
+        "config_hash": "d0a2dd59dd36e3d5426ebad39c9df921336b5983e5b858f8db1017e8ed1004fd",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 45498368,
+        "mean": 0.6301669999999999,
+        "p50": 0.6301669999999999,
+        "p95": 0.7031048,
+        "p99": 0.70958816,
+        "path": "runs/20261019-p1-calibrate-100745529269-check-prefill-1",
+        "peak_tracemalloc_bytes": 15850,
+        "size": 1,
+        "stdev": 0.11461069552184038
+      },
+      {
+        "captured_at": "2026-10-19T10:07:45.540222+00:00",
+        "config_hash": "7f8cc5588f825fb0240c1a52616f96765b1f20c3ba838b5845c9c26828559ea3",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 48414720,
+        "mean": 0.990604,
+        "p50": 0.990604,
+        "p95": 1.0966348000000001,
+        "p99": 1.1060597600000002,
+        "path": "runs/20261019-p1-calibrate-100745529269-check-prefill-32",
+        "peak_tracemalloc_bytes": 446425,
+        "size": 32,
+        "stdev": 0.16661132821029911
+      },
+      {
+        "captured_at": "2026-10-19T10:07:45.545773+00:00",
+        "config_hash": "f48da7c55e50ba47eaf00d5c059078702746cbf48f014ec33d78898fa23eec16",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 51118080,
+        "mean": 1.7764164999999998,
+        "p50": 1.7764164999999998,
+        "p95": 1.84714165,
+        "p99": 1.85342833,
+        "path": "runs/20261019-p1-calibrate-100745529269-check-prefill-128",
+        "peak_tracemalloc_bytes": 2182105,
+        "size": 128,
+        "stdev": 0.11113385147874616
+      }
+    ]
+  },
+  "original_recipe": "runs/20261019-p1-calibrate-100745529269-check-prefill-1/original_schedsim.json",
+  "original_sim_recipe_sha256": "862a3fcd6647e8f6fc3b25a449ad635968ce6d8ecaae73a8463161674ddce74f",
+  "phase": "P1",
+  "prefill_fit": {
+    "intercept_ms": 0.6587165384513037,
+    "method": "OLS p50_ms = intercept_ms + slope_ms_per_token * T",
+    "residuals_ms": [
+      -0.03737586071618637,
+      0.04944514907245523,
+      -0.012069288356268082
+    ],
+    "simulator_mapping": "Only slope is representable; intercept omitted, not absorbed.",
+    "slope_ms_per_token": 0.008826322264882532
+  },
+  "recipe": {
+    "calibration": {
+      "rationale": "Keep P0/T4 measurement protocol: prefill warmup=100/repeat=1000; decode warmup=10/repeat=200. Every timed decode call advances B independent batch-one caches once, serially in one process; prefill and cache setup are outside timing. Reuse immutable past caches so every sample starts at the same context length, without rollover. The empirical perturbation floor is a reference, not a significance guarantee.",
+      "report": "results/p0/calibration.md",
+      "resolution_ms": 0.092584
+    },
+    "decode": {
+      "batch_sizes": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "context_tokens": 32,
+      "repeat": 2,
+      "token_id": 42,
+      "warmup": 0
+    },
+    "device": "cpu",
+    "phase": "P1",
+    "prefill": {
+      "repeat": 2,
+      "sequence_lengths": [
+        1,
+        32,
+        128
+      ],
+      "token_id": 42,
+      "warmup": 0
+    },
+    "sim_recipe": "configs/p1_schedsim.json",
+    "sut_path": "data/sut/kaleido-p3",
+    "task": "P1-T4",
+    "threads": 1
+  },
+  "runtime": {
+    "cpu_model": "Apple M4 Max",
+    "device": "cpu",
+    "machine": "arm64",
+    "thread_environment": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "simulations": [
+    {
+      "path": "runs/20261019-p1-calibrate-100745529269-check-before-static",
+      "policy": "static",
+      "stage": "before",
+      "summary": {
+        "arrivals": 52,
+        "avalanche": true,
+        "avalanche_reasons": [
+          "finite_window_queue_growth_proxy"
+        ],
+        "completed": 52,
+        "completed_output_tokens": 1786,
+        "config_hash": "c7c68ccd4e761982905d3746329030f5935797c08c88857c4deb7443f9c77a40",
+        "drained_throughput_tokens_per_s": 1350.866600750478,
+        "drained_until_ms": 1322.1142628056555,
+        "late_window_mean_queues": [
+          21.166143552384042,
+          23.07131335117789,
+          25.875061857597178,
+          29.283168637809784
+        ],
+        "latency_ms": {
+          "mean": 444.3247644666866,
+          "p50": 489.4642670500966,
+          "p95": 790.6839237306041,
+          "p99": 819.0737923002717,
+          "stdev": 255.7047176472566
+        },
+        "max_queue_length": 32,
+        "mean_in_system": 18.796975222988866,
+        "mean_queue_length": 16.330481795232494,
+        "mode": "模拟",
+        "observation_ms": 500,
+        "queue_slope_per_s": 43.29080045560395,
+        "rejected": 0,
+        "throughput_tokens_per_s": 1386.0,
+        "timed_out": 0,
+        "wait_ms": {
+          "mean": 383.2659722773684,
+          "p50": 399.61668549576825,
+          "p95": 705.7934028004178,
+          "p99": 776.075366337115,
+          "stdev": 252.27218835133885
+        },
+        "window_output_tokens": 693
+      }
+    },
+    {
+      "path": "runs/20261019-p1-calibrate-100745529269-check-before-continuous",
+      "policy": "continuous",
+      "stage": "before",
+      "summary": {
+        "arrivals": 52,
+        "avalanche": false,
+        "avalanche_reasons": [],
+        "completed": 52,
+        "completed_output_tokens": 1786,
+        "config_hash": "fa5fb7af24cff4feb332930c4a8552480de0131f7d9ae2177cadf95b90472d93",
+        "drained_throughput_tokens_per_s": 2091.800157409442,
+        "drained_until_ms": 853.8100514400212,
+        "late_window_mean_queues": [
+          17.12096091524267,
+          17.346941382105747,
+          16.761671290608625,
+          19.608193866144425
+        ],
+        "latency_ms": {
+          "mean": 234.23930445786684,
+          "p50": 250.10972808929745,
+          "p95": 364.11080616253685,
+          "p99": 385.3011642469503,
+          "stdev": 111.0909677164041
+        },
+        "max_queue_length": 21,
+        "mean_in_system": 15.61142389831117,
+        "mean_queue_length": 11.885820329723552,
+        "mode": "模拟",
+        "observation_ms": 500,
+        "queue_slope_per_s": 13.265242404809365,
+        "rejected": 0,
+        "throughput_tokens_per_s": 2072.0,
+        "timed_out": 0,
+        "wait_ms": {
+          "mean": 172.94973009685447,
+          "p50": 180.8683768769311,
+          "p95": 298.23041574432557,
+          "p99": 302.0624353049187,
+          "stdev": 106.54570215466549
+        },
+        "window_output_tokens": 1036
+      }
+    },
+    {
+      "path": "runs/20261019-p1-calibrate-100745529269-check-after-static",
+      "policy": "static",
+      "stage": "after",
+      "summary": {
+        "arrivals": 52,
+        "avalanche": true,
+        "avalanche_reasons": [
+          "p99_threshold",
+          "finite_window_queue_growth_proxy"
+        ],
+        "completed": 52,
+        "completed_output_tokens": 1786,
+        "config_hash": "669c8fbb5286cd3921aa6c9af7b21db435be10ed4ee65c1c1fadb2f0524df1e0",
+        "drained_throughput_tokens_per_s": 1142.3606975638686,
+        "drained_until_ms": 1563.4291374070544,
+        "late_window_mean_queues": [
+          23.16614355238405,
+          25.13397716311425,
+          27.875061857597167,
+          33.314423519809615
+        ],
+        "latency_ms": {
+          "mean": 575.1791667823715,
+          "p50": 633.3996876218301,
+          "p95": 985.2580973977471,
+          "p99": 1060.3171824760598,
+          "stdev": 333.43546346131484
+        },
+        "max_queue_length": 36,
+        "mean_in_system": 19.93247993044052,
+        "mean_queue_length": 17.79849993212621,
+        "mode": "模拟",
+        "observation_ms": 500,
+        "queue_slope_per_s": 54.12415982626968,
+        "rejected": 0,
+        "throughput_tokens_per_s": 1074.0,
+        "timed_out": 0,
+        "wait_ms": {
+          "mean": 501.93751759419155,
+          "p50": 526.1564140541484,
+          "p95": 913.5864804156276,
+          "p99": 944.3655149800669,
+          "stdev": 326.2637339784094
+        },
+        "window_output_tokens": 537
+      }
+    },
+    {
+      "path": "runs/20261019-p1-calibrate-100745529269-check-after-continuous",
+      "policy": "continuous",
+      "stage": "after",
+      "summary": {
+        "arrivals": 52,
+        "avalanche": false,
+        "avalanche_reasons": [],
+        "completed": 52,
+        "completed_output_tokens": 1786,
+        "config_hash": "dd635586e99f2e90e69dcb748b7a5fd92c36de711745391b13dc3cced25faabf",
+        "drained_throughput_tokens_per_s": 1775.0765879976118,
+        "drained_until_ms": 1006.1537694070489,
+        "late_window_mean_queues": [
+          18.16614355238405,
+          21.362687598127124,
+          20.672715884113643,
+          23.040112631714713
+        ],
+        "latency_ms": {
+          "mean": 316.01967748861813,
+          "p50": 331.41415228381777,
+          "p95": 508.7086923493539,
+          "p99": 540.3464434609461,
+          "stdev": 159.90069077623386
+        },
+        "max_queue_length": 24,
+        "mean_in_system": 17.546454639777384,
+        "mean_queue_length": 13.829257544830453,
+        "mode": "模拟",
+        "observation_ms": 500,
+        "queue_slope_per_s": 25.994501756430207,
+        "rejected": 0,
+        "throughput_tokens_per_s": 1728.0,
+        "timed_out": 0,
+        "wait_ms": {
+          "mean": 242.7949151597399,
+          "p50": 252.03983018381004,
+          "p95": 431.3257503418922,
+          "p99": 441.2502066539516,
+          "stdev": 154.925171478074
+        },
+        "window_output_tokens": 864
+      }
+    }
+  ],
+  "sources_sha256": {
+    "scripts/p1_calibrate.py": "9f02cd154175c799fc1a71043ee27a6522141de82289e9fa4305f34bdea25c6f",
+    "src/prism/kvcache.py": "88ba181d6b7b714dfcb0f520923dc46c993e54f19bbde558fc65dc9e8aeb988e",
+    "src/prism/measure.py": "f40ecfdc1052e1f0fa753db6a76f9a099cf61b02eb535648400539a0f14305f5",
+    "src/prism/schedsim.py": "6d6d2354f109171039ad10897a24eb7174b21c032ea41bdaa5ed1a3f50a3f3a2",
+    "src/prism/sut.py": "d4cae3336f899e91e28da89550ecc4cd9ddcfea61d4f37c9d5149982947bf517"
+  },
+  "sut": {
+    "config": {
+      "context_length": 128,
+      "dropout": 0.0,
+      "heads": 4,
+      "layers": 2,
+      "vocab_size": 512,
+      "width": 128
+    },
+    "manifest_sha256": "8f5f36885a574011e647b4fb046862100f5aa6d4ba99e279d42c0975ac3abfb0"
+  },
+  "task": "P1-T4"
+}

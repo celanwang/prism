@@ -1,0 +1,82 @@
+{
+  "arrival_rate_per_s": 100,
+  "batch_size": 4,
+  "batch_timeout_ms": 2,
+  "duration_ms": 5000,
+  "max_batched_tokens": 512,
+  "mode": "\u6a21\u62df",
+  "output_length": {
+    "kind": "truncated_normal",
+    "max": 128,
+    "mean": 32,
+    "min": 4,
+    "std": 20
+  },
+  "p99_threshold_ms": 1000,
+  "phase": "P1",
+  "policy": "continuous",
+  "prompt_length": {
+    "kind": "uniform",
+    "max": 128,
+    "min": 16
+  },
+  "queue_capacity": null,
+  "queue_growth": {
+    "min_queue": 20,
+    "min_slope_per_s": 1
+  },
+  "queue_timeout_ms": null,
+  "seed": 20261019,
+  "semantics": {
+    "avalanche": "p99 threshold OR four strictly increasing time-weighted queue means over the final half-window, slope > configured threshold and final queue >= min_queue; finite-window proxy, not proof of unbounded growth",
+    "device": "\u6a21\u62df single serial server; host environment in env.lock is provenance only",
+    "measurement": "\u6a21\u62df request E2E statistics in the existing Measurement schema; memory zeros mean not measured; other metrics in summary.json; no completions means save fails without fabricating samples",
+    "quantiles": "NumPy linear p50/p95/p99 across completed requests, including drain; no confidence intervals",
+    "repeat": 1,
+    "throughput": "Output tokens emitted within [0, duration_ms] / duration seconds; drained throughput also saved. Prompt tokens excluded.",
+    "tokens": "Per iteration: admitted prompt tokens + one decode token per active member; unchunked FIFO prefill blocks decode. Static batches keep padded launch width until all members complete.",
+    "warmup": 0
+  },
+  "service_model": {
+    "decode_nodes": [
+      [
+        1,
+        0.8463639375
+      ],
+      [
+        4,
+        1.735046071875
+      ],
+      [
+        8,
+        2.919955584375
+      ]
+    ],
+    "prefill_ms_per_token": 0.01224658203125,
+    "source": {
+      "approximation": "\u6a21\u62df: prefill slope = P0 prefill-128 p50 / 128; decode(1) = P0 fixed 32-token decode p50 / 32. Nodes use decode(B) = decode(1) * (1 + 0.35 * (B - 1)); 0.35 is an uncalibrated batching assumption, not a measured scaling coefficient.",
+      "baseline_decode": {
+        "p50_ms": 27.083646,
+        "p95_ms": 29.2944229,
+        "p99_ms": 31.86057658,
+        "repeat": 200,
+        "tokens": 32,
+        "warmup": 10
+      },
+      "baseline_prefill": {
+        "p50_ms": 1.5675625,
+        "p95_ms": 1.66099405,
+        "p99_ms": 1.81038367,
+        "repeat": 1000,
+        "tokens": 128,
+        "warmup": 100
+      },
+      "decode_config_hash": "2bc91ba825084c608d421574f63722a0e8e6737df02927cd4a939e4916f3a670",
+      "hardware_device": "Apple M4 Max / CPU / arm64 / one native thread",
+      "limits": "P0 has no KV cache and includes full-context recomputation; these are analytical extrapolations, not GPU measurements or calibrated KV decode costs. No P1-T1 measurement is available on this branch. P1-T4 must calibrate the prefill slope and batching nodes.",
+      "prefill_config_hash": "6770f722303bcfc711ad202907b63b9e0b227b06e0f9a4676df92227ff9e05f6",
+      "report": "results/p0/REPORT.md"
+    }
+  },
+  "task": "P1-T3"
+}

@@ -1,0 +1,16 @@
+{
+  "captured_at": "2026-10-19T10:07:45.555196+00:00",
+  "config_hash": "02897596f0d16fe05635a48d47044054c85024426fceeeb10663fc15c5cbf0be",
+  "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+  "max_rss_bytes": 51314688,
+  "mean": 1.131875,
+  "p50": 1.131875,
+  "p95": 1.14155,
+  "p99": 1.14241,
+  "peak_tracemalloc_bytes": 82934,
+  "samples_ms": [
+    1.121125,
+    1.142625
+  ],
+  "stdev": 0.015202795795510824
+}
