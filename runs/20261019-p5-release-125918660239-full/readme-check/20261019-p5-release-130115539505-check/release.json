@@ -1,0 +1,182 @@
+{
+  "clone_status_after": "",
+  "comparison": {
+    "errors": [],
+    "ok": true,
+    "recipes": [
+      {
+        "anchors": 0,
+        "env_differences": 0,
+        "name": "sut",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 0,
+          "p95": 0,
+          "p99": 0
+        },
+        "unanchored": 0
+      }
+    ],
+    "smoke_only": true,
+    "t4": {
+      "report": "results/p0/calibration.md",
+      "resolution_ms": 0.092584
+    }
+  },
+  "evidence_sha256": {
+    "00.json": "adee6683b24c3fe9d9d050d8762e8c4ee083770c4fcceab0f07c1e4cb5a47a20",
+    "00.log": "219bf215243a4902839cdb6d7c1b758cbcd5c333ac02f842c73168654bede4c3",
+    "01.json": "0750941e6ce1969f8de5ccc6c91db536d3b342c76fbaed3c484ffe0920e4e396",
+    "01.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "02.json": "839b2de260b7b6d36ae1dbf2e9de5e108253f9b8ec1e0f60fbe6e96a94bfb390",
+    "02.log": "f0d99f68164f9749b3e48f1bc0fb4a8b3ac49e6250150d2df5e4229f764f6856",
+    "03.json": "bdd09d45196aab56cc008e6f6b24e4c5d28cd9cb7ba6e5df6ef997c32e762c80",
+    "03.log": "c1c21a9459239381f3e9d90daa141e769049ad9975081aeadf397e53e5a1cfab",
+    "04.json": "8dee37e09bf2c3709d08b51c1487bcbf58232a7b15cda878e6226ad7b6694da1",
+    "04.log": "beab09bf556ff8fd72b6ff9baaaec7a89e49e389c0cc5ca44c755a7502a2db33",
+    "05.json": "23d4518fc67bc09d8d66ddf4a5204e6b37ef43be42104bf95dce0edc7ec69329",
+    "05.log": "98b61d9087b710c56fa66acb10adc4dbd685a2cd1ef39c18e7628f4a543f6b4f",
+    "06.json": "01f0113b82aeb25bb609af507e6a80a4186c57eba17ab602823172a9d05d0a9d",
+    "06.log": "060f3aa2b39dbb22761e65478988694fd613ec073cc27dee2dfd1157e68b3783",
+    "07.json": "74139e04e8ca42bcb50babf8a8858cf01fff75b5e9cdfdff71cf1d10ecdef0c6",
+    "07.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "candidate.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "candidate/README.md": "e78ac3c41b03f39a671d4f2126a3cdf4a89c09a87e777a1efdee4891876e95e4",
+    "candidate/configs/release.json": "df7a6a9b02d06dcd96200e580a059b92b4d22a22c73d925346be08c9c52a77e0",
+    "candidate/docs/ROADMAP.md": "8c597887ec89bcc28cd9f03c3914aff216763f2515666eb25176c44fb0ddfb23",
+    "candidate/results/p5/REPORT.md": "398aaa15c54f5f37db10d1f6d1f7e602794943563dfbe31e55a155ca1b4b7561",
+    "candidate/scripts/release_check.py": "82864fddb3baad3dfc29d60ef599a75018ab1d5e486a28911a251e11aa2a296f",
+    "candidate/tests/test_release.py": "bb878203376a1ea52e0265a5ccd874e4edeb302a585247fe66abc3ce061e8c3c",
+    "config.json": "3264369f58cdc4a025d84c7891cebc0bf4996b755b23fb32b675dec825cff275",
+    "reproduction.json": "060f3aa2b39dbb22761e65478988694fd613ec073cc27dee2dfd1157e68b3783",
+    "reproduction.tar.gz": "685c1ec217f39d34335f92e57a060ec7f171a604af9474be76f0ae0fe1768c4c"
+  },
+  "finished_at": "2026-10-19T13:01:20.737083+00:00",
+  "ok": true,
+  "smoke_only": true,
+  "source": {
+    "base_commit": "d0a872d41299a5fe66912ebedec402e214ceda49",
+    "candidate_sha256": {
+      "README.md": "e78ac3c41b03f39a671d4f2126a3cdf4a89c09a87e777a1efdee4891876e95e4",
+      "configs/release.json": "df7a6a9b02d06dcd96200e580a059b92b4d22a22c73d925346be08c9c52a77e0",
+      "docs/ROADMAP.md": "8c597887ec89bcc28cd9f03c3914aff216763f2515666eb25176c44fb0ddfb23",
+      "results/p5/REPORT.md": "398aaa15c54f5f37db10d1f6d1f7e602794943563dfbe31e55a155ca1b4b7561",
+      "scripts/release_check.py": "82864fddb3baad3dfc29d60ef599a75018ab1d5e486a28911a251e11aa2a296f",
+      "tests/test_release.py": "bb878203376a1ea52e0265a5ccd874e4edeb302a585247fe66abc3ce061e8c3c"
+    },
+    "clone_clean_before_sync": true,
+    "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "snapshot_commit": "d0a872d41299a5fe66912ebedec402e214ceda49",
+    "snapshot_tree": "2964eb62976f202ed809ec58a5695555acbd4294",
+    "venv_absent_before_sync": true
+  },
+  "started_at": "2026-10-19T13:01:15.539935+00:00",
+  "steps": [
+    {
+      "argv": [
+        "git",
+        "clone",
+        "--no-local",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-rwj92p5w/repo",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6/seed"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6",
+      "elapsed_seconds": 0.29685712499485817,
+      "log": "00.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "scripts/release_check.py",
+        "configs/release.json",
+        "tests/test_release.py",
+        "results/p5/REPORT.md",
+        "README.md",
+        "docs/ROADMAP.md"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6/seed",
+      "elapsed_seconds": 0.0768697500025155,
+      "log": "01.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "--no-local",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6/seed",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6/repo"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6",
+      "elapsed_seconds": 0.2969044169949484,
+      "log": "02.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "sync",
+        "--locked"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6/repo",
+      "elapsed_seconds": 0.23415729100088356,
+      "log": "03.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "tests/test_cli.py"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6/repo",
+      "elapsed_seconds": 2.1359361249997164,
+      "log": "04.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6/repo",
+      "elapsed_seconds": 0.9247969999996712,
+      "log": "05.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "run",
+        "sut"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6/repo",
+      "elapsed_seconds": 0.9332690000010189,
+      "log": "06.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6/repo",
+      "elapsed_seconds": 0.07654620799439726,
+      "log": "07.log",
+      "returncode": 0
+    }
+  ]
+}

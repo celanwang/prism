@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "ruff",
+    "format",
+    "--check",
+    "."
+  ],
+  "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+  "log": "08.log"
+}

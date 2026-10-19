@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "candidate_version": "0.1.0",
+  "timeout_seconds": 1800,
+  "phases": {
+    "P0": {"reports": ["results/p0/REPORT.md", "results/p0/calibration.md"], "prs": [1, 2, 3, 4, 5]},
+    "P1": {"reports": ["results/p1/REPORT.md"], "prs": [6, 7, 9, 10]},
+    "P2": {"reports": ["results/p2/quant.md", "results/p2/speculative.md", "results/p2/kernels.md"], "prs": [11, 14, 16]},
+    "P3": {"reports": ["results/p3/REPORT.md"], "prs": [12, 15]},
+    "P4": {"reports": ["results/p4/REPORT.md"], "prs": [8, 13]},
+    "P5": {"reports": ["results/p5/REPORT.md"], "prs": [17]}
+  }
+}

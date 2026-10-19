@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "git",
+    "add",
+    "--",
+    "scripts/release_check.py",
+    "configs/release.json",
+    "tests/test_release.py",
+    "results/p5/REPORT.md",
+    "README.md",
+    "docs/ROADMAP.md"
+  ],
+  "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/seed",
+  "log": "01.log"
+}

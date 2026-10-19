@@ -1,0 +1,532 @@
+{
+  "clone_status_after": "",
+  "comparison": {
+    "errors": [],
+    "ok": true,
+    "recipes": [
+      {
+        "anchors": 0,
+        "env_differences": 0,
+        "name": "sut",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 0,
+          "p95": 0,
+          "p99": 0
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 0,
+        "env_differences": 0,
+        "name": "calibrate",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 0,
+          "p95": 0,
+          "p99": 0
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 4,
+        "env_differences": 0,
+        "name": "baseline",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 1,
+          "p95": 1,
+          "p99": 1
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 4,
+        "env_differences": 0,
+        "name": "kvcache",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 3,
+          "p95": 3,
+          "p99": 3
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 2,
+        "env_differences": 0,
+        "name": "schedsim",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 0,
+          "p95": 0,
+          "p99": 0
+        },
+        "unanchored": 16
+      },
+      {
+        "anchors": 9,
+        "env_differences": 0,
+        "name": "p1-calibrate",
+        "new_derived": 2,
+        "t4_above": {
+          "p50": 0,
+          "p95": 3,
+          "p99": 5
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 36,
+        "env_differences": 0,
+        "name": "quant",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 12,
+          "p95": 15,
+          "p99": 15
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 8,
+        "env_differences": 0,
+        "name": "serve",
+        "new_derived": 8,
+        "t4_above": {
+          "p50": 8,
+          "p95": 8,
+          "p99": 8
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 1,
+        "env_differences": 0,
+        "name": "parallel",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 0,
+          "p95": 0,
+          "p99": 0
+        },
+        "unanchored": 0
+      },
+      {
+        "anchors": 3,
+        "env_differences": 0,
+        "name": "p4-calibrate",
+        "new_derived": 0,
+        "t4_above": {
+          "p50": 3,
+          "p95": 2,
+          "p99": 2
+        },
+        "unanchored": 0
+      }
+    ],
+    "smoke_only": false,
+    "t4": {
+      "report": "results/p0/calibration.md",
+      "resolution_ms": 0.092584
+    }
+  },
+  "documents": {
+    "errors": [],
+    "ok": true,
+    "phases": [
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P0",
+        "report": "results/p0/REPORT.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P0",
+        "report": "results/p0/calibration.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P1",
+        "report": "results/p1/REPORT.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P2",
+        "report": "results/p2/quant.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P2",
+        "report": "results/p2/speculative.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P2",
+        "report": "results/p2/kernels.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P3",
+        "report": "results/p3/REPORT.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": true,
+        "phase": "P4",
+        "report": "results/p4/REPORT.md",
+        "roadmap_pointer": true
+      },
+      {
+        "exists": true,
+        "inventory_covered": false,
+        "phase": "P5",
+        "report": "results/p5/REPORT.md",
+        "roadmap_pointer": true
+      }
+    ],
+    "readme_commands": [
+      [
+        "uv",
+        "sync",
+        "--locked"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "pytest"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "prism"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "verify"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/verify_inventory.py"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "--list"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "--all",
+        "--dry-run"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "--sample"
+      ],
+      [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/release_check.py",
+        "--check"
+      ]
+    ],
+    "scope": "Pointers and merge history checked mechanically; semantic review in results/p5/REPORT.md."
+  },
+  "finished_at": "2026-10-19T12:56:19.732187+00:00",
+  "ok": true,
+  "smoke_only": false,
+  "source": {
+    "base_commit": "3a72da1e7b609359c568e4d07d117f4f7091bfac",
+    "candidate_sha256": {
+      "README.md": "e78ac3c41b03f39a671d4f2126a3cdf4a89c09a87e777a1efdee4891876e95e4",
+      "configs/release.json": "df7a6a9b02d06dcd96200e580a059b92b4d22a22c73d925346be08c9c52a77e0",
+      "docs/ROADMAP.md": "8c597887ec89bcc28cd9f03c3914aff216763f2515666eb25176c44fb0ddfb23",
+      "results/p5/REPORT.md": "bbe853857f7cefc3ce070447a94de65bb86effa6b1ede386b1803b62419d0e13",
+      "scripts/release_check.py": "7902ab22758ec6700768f637c94afad28c31af911b46330264a00a067a4510ea",
+      "tests/test_release.py": "8bdc80ad78424e700db5f5f179222a9abe7142817556adafcd07c5f64e3895bc"
+    },
+    "clone_clean_before_sync": true,
+    "patch_sha256": "193f10df25abdaffbfea82af39901619aad3a931cd48280192c8d87276b48e0b",
+    "snapshot_commit": "dfb918fa5f288ad5de16dc35583e81d9eee271d2",
+    "snapshot_tree": "eb6627c4d42e5a154f06d7dd17fc3eef4deaf0f4",
+    "venv_absent_before_sync": true
+  },
+  "started_at": "2026-10-19T12:54:18.965248+00:00",
+  "steps": [
+    {
+      "argv": [
+        "git",
+        "clone",
+        "--no-local",
+        "/Users/wangchen/Developer/prism-wt-release",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/seed"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb",
+      "elapsed_seconds": 1.2638144159936928,
+      "log": "00.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "add",
+        "--",
+        "scripts/release_check.py",
+        "configs/release.json",
+        "tests/test_release.py",
+        "results/p5/REPORT.md",
+        "README.md",
+        "docs/ROADMAP.md"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/seed",
+      "elapsed_seconds": 0.07700225000007777,
+      "log": "01.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "user.name=Prism release snapshot",
+        "-c",
+        "user.email=release@prism.invalid",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "commit",
+        "-m",
+        "Snapshot P5-T2 candidate inputs for independent replay"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/seed",
+      "elapsed_seconds": 0.07594304099620786,
+      "log": "02.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "clone",
+        "--no-local",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/seed",
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb",
+      "elapsed_seconds": 0.2864980829981505,
+      "log": "03.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "sync",
+        "--locked"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+      "elapsed_seconds": 0.2417033329984406,
+      "log": "04.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+      "elapsed_seconds": 36.30802004200086,
+      "log": "05.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "verify"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+      "elapsed_seconds": 0.9491895419996581,
+      "log": "06.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "check",
+        "."
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+      "elapsed_seconds": 0.39635666699905414,
+      "log": "07.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+      "elapsed_seconds": 0.040652249997947365,
+      "log": "08.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "-m",
+        "prism"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+      "elapsed_seconds": 0.131982708000578,
+      "log": "09.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/verify_inventory.py"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+      "elapsed_seconds": 0.12906108299648622,
+      "log": "10.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "--list"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+      "elapsed_seconds": 0.13178408300154842,
+      "log": "11.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "--all",
+        "--dry-run"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+      "elapsed_seconds": 0.13178754099499201,
+      "log": "12.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "prism",
+        "reproduce",
+        "--sample"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+      "elapsed_seconds": 71.72723729100107,
+      "log": "13.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "run",
+        "--locked",
+        "python",
+        "scripts/release_check.py",
+        "--check"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+      "elapsed_seconds": 4.70759862500563,
+      "log": "14.log",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo",
+      "elapsed_seconds": 0.07703329200012377,
+      "log": "15.log",
+      "returncode": 0
+    }
+  ]
+}

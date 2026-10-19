@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "uv",
+    "sync",
+    "--locked"
+  ],
+  "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-s5slj8m6/repo",
+  "log": "03.log"
+}

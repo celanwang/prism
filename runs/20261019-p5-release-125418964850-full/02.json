@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "git",
+    "-c",
+    "user.name=Prism release snapshot",
+    "-c",
+    "user.email=release@prism.invalid",
+    "-c",
+    "core.hooksPath=/dev/null",
+    "commit",
+    "-m",
+    "Snapshot P5-T2 candidate inputs for independent replay"
+  ],
+  "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/seed",
+  "log": "02.log"
+}

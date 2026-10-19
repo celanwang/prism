@@ -1,0 +1,16 @@
+[
+  {
+    "session": "20261019-p5-release-125418964850-full",
+    "raw_records_reloaded": 93,
+    "comparisons_equal": true,
+    "evidence_hashes_checked": 0,
+    "archive_sha256": "3de467836d96566b86f82f81a13e049acb3b31a5a0f99180742f83a075f2f464"
+  },
+  {
+    "session": "20261019-p5-release-125918660239-full",
+    "raw_records_reloaded": 93,
+    "comparisons_equal": true,
+    "evidence_hashes_checked": 69,
+    "archive_sha256": "7db1d9232ef22671a44c9e670616cba86c5f619722e3ffa6f1da0204a35fbb0d"
+  }
+]

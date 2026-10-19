@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "git",
+    "clone",
+    "--no-local",
+    "/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-tiyj3ban/seed",
+    "/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-tiyj3ban/repo"
+  ],
+  "cwd": "/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-tiyj3ban",
+  "log": "03.log"
+}

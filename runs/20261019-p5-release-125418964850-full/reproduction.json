@@ -1,0 +1,1670 @@
+{
+  "notes": [
+    "每个配方使用独立进程、完整正式配置；--sample 选择代表配方并包含依赖，不使用 smoke/check 降配。",
+    "依赖是执行前置关系；T4 阈值、P0 服务模型、P3 load 的历史校准输入冻结重放，不自动用新拟合替换。",
+    "schedsim 全网格只有 λ=100/s、B=4 的 static/continuous 两点可锚定；其余显式 unanchored。",
+    "P1 before 模拟要求 config 与确定性产物一致；新拟合、新 after 模拟与 P3 新派生模拟不计历史一致。",
+    "T4 只有报告无标准 run；报告指纹单列比较，不能宣称标准 run 覆盖或逐字节重建历史报告。",
+    "env 不同明确报告 env_equal=false；不据此静默宣称环境一致。config 不等或冻结模拟结果不等返回失败。",
+    "性能漂移按 T4 0.092584 ms 经验尺度标注，无百分比合格线，无显著性保证；模拟数字不是实测。",
+    "复跑产物只在新建 runs/.reproduce 会话内，默认不入库、不进 inventory；原入库记录从不覆盖。",
+    "发布范围为仓库 clone 中的 CLI；wheel 不含脚本/配置/SUT/inventory，不能单独执行全仓复现。"
+  ],
+  "ok": true,
+  "recipes": [
+    {
+      "argv": [
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo/.venv/bin/python",
+        "-m",
+        "prism",
+        "sut",
+        "check"
+      ],
+      "missing_anchors": [],
+      "name": "sut",
+      "ok": true,
+      "records": []
+    },
+    {
+      "argv": [
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo/.venv/bin/python",
+        "scripts/calibrate.py"
+      ],
+      "historical_report_config_hashes": [
+        "1cf7e6c0ae5a22644a4f55a7006542551e1e1c1869cb32cc9907af94b11da83c"
+      ],
+      "historical_report_env_hashes": [
+        "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3"
+      ],
+      "missing_anchors": [],
+      "name": "calibrate",
+      "ok": true,
+      "records": [],
+      "report_config_equal": true,
+      "report_config_hashes": [
+        "1cf7e6c0ae5a22644a4f55a7006542551e1e1c1869cb32cc9907af94b11da83c"
+      ],
+      "report_env_equal": true,
+      "report_env_hashes": [
+        "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3"
+      ]
+    },
+    {
+      "argv": [
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo/.venv/bin/python",
+        "scripts/baseline.py"
+      ],
+      "missing_anchors": [],
+      "name": "baseline",
+      "ok": true,
+      "records": [
+        {
+          "anchor": "runs/20261019-baseline-091032830255-decode",
+          "config_equal": true,
+          "config_hash": "2bc91ba825084c608d421574f63722a0e8e6737df02927cd4a939e4916f3a670",
+          "drift_ms": {
+            "p50": -0.2998960000000004,
+            "p95": -1.6412002999999977,
+            "p99": -2.4174531599999654
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "2bc91ba825084c608d421574f63722a0e8e6737df02927cd4a939e4916f3a670",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-baseline-125500610096-decode",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-baseline-091032830255-prefill-t1",
+          "config_equal": true,
+          "config_hash": "b39c8fb3a5a4066d7bbc91aae65ad9de9471e3202eb40130eb1e3e27cc742cb7",
+          "drift_ms": {
+            "p50": 0.005832999999999977,
+            "p95": -0.01366909999999999,
+            "p99": -0.04791181999999994
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "b39c8fb3a5a4066d7bbc91aae65ad9de9471e3202eb40130eb1e3e27cc742cb7",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-baseline-125500610096-prefill-t1",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-baseline-091032830255-prefill-t128",
+          "config_equal": true,
+          "config_hash": "6770f722303bcfc711ad202907b63b9e0b227b06e0f9a4676df92227ff9e05f6",
+          "drift_ms": {
+            "p50": 0.01227099999999992,
+            "p95": 0.027339000000000224,
+            "p99": -0.038161760000000156
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "6770f722303bcfc711ad202907b63b9e0b227b06e0f9a4676df92227ff9e05f6",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-baseline-125500610096-prefill-t128",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-baseline-091032830255-prefill-t32",
+          "config_equal": true,
+          "config_hash": "87c4e9140b540dad5dbb094022586cffc5f893ae00c2ad71ffd2963ef8c0812d",
+          "drift_ms": {
+            "p50": 0.0033334999999999892,
+            "p95": -0.0003226000000000617,
+            "p99": -0.01567383000000011
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "87c4e9140b540dad5dbb094022586cffc5f893ae00c2ad71ffd2963ef8c0812d",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-baseline-125500610096-prefill-t32",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        }
+      ]
+    },
+    {
+      "argv": [
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo/.venv/bin/python",
+        "scripts/kvcache_bench.py"
+      ],
+      "missing_anchors": [],
+      "name": "kvcache",
+      "ok": true,
+      "records": [
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-kvcache-093918473641-b1-cached",
+          "config_equal": true,
+          "config_hash": "57df607f3734be14899266e6c0fc989ac4f08849ed551e6dea30772da84a8ddf",
+          "drift_ms": {
+            "p50": 0.5400834999999979,
+            "p95": 0.5435836500000022,
+            "p99": 0.4286170899999924
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "57df607f3734be14899266e6c0fc989ac4f08849ed551e6dea30772da84a8ddf",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-kvcache-125509357224-b1-cached",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-kvcache-093918473641-b1-naive",
+          "config_equal": true,
+          "config_hash": "e203810a834f6b4e73f3b076167c8b393e66d8eb750cb4806d0fc1de4634f61a",
+          "drift_ms": {
+            "p50": 0.10735400000000084,
+            "p95": 2.0544103999999983,
+            "p99": 1.2922112599999984
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "e203810a834f6b4e73f3b076167c8b393e66d8eb750cb4806d0fc1de4634f61a",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-kvcache-125509357224-b1-naive",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-kvcache-093918473641-b2-cached",
+          "config_equal": true,
+          "config_hash": "19e962d2ed8ff449ca50eb32761f93fd86c11da7ae4e83487f7578a6fa7d4894",
+          "drift_ms": {
+            "p50": 0.5756875000000043,
+            "p95": 0.5837845000000002,
+            "p99": 0.4061316599999998
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "19e962d2ed8ff449ca50eb32761f93fd86c11da7ae4e83487f7578a6fa7d4894",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-kvcache-125509357224-b2-cached",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-kvcache-093918473641-b2-naive",
+          "config_equal": true,
+          "config_hash": "2a6c56c8e461f1034a836977dba6d1d5b0a1c3f1d42fc672362d9a9a1d1df6d2",
+          "drift_ms": {
+            "p50": 0.07591599999999943,
+            "p95": 0.0113774000000042,
+            "p99": -0.016408519999998816
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "2a6c56c8e461f1034a836977dba6d1d5b0a1c3f1d42fc672362d9a9a1d1df6d2",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-kvcache-125509357224-b2-naive",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        }
+      ]
+    },
+    {
+      "argv": [
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo/.venv/bin/python",
+        "scripts/schedsim.py"
+      ],
+      "missing_anchors": [],
+      "name": "schedsim",
+      "ok": true,
+      "records": [
+        {
+          "config_hash": "94d8b9e2812ec39c53e9903f43ce2c36322a0c1989f7d7f78224867dc36c61fd",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-0",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "4b5abe7bdedccc01990e1a4c0fecf6d46107e91b63d0d5a42a241f8539cc69f5",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-1",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "85b97faeda2159848561f882d98ae4bb1cf44580316ec19d4468025ab014d3b5",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-10",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "c36211ed3ef239b2fc0ce9d11c0672b894d21222b732e340d36f116302593fb4",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-11",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "7114787aa6452f3ec2a8b498fefc87d4d9c14642ca9fb9b9b0c2fc919423a0d1",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-12",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "39e174caf985610db1c064d7076e5dd3be6e313534881e55ad222b5ad5cf1b11",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-13",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "04080602a3a32ff7b54b1c5512929d8f913c74f735b7dc77c072024a29590b19",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-14",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "652ca61fcdb2c25dcb52d81079b1d493e4c6d42102ccccca8ea7e2e307f71f60",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-15",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "21834f1a33687649fd69f1f888b0c9b33ff5bac5a20c3dab2a3a943b45c26ceb",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-16",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "84cbaf0c65bb5c52a8ec4b548a34b30aaccc71b432c8f8092e1c6310cf442392",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-17",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "ff33b38183d62ece2a54f3f3b0a438bf04512e5a5645a21737badf5da77f8b07",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-2",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "b76833fe3fa433f6935a863a3632e54ab5c7c91344aaabe0a891af3171616826",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-3",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "77f5678742e49dc0730a0bb34fbca4102e913a7bfa7ced409161127a8453ab6e",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-4",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "09aa0c5c96760a5c68134abea937ca3fa50a98b81c91cd3ea212812108f24bfe",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-5",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "b9c59b7786ed17df3cf8b2af32453e67f902b49c68e7df1d696f2a2a55371d17",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-6",
+          "status": "unanchored"
+        },
+        {
+          "config_hash": "4a627d048913da0e9af0acaf228dd1962b3fb5b59e158b420a75df75dd3b19c4",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-7",
+          "status": "unanchored"
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-before-static",
+          "config_equal": true,
+          "config_hash": "ec60034618acacd3762fc0de1ad3b15607981ccfd81fae1dc85634556975440f",
+          "deterministic_equal": true,
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "ec60034618acacd3762fc0de1ad3b15607981ccfd81fae1dc85634556975440f",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-8",
+          "status": "matched"
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-before-continuous",
+          "config_equal": true,
+          "config_hash": "f32f2a6a46fa9cc10b8e793cabef925420754a1bb55464348acb1421d05281ea",
+          "deterministic_equal": true,
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "f32f2a6a46fa9cc10b8e793cabef925420754a1bb55464348acb1421d05281ea",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-schedsim-125527024404-9",
+          "status": "matched"
+        }
+      ]
+    },
+    {
+      "argv": [
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo/.venv/bin/python",
+        "scripts/p1_calibrate.py"
+      ],
+      "missing_anchors": [],
+      "name": "p1-calibrate",
+      "ok": true,
+      "records": [
+        {
+          "config_hash": "ad10b49d21b18fa022be2741a78a500de4176a8038f6c92e73abff0b2b340d8c",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-calibrate-125533634827-after-continuous",
+          "status": "new-derived"
+        },
+        {
+          "config_hash": "595655c70ba5da946c92a5ce2ad2dd924cdb6bcb2d005132457f0460bc469134",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-calibrate-125533634827-after-static",
+          "status": "new-derived"
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-before-continuous",
+          "config_equal": true,
+          "config_hash": "f32f2a6a46fa9cc10b8e793cabef925420754a1bb55464348acb1421d05281ea",
+          "deterministic_equal": true,
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "f32f2a6a46fa9cc10b8e793cabef925420754a1bb55464348acb1421d05281ea",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-calibrate-125533634827-before-continuous",
+          "status": "matched"
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-before-static",
+          "config_equal": true,
+          "config_hash": "ec60034618acacd3762fc0de1ad3b15607981ccfd81fae1dc85634556975440f",
+          "deterministic_equal": true,
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "ec60034618acacd3762fc0de1ad3b15607981ccfd81fae1dc85634556975440f",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-calibrate-125533634827-before-static",
+          "status": "matched"
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-decode-1",
+          "config_equal": true,
+          "config_hash": "c62697e09b21a28659c12774d0d2ac5b8d48a26d706a2a2900bfb86f9aef3382",
+          "drift_ms": {
+            "p50": -0.001980000000000093,
+            "p95": -0.09739854999999986,
+            "p99": -0.15566075999999973
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "c62697e09b21a28659c12774d0d2ac5b8d48a26d706a2a2900bfb86f9aef3382",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-calibrate-125533634827-decode-1",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-decode-2",
+          "config_equal": true,
+          "config_hash": "6b874c7fcfc2305fd0a40dd44b14c5049e13fdfec3b33873337ccfdd1dd7a2b7",
+          "drift_ms": {
+            "p50": 0.020186999999999955,
+            "p95": -0.03638685000000019,
+            "p99": -0.07067467000000005
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "6b874c7fcfc2305fd0a40dd44b14c5049e13fdfec3b33873337ccfdd1dd7a2b7",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-calibrate-125533634827-decode-2",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-decode-4",
+          "config_equal": true,
+          "config_hash": "344b8ce3a1ebf39abdd96230e4b6d4233e01bb7fc45612389359b903606e73dd",
+          "drift_ms": {
+            "p50": 0.02975049999999957,
+            "p95": -0.03800205000000023,
+            "p99": -0.12419975999999977
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "344b8ce3a1ebf39abdd96230e4b6d4233e01bb7fc45612389359b903606e73dd",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-calibrate-125533634827-decode-4",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-decode-8",
+          "config_equal": true,
+          "config_hash": "6f2a4f1aad9b6334fa9e0af7a6ccb43311d804d28d5e129cc72c757a9fcd8d1e",
+          "drift_ms": {
+            "p50": 0.024333999999999634,
+            "p95": -0.1495356999999995,
+            "p99": -0.37339948999999795
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "6f2a4f1aad9b6334fa9e0af7a6ccb43311d804d28d5e129cc72c757a9fcd8d1e",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-calibrate-125533634827-decode-8",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-prefill-1",
+          "config_equal": true,
+          "config_hash": "ccf40cb17677fee31be70044e88cc2bad642ba00c4effb5d4fde2bad97327fc1",
+          "drift_ms": {
+            "p50": 0.008333499999999938,
+            "p95": -0.034774400000000094,
+            "p99": -0.07729684000000003
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "ccf40cb17677fee31be70044e88cc2bad642ba00c4effb5d4fde2bad97327fc1",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-calibrate-125533634827-prefill-1",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-prefill-128",
+          "config_equal": true,
+          "config_hash": "3f337bad2ff0063fa8fb3a07dbfb98ef4519ed87af7f83d8f08b6cc7b219026f",
+          "drift_ms": {
+            "p50": 0.023999500000000173,
+            "p95": -0.13496279999999983,
+            "p99": -0.27468033000000025
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "3f337bad2ff0063fa8fb3a07dbfb98ef4519ed87af7f83d8f08b6cc7b219026f",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-calibrate-125533634827-prefill-128",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p1-calibrate-100535736151-prefill-32",
+          "config_equal": true,
+          "config_hash": "51f4aafce9b535ba6b8cba7f9101cd8dce2b8eea2a2848747853e83c24f9be91",
+          "drift_ms": {
+            "p50": -0.05395800000000006,
+            "p95": -0.08103160000000009,
+            "p99": -0.12568099999999993
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "51f4aafce9b535ba6b8cba7f9101cd8dce2b8eea2a2848747853e83c24f9be91",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p1-calibrate-125533634827-prefill-32",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "above-resolution"
+          }
+        }
+      ]
+    },
+    {
+      "argv": [
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo/.venv/bin/python",
+        "scripts/quant_bench.py"
+      ],
+      "missing_anchors": [],
+      "name": "quant",
+      "ok": true,
+      "records": [
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-fp32-decode-dequantize",
+          "config_equal": true,
+          "config_hash": "05d18de827722fcf7d5f00a480f019a5b6942bdf3f8e2eb864b8aaef2e981c7d",
+          "drift_ms": {
+            "p50": 4.199999999999999e-05,
+            "p95": 6.554999999999983e-05,
+            "p99": 5.3469999999999906e-05
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "05d18de827722fcf7d5f00a480f019a5b6942bdf3f8e2eb864b8aaef2e981c7d",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-fp32-decode-dequantize",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-fp32-decode-full",
+          "config_equal": true,
+          "config_hash": "eb0eaa73c6bd5ac9fa7958b9e8ad8a6382208a826978190ea4243617954d8f25",
+          "drift_ms": {
+            "p50": 0.19495850000000203,
+            "p95": 0.021535199999998866,
+            "p99": -0.03576722000000032
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "eb0eaa73c6bd5ac9fa7958b9e8ad8a6382208a826978190ea4243617954d8f25",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-fp32-decode-full",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-fp32-decode-matmul_bias",
+          "config_equal": true,
+          "config_hash": "edd5fa04cabae094454f86c5b598d2b4ad07f7dd03438189697386cf73b4fe59",
+          "drift_ms": {
+            "p50": -0.007624500000000145,
+            "p95": 0.0027911499999999645,
+            "p99": 0.0025149300000000263
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "edd5fa04cabae094454f86c5b598d2b4ad07f7dd03438189697386cf73b4fe59",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-fp32-decode-matmul_bias",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-fp32-prefill-dequantize",
+          "config_equal": true,
+          "config_hash": "0885ab7f1625ff40426efdf4767c41a41602f33e351261f65c0178125fed1c19",
+          "drift_ms": {
+            "p50": 0.0,
+            "p95": -2.3099999999999857e-05,
+            "p99": -7.182e-05
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "0885ab7f1625ff40426efdf4767c41a41602f33e351261f65c0178125fed1c19",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-fp32-prefill-dequantize",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-fp32-prefill-full",
+          "config_equal": true,
+          "config_hash": "0376384da6c2830e3e4a49145bcf8bf60cdddb094bd8eee5b33b4bcb2e2eb337",
+          "drift_ms": {
+            "p50": -0.07097900000000001,
+            "p95": -0.14153520000000008,
+            "p99": -0.19242082000000005
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "0376384da6c2830e3e4a49145bcf8bf60cdddb094bd8eee5b33b4bcb2e2eb337",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-fp32-prefill-full",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-fp32-prefill-matmul_bias",
+          "config_equal": true,
+          "config_hash": "0f1d22a99df935dd3d24aed70a7d470660c51b50e04aaef678abd02366ba1bfa",
+          "drift_ms": {
+            "p50": -0.03160399999999999,
+            "p95": -0.03144809999999999,
+            "p99": -0.03963754000000001
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "0f1d22a99df935dd3d24aed70a7d470660c51b50e04aaef678abd02366ba1bfa",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-fp32-prefill-matmul_bias",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-int4-decode-dequantize",
+          "config_equal": true,
+          "config_hash": "4b25de89f8f76b3a0c81416f0cf234ef09cca928148df9b60b43849205c2c3b0",
+          "drift_ms": {
+            "p50": 0.46554100000000176,
+            "p95": -6.594614849999999,
+            "p99": -6.736949069999994
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "4b25de89f8f76b3a0c81416f0cf234ef09cca928148df9b60b43849205c2c3b0",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-int4-decode-dequantize",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-int4-decode-full",
+          "config_equal": true,
+          "config_hash": "0793bf9c0be34fc47d43e40b12dd1e6823a19c2384fc7e5a173ecd6926de68f1",
+          "drift_ms": {
+            "p50": 3.217646000000002,
+            "p95": -1.7673664000000002,
+            "p99": -3.3432605700000124
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "0793bf9c0be34fc47d43e40b12dd1e6823a19c2384fc7e5a173ecd6926de68f1",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-int4-decode-full",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-int4-decode-matmul_bias",
+          "config_equal": true,
+          "config_hash": "94881c9fef1fccac04a454d42ad9ad632052c4a92c99c561c4ac55a6590842e3",
+          "drift_ms": {
+            "p50": -0.013374999999999915,
+            "p95": -0.027996350000000003,
+            "p99": -0.0398482899999999
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "94881c9fef1fccac04a454d42ad9ad632052c4a92c99c561c4ac55a6590842e3",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-int4-decode-matmul_bias",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-int4-prefill-dequantize",
+          "config_equal": true,
+          "config_hash": "3cdc2df97c23922246b50f9c04a47c29fb7d7a18900cdab81078b547180b4afc",
+          "drift_ms": {
+            "p50": 0.08524999999999983,
+            "p95": -0.09897904999999962,
+            "p99": -0.16222056999999968
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "3cdc2df97c23922246b50f9c04a47c29fb7d7a18900cdab81078b547180b4afc",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-int4-prefill-dequantize",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-int4-prefill-full",
+          "config_equal": true,
+          "config_hash": "8dd095c7fb4f23a0f330602e574235b24001a4c174c5bb57474f4db1c7cfbeff",
+          "drift_ms": {
+            "p50": 0.10370900000000027,
+            "p95": 0.2741378000000001,
+            "p99": 0.2864508899999998
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "8dd095c7fb4f23a0f330602e574235b24001a4c174c5bb57474f4db1c7cfbeff",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-int4-prefill-full",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-int4-prefill-matmul_bias",
+          "config_equal": true,
+          "config_hash": "45d8be1b161d16ae0786a8b7208e7e32dedff709788927a027bc7cdf189ad8b7",
+          "drift_ms": {
+            "p50": -0.006770500000000013,
+            "p95": 0.005427599999999977,
+            "p99": 0.019713290000000022
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "45d8be1b161d16ae0786a8b7208e7e32dedff709788927a027bc7cdf189ad8b7",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-int4-prefill-matmul_bias",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-int8-decode-dequantize",
+          "config_equal": true,
+          "config_hash": "c7ed08d69b9b3a1b2057b9bcc80d69f2ac95b82f10287d08cdee911a5facda58",
+          "drift_ms": {
+            "p50": -0.8083330000000011,
+            "p95": -0.13296439999999965,
+            "p99": -0.1809004999999999
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "c7ed08d69b9b3a1b2057b9bcc80d69f2ac95b82f10287d08cdee911a5facda58",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-int8-decode-dequantize",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-int8-decode-full",
+          "config_equal": true,
+          "config_hash": "34a235933814979b96c8e1f8d5000aab152ade7f509ec780b7d3285f8a993152",
+          "drift_ms": {
+            "p50": -0.446396,
+            "p95": -0.45173474999999996,
+            "p99": -0.4666256400000037
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "34a235933814979b96c8e1f8d5000aab152ade7f509ec780b7d3285f8a993152",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-int8-decode-full",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-int8-decode-matmul_bias",
+          "config_equal": true,
+          "config_hash": "da33af3321331b15a425fd60c2f9fea5025b5d51d632f0c182401031800c633c",
+          "drift_ms": {
+            "p50": 0.01866699999999999,
+            "p95": 0.0065541999999998435,
+            "p99": -0.007287999999999961
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "da33af3321331b15a425fd60c2f9fea5025b5d51d632f0c182401031800c633c",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-int8-decode-matmul_bias",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-int8-prefill-dequantize",
+          "config_equal": true,
+          "config_hash": "ade1e4afcc51853dfe5b81784afec2c9d4c0968399342972dbd9c835a34673c1",
+          "drift_ms": {
+            "p50": -0.027979000000000004,
+            "p95": -0.04323164999999998,
+            "p99": -0.044404040000000006
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "ade1e4afcc51853dfe5b81784afec2c9d4c0968399342972dbd9c835a34673c1",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-int8-prefill-dequantize",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-int8-prefill-full",
+          "config_equal": true,
+          "config_hash": "f8c57153af0bc07985fdb281f79e4e1e36a01f037f27c6ac19fe69e4e1616bec",
+          "drift_ms": {
+            "p50": -0.14081200000000005,
+            "p95": -0.24906454999999972,
+            "p99": -0.30799228
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "f8c57153af0bc07985fdb281f79e4e1e36a01f037f27c6ac19fe69e4e1616bec",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-int8-prefill-full",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b1-int8-prefill-matmul_bias",
+          "config_equal": true,
+          "config_hash": "2a756a3204e5333dc5cd7fe513d86c33e3c4b2b72a6ea901e3d11cae2bfdeecb",
+          "drift_ms": {
+            "p50": -0.07845850000000001,
+            "p95": -0.08240215,
+            "p99": -0.08039775
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "2a756a3204e5333dc5cd7fe513d86c33e3c4b2b72a6ea901e3d11cae2bfdeecb",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b1-int8-prefill-matmul_bias",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-fp32-decode-dequantize",
+          "config_equal": true,
+          "config_hash": "67703d1e20df995c4ce986c9cfd17b7975d8c2564e7e242db406da1b4b8178d5",
+          "drift_ms": {
+            "p50": -4.199999999999999e-05,
+            "p95": -6.0900000000000125e-05,
+            "p99": -0.00013075000000000012
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "67703d1e20df995c4ce986c9cfd17b7975d8c2564e7e242db406da1b4b8178d5",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-fp32-decode-dequantize",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-fp32-decode-full",
+          "config_equal": true,
+          "config_hash": "791930d21446cd6d0d5f8797ae91406c7f53b9c5330732204f5bf8de7427ab5c",
+          "drift_ms": {
+            "p50": 0.20956299999999928,
+            "p95": 0.37292150000000035,
+            "p99": 0.3125856099999993
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "791930d21446cd6d0d5f8797ae91406c7f53b9c5330732204f5bf8de7427ab5c",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-fp32-decode-full",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-fp32-decode-matmul_bias",
+          "config_equal": true,
+          "config_hash": "15de8993c10ff0e03aca4045e034b707f9ad309de8034f0603fc32ddf3ae0a27",
+          "drift_ms": {
+            "p50": -0.029938000000000242,
+            "p95": -0.04380945000000014,
+            "p99": -0.04234332000000007
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "15de8993c10ff0e03aca4045e034b707f9ad309de8034f0603fc32ddf3ae0a27",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-fp32-decode-matmul_bias",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-fp32-prefill-dequantize",
+          "config_equal": true,
+          "config_hash": "be7960cdbc841521e6bdd944e85e2215f05b5a3e562c043d2961b56bc9f432a5",
+          "drift_ms": {
+            "p50": 4.100000000000002e-05,
+            "p95": -2.3099999999999857e-05,
+            "p99": -4.199999999999994e-05
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "be7960cdbc841521e6bdd944e85e2215f05b5a3e562c043d2961b56bc9f432a5",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-fp32-prefill-dequantize",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-fp32-prefill-full",
+          "config_equal": true,
+          "config_hash": "4bb35a2a2571a1ff1c1884f59bbd6e489b9e64ade8a4fa6a5b75adc60fb0cf34",
+          "drift_ms": {
+            "p50": -0.03266699999999989,
+            "p95": -0.048814399999999925,
+            "p99": -0.06479371
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "4bb35a2a2571a1ff1c1884f59bbd6e489b9e64ade8a4fa6a5b75adc60fb0cf34",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-fp32-prefill-full",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-fp32-prefill-matmul_bias",
+          "config_equal": true,
+          "config_hash": "e3c9f5334f8209c33812c26f200d33d5be4a5a2dd87d9a646a4bcff36f2f6b74",
+          "drift_ms": {
+            "p50": -0.03277100000000001,
+            "p95": -0.026097100000000012,
+            "p99": -0.034895640000000006
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "e3c9f5334f8209c33812c26f200d33d5be4a5a2dd87d9a646a4bcff36f2f6b74",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-fp32-prefill-matmul_bias",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-int4-decode-dequantize",
+          "config_equal": true,
+          "config_hash": "f9dc8be8751404ab5ccf21ff0c4a23d2e27f84b29b606d23d40b8ea02902b749",
+          "drift_ms": {
+            "p50": 4.84412549999999,
+            "p95": 2.7231668499999984,
+            "p99": 0.8492268199999842
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "f9dc8be8751404ab5ccf21ff0c4a23d2e27f84b29b606d23d40b8ea02902b749",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-int4-decode-dequantize",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-int4-decode-full",
+          "config_equal": true,
+          "config_hash": "d517d58bdde8f1ef80569499bea3444c340dd09846988b0dec0d615c8066f39e",
+          "drift_ms": {
+            "p50": -0.06289500000001169,
+            "p95": -1.6624834499999963,
+            "p99": 5.270702540000002
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "d517d58bdde8f1ef80569499bea3444c340dd09846988b0dec0d615c8066f39e",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-int4-decode-full",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-int4-decode-matmul_bias",
+          "config_equal": true,
+          "config_hash": "b5c6ccbdae592e7f69fb4ea266f2ea89ea43844a435a9c823ac86abb2ae743d3",
+          "drift_ms": {
+            "p50": -0.05583350000000009,
+            "p95": -0.14438719999999994,
+            "p99": -0.15795679000000007
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "b5c6ccbdae592e7f69fb4ea266f2ea89ea43844a435a9c823ac86abb2ae743d3",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-int4-decode-matmul_bias",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-int4-prefill-dequantize",
+          "config_equal": true,
+          "config_hash": "5a2f64fe8cec57785432151ca8a35e2798d665d63f60b753e24d827b6b943c60",
+          "drift_ms": {
+            "p50": -0.13187499999999996,
+            "p95": -0.4426456499999998,
+            "p99": -0.4773924599999999
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "5a2f64fe8cec57785432151ca8a35e2798d665d63f60b753e24d827b6b943c60",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-int4-prefill-dequantize",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-int4-prefill-full",
+          "config_equal": true,
+          "config_hash": "ec67bfc029d16b556007659b2fd6e956d3c500c5e4f35f2b2b5916a380f5bcce",
+          "drift_ms": {
+            "p50": -0.0031045000000005096,
+            "p95": -0.058097799999999644,
+            "p99": -0.05513842999999996
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "ec67bfc029d16b556007659b2fd6e956d3c500c5e4f35f2b2b5916a380f5bcce",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-int4-prefill-full",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-int4-prefill-matmul_bias",
+          "config_equal": true,
+          "config_hash": "6009a4559cfa2b78ab89c201c1060ecacbc263126e50cd286a0f6774cc3ee6c4",
+          "drift_ms": {
+            "p50": -0.021999999999999964,
+            "p95": -0.019581100000000018,
+            "p99": -0.0035178599999999838
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "6009a4559cfa2b78ab89c201c1060ecacbc263126e50cd286a0f6774cc3ee6c4",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-int4-prefill-matmul_bias",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-int8-decode-dequantize",
+          "config_equal": true,
+          "config_hash": "933ce9b043d2f2492130b5039ca661ed29db6352efd35db2eae1b1c0b22d0b72",
+          "drift_ms": {
+            "p50": 0.1683330000000005,
+            "p95": 0.029160000000000075,
+            "p99": -0.007354069999999879
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "933ce9b043d2f2492130b5039ca661ed29db6352efd35db2eae1b1c0b22d0b72",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-int8-decode-dequantize",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-int8-decode-full",
+          "config_equal": true,
+          "config_hash": "245d434e3458af7e88d662339e09962dcf521fe6ae9be308055f32fe5a7bd282",
+          "drift_ms": {
+            "p50": -0.31293749999999676,
+            "p95": -2.923327049999994,
+            "p99": -5.900612110000001
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "245d434e3458af7e88d662339e09962dcf521fe6ae9be308055f32fe5a7bd282",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-int8-decode-full",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-int8-decode-matmul_bias",
+          "config_equal": true,
+          "config_hash": "a37c533bad3f1f5bccf9b84a355ec1e10b5fb22ee27d053f3c3642d037262502",
+          "drift_ms": {
+            "p50": 0.02820800000000001,
+            "p95": -0.01723125000000003,
+            "p99": -0.03396250000000012
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "a37c533bad3f1f5bccf9b84a355ec1e10b5fb22ee27d053f3c3642d037262502",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-int8-decode-matmul_bias",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-int8-prefill-dequantize",
+          "config_equal": true,
+          "config_hash": "4cc73777f7a22a25859165a2c6bb8af89bbf72f7207e78a90e8febbf8f795ede",
+          "drift_ms": {
+            "p50": 0.04291599999999998,
+            "p95": 0.050848249999999956,
+            "p99": 0.08739432000000005
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "4cc73777f7a22a25859165a2c6bb8af89bbf72f7207e78a90e8febbf8f795ede",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-int8-prefill-dequantize",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-int8-prefill-full",
+          "config_equal": true,
+          "config_hash": "62ff91fe7c563bdfca49c53961e166d37b3b6b5c57a09cd326c38780b08073a9",
+          "drift_ms": {
+            "p50": -0.08693650000000008,
+            "p95": -0.2393015999999999,
+            "p99": -0.3352724600000001
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "62ff91fe7c563bdfca49c53961e166d37b3b6b5c57a09cd326c38780b08073a9",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-int8-prefill-full",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p2-quant-101317066291-b2-int8-prefill-matmul_bias",
+          "config_equal": true,
+          "config_hash": "a0f3d9171a81b3c0e189ff87e73d35f2d0f68d930014547ba05e753265d9da64",
+          "drift_ms": {
+            "p50": -0.0010415000000000285,
+            "p95": -0.017365099999999994,
+            "p99": -0.023306679999999996
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "a0f3d9171a81b3c0e189ff87e73d35f2d0f68d930014547ba05e753265d9da64",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p2-quant-125541578886-b2-int8-prefill-matmul_bias",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "below-resolution",
+            "p95": "below-resolution",
+            "p99": "below-resolution"
+          }
+        }
+      ]
+    },
+    {
+      "argv": [
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo/.venv/bin/python",
+        "scripts/serve_bench.py"
+      ],
+      "missing_anchors": [],
+      "name": "serve",
+      "ok": true,
+      "records": [
+        {
+          "anchor": "runs/20261019-p3-serve-138d0748-stream-c1",
+          "config_equal": true,
+          "config_hash": "719017239c5ce4d69dd11e15916c1fbcdf503789956c593e8ab97255d408126e",
+          "drift_ms": {
+            "p50": -12.202209000000039,
+            "p95": -16.108299999999986,
+            "p99": -16.096859999999992
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "719017239c5ce4d69dd11e15916c1fbcdf503789956c593e8ab97255d408126e",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-stream-c1",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "config_hash": "26c11133ef64f35889f2a295b905026e1c1bea92f644b07653b9eec93f460077",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-stream-c1-sim",
+          "status": "new-derived"
+        },
+        {
+          "anchor": "runs/20261019-p3-serve-138d0748-stream-c2",
+          "config_equal": true,
+          "config_hash": "ccc372d814c382a5f2a7a79e29739683b39bf18c9517a7bffbfbecd5e204a8ba",
+          "drift_ms": {
+            "p50": -6.629458999999997,
+            "p95": -13.27187520000001,
+            "p99": -14.213375040000017
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "ccc372d814c382a5f2a7a79e29739683b39bf18c9517a7bffbfbecd5e204a8ba",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-stream-c2",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "config_hash": "e57d0586c0ea9f635bc8ce7e9c279323edd36030756ca25c69fae3e363f1443d",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-stream-c2-sim",
+          "status": "new-derived"
+        },
+        {
+          "anchor": "runs/20261019-p3-serve-138d0748-stream-c4",
+          "config_equal": true,
+          "config_hash": "a41a41c2b330c741da6f5ef5f80ed9ecb26fc6b22b357a53dc311c80188e5214",
+          "drift_ms": {
+            "p50": -3.124167,
+            "p95": -7.501966600000003,
+            "p99": -7.762293319999998
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "a41a41c2b330c741da6f5ef5f80ed9ecb26fc6b22b357a53dc311c80188e5214",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-stream-c4",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "config_hash": "1acbfbc7fb328f077124b6dd3a76fe0ee7f268bb549cd467a13999590538f6cb",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-stream-c4-sim",
+          "status": "new-derived"
+        },
+        {
+          "anchor": "runs/20261019-p3-serve-138d0748-stream-c8",
+          "config_equal": true,
+          "config_hash": "70ad66ee73bef2f80471da3e26ac57fe89c2660176fff028fade599ec1c5f2f6",
+          "drift_ms": {
+            "p50": -5.716250000000002,
+            "p95": -1.4930163999999877,
+            "p99": -0.8638696799999934
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "70ad66ee73bef2f80471da3e26ac57fe89c2660176fff028fade599ec1c5f2f6",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-stream-c8",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "config_hash": "3d00a0546a27641a7b5cdb1fb4b5d85513188509e35a2be3341eedb87e6548a5",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-stream-c8-sim",
+          "status": "new-derived"
+        },
+        {
+          "anchor": "runs/20261019-p3-serve-138d0748-whole-c1",
+          "config_equal": true,
+          "config_hash": "7e01398714811cbedafe57b36e762da04ff7dcb2a8c781fd9c9d76461b0ef040",
+          "drift_ms": {
+            "p50": 12.150917000000021,
+            "p95": 12.797908399999983,
+            "p99": 12.75538168
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "7e01398714811cbedafe57b36e762da04ff7dcb2a8c781fd9c9d76461b0ef040",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-whole-c1",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "config_hash": "e33c3693ceabba43d8f7e6cb3da38c8ea350ce4d9a97819665480000bc22f11d",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-whole-c1-sim",
+          "status": "new-derived"
+        },
+        {
+          "anchor": "runs/20261019-p3-serve-138d0748-whole-c2",
+          "config_equal": true,
+          "config_hash": "aa61597cba9c65370217bae35637340c35704d7981dbbb0d871cad7db6252e42",
+          "drift_ms": {
+            "p50": 1.308499999999981,
+            "p95": 0.3213660000000118,
+            "p99": 0.21770599999999263
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "aa61597cba9c65370217bae35637340c35704d7981dbbb0d871cad7db6252e42",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-whole-c2",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "config_hash": "7b0d2f260809630401467f8ea64fb7e030b8d47b5406d8d1432d268a97a43f19",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-whole-c2-sim",
+          "status": "new-derived"
+        },
+        {
+          "anchor": "runs/20261019-p3-serve-138d0748-whole-c4",
+          "config_equal": true,
+          "config_hash": "59ea707dce255fff770f99b1fbeda94ed7a03f47bcde86f10466949df979778a",
+          "drift_ms": {
+            "p50": 3.378582999999992,
+            "p95": 3.8946162000000015,
+            "p99": 3.929456039999991
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "59ea707dce255fff770f99b1fbeda94ed7a03f47bcde86f10466949df979778a",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-whole-c4",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "config_hash": "eb2962b7d9b2170279fe3a5ebe634e0c65d0ebfa71252108c208c7d3b43f51c9",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-whole-c4-sim",
+          "status": "new-derived"
+        },
+        {
+          "anchor": "runs/20261019-p3-serve-138d0748-whole-c8",
+          "config_equal": true,
+          "config_hash": "9ee73d31efb3beb286ae4e0ae79fc03429b25621f5d2ed699859aa4f944de352",
+          "drift_ms": {
+            "p50": 1.2746259999999978,
+            "p95": -0.9286498000000023,
+            "p99": -0.8462963600000108
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "9ee73d31efb3beb286ae4e0ae79fc03429b25621f5d2ed699859aa4f944de352",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-whole-c8",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "config_hash": "a38a46167d587f5f2b0f317c0f7ef02f2aa598cc048057233d3a37fd248122c4",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p3-serve-7df6db9c-whole-c8-sim",
+          "status": "new-derived"
+        }
+      ]
+    },
+    {
+      "argv": [
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo/.venv/bin/python",
+        "scripts/parallel_scan.py"
+      ],
+      "missing_anchors": [],
+      "name": "parallel",
+      "ok": true,
+      "records": [
+        {
+          "anchor": "runs/20261019-p4-models-095408665699",
+          "config_equal": true,
+          "config_hash": "d09a9420f2df0b586962432a1efd2f8a574a9dd09212ed3df69774868588523e",
+          "deterministic_equal": true,
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "d09a9420f2df0b586962432a1efd2f8a574a9dd09212ed3df69774868588523e",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p4-models-125609701129",
+          "status": "matched"
+        }
+      ]
+    },
+    {
+      "argv": [
+        "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo/.venv/bin/python",
+        "scripts/p4_calibrate.py"
+      ],
+      "missing_anchors": [],
+      "name": "p4-calibrate",
+      "ok": true,
+      "records": [
+        {
+          "anchor": "runs/20261019-p4-calibrate-114418775926-b1",
+          "config_equal": true,
+          "config_hash": "1c52b92b6262333b47d4ead385059223ba5f9e15e09ab946f69851230120f814",
+          "drift_ms": {
+            "p50": 0.22843749999999918,
+            "p95": 0.16301629999999978,
+            "p99": 0.07530064000000003
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "1c52b92b6262333b47d4ead385059223ba5f9e15e09ab946f69851230120f814",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p4-calibrate-125609916028-b1",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "below-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p4-calibrate-114418775926-b2",
+          "config_equal": true,
+          "config_hash": "0cd65103748f9b13cb5e2146e1ffa7bf802f74e2b216a86859449d1d37c9d35d",
+          "drift_ms": {
+            "p50": 0.32379200000000097,
+            "p95": 0.340276499999999,
+            "p99": 0.2625391400000012
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "0cd65103748f9b13cb5e2146e1ffa7bf802f74e2b216a86859449d1d37c9d35d",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p4-calibrate-125609916028-b2",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "above-resolution",
+            "p99": "above-resolution"
+          }
+        },
+        {
+          "anchor": "runs/20261019-p4-calibrate-114418775926-b4",
+          "config_equal": true,
+          "config_hash": "7023c6798f6825b1be749a4cd8ca6beba5fa1e9b109cfd0c3e60d3ff42067290",
+          "drift_ms": {
+            "p50": 0.40362450000000116,
+            "p95": 0.04496699999999976,
+            "p99": -0.2724487100000008
+          },
+          "env_equal": true,
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "historical_config_hash": "7023c6798f6825b1be749a4cd8ca6beba5fa1e9b109cfd0c3e60d3ff42067290",
+          "historical_env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "run": "runs/20261019-p4-calibrate-125609916028-b4",
+          "status": "matched",
+          "t4_annotation": {
+            "p50": "above-resolution",
+            "p95": "below-resolution",
+            "p99": "above-resolution"
+          }
+        }
+      ]
+    }
+  ],
+  "session": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-ez_6c2pb/repo/runs/.reproduce/c61022490f5949df8440761915854520",
+  "t4": {
+    "report": "results/p0/calibration.md",
+    "resolution_ms": 0.092584
+  },
+  "verification": {
+    "checked": 1591,
+    "errors": [],
+    "ok": true,
+    "source_commit": "124fe7c4ef5c655655cfb11012f1fd1fac184910"
+  }
+}

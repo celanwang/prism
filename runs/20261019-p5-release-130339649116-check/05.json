@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--locked",
+    "pytest",
+    "tests/test_cli.py"
+  ],
+  "cwd": "/private/var/folders/b8/qhx6fc396qq1z83dhr69xqdw0000gn/T/prism-release-4timpoec/repo",
+  "log": "05.log"
+}

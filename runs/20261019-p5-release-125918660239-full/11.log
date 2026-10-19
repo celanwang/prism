@@ -1,0 +1,385 @@
+{
+  "frozen_inputs": [
+    "runs/20261019-p1-calibrate-100535736151-prefill-1/calibrated_schedsim.json"
+  ],
+  "notes": [
+    "每个配方使用独立进程、完整正式配置；--sample 选择代表配方并包含依赖，不使用 smoke/check 降配。",
+    "依赖是执行前置关系；T4 阈值、P0 服务模型、P3 load 的历史校准输入冻结重放，不自动用新拟合替换。",
+    "schedsim 全网格只有 λ=100/s、B=4 的 static/continuous 两点可锚定；其余显式 unanchored。",
+    "P1 before 模拟要求 config 与确定性产物一致；新拟合、新 after 模拟与 P3 新派生模拟不计历史一致。",
+    "T4 只有报告无标准 run；报告指纹单列比较，不能宣称标准 run 覆盖或逐字节重建历史报告。",
+    "env 不同明确报告 env_equal=false；不据此静默宣称环境一致。config 不等或冻结模拟结果不等返回失败。",
+    "性能漂移按 T4 0.092584 ms 经验尺度标注，无百分比合格线，无显著性保证；模拟数字不是实测。",
+    "复跑产物只在新建 runs/.reproduce 会话内，默认不入库、不进 inventory；原入库记录从不覆盖。",
+    "发布范围为仓库 clone 中的 CLI；wheel 不含脚本/配置/SUT/inventory，不能单独执行全仓复现。"
+  ],
+  "publication_scope": "仓库 clone 中的 CLI；wheel 不含 scripts/configs/inventory/SUT。",
+  "recipes": {
+    "baseline": {
+      "anchors": [
+        "runs/20261019-baseline-091032830255-decode",
+        "runs/20261019-baseline-091032830255-prefill-t1",
+        "runs/20261019-baseline-091032830255-prefill-t128",
+        "runs/20261019-baseline-091032830255-prefill-t32"
+      ],
+      "argv": [
+        "scripts/baseline.py"
+      ],
+      "depends": [
+        "calibrate"
+      ]
+    },
+    "calibrate": {
+      "anchors": [],
+      "argv": [
+        "scripts/calibrate.py"
+      ],
+      "depends": [
+        "sut"
+      ]
+    },
+    "kernels-attention": {
+      "anchors": [
+        "runs/20261019-p2-kernels-120910325237-attention-b1-attention_bt-decode",
+        "runs/20261019-p2-kernels-120910325237-attention-b1-attention_bt-prefill",
+        "runs/20261019-p2-kernels-120910325237-attention-b1-baseline-decode",
+        "runs/20261019-p2-kernels-120910325237-attention-b1-baseline-prefill",
+        "runs/20261019-p2-kernels-120910325237-attention-b2-attention_bt-decode",
+        "runs/20261019-p2-kernels-120910325237-attention-b2-attention_bt-prefill",
+        "runs/20261019-p2-kernels-120910325237-attention-b2-baseline-decode",
+        "runs/20261019-p2-kernels-120910325237-attention-b2-baseline-prefill"
+      ],
+      "argv": [
+        "scripts/kernel_bench.py",
+        "--recipe",
+        "attention"
+      ],
+      "depends": [
+        "kvcache"
+      ]
+    },
+    "kernels-mlp": {
+      "anchors": [
+        "runs/20261019-p2-kernels-121132154397-mlp-b1-baseline-decode",
+        "runs/20261019-p2-kernels-121132154397-mlp-b1-baseline-prefill",
+        "runs/20261019-p2-kernels-121132154397-mlp-b1-mlp_reuse-decode",
+        "runs/20261019-p2-kernels-121132154397-mlp-b1-mlp_reuse-prefill",
+        "runs/20261019-p2-kernels-121132154397-mlp-b2-baseline-decode",
+        "runs/20261019-p2-kernels-121132154397-mlp-b2-baseline-prefill",
+        "runs/20261019-p2-kernels-121132154397-mlp-b2-mlp_reuse-decode",
+        "runs/20261019-p2-kernels-121132154397-mlp-b2-mlp_reuse-prefill"
+      ],
+      "argv": [
+        "scripts/kernel_bench.py",
+        "--recipe",
+        "mlp"
+      ],
+      "depends": [
+        "kvcache"
+      ]
+    },
+    "kernels-qkv": {
+      "anchors": [
+        "runs/20261019-p2-kernels-120650066022-qkv-b1-baseline-decode",
+        "runs/20261019-p2-kernels-120650066022-qkv-b1-baseline-prefill",
+        "runs/20261019-p2-kernels-120650066022-qkv-b1-qkv_split-decode",
+        "runs/20261019-p2-kernels-120650066022-qkv-b1-qkv_split-prefill",
+        "runs/20261019-p2-kernels-120650066022-qkv-b2-baseline-decode",
+        "runs/20261019-p2-kernels-120650066022-qkv-b2-baseline-prefill",
+        "runs/20261019-p2-kernels-120650066022-qkv-b2-qkv_split-decode",
+        "runs/20261019-p2-kernels-120650066022-qkv-b2-qkv_split-prefill"
+      ],
+      "argv": [
+        "scripts/kernel_bench.py",
+        "--recipe",
+        "qkv"
+      ],
+      "depends": [
+        "kvcache"
+      ]
+    },
+    "kvcache": {
+      "anchors": [
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-kvcache-093918473641-b1-cached",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-kvcache-093918473641-b1-naive",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-kvcache-093918473641-b2-cached",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-kvcache-093918473641-b2-naive"
+      ],
+      "argv": [
+        "scripts/kvcache_bench.py"
+      ],
+      "depends": [
+        "baseline"
+      ]
+    },
+    "load": {
+      "anchors": [
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r10-c1-q2",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r10-c1-q64",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r10-c64-q2",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r10-c64-q64",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r10-c8-q2",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r10-c8-q64",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r160-c1-q2",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r160-c1-q64",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r160-c64-q2",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r160-c64-q64",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r160-c8-q2",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r160-c8-q64",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r40-c1-q2",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r40-c1-q64",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r40-c64-q2",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r40-c64-q64",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r40-c8-q2",
+        "runs/20261019-p3-load-120854372978-f93d7f/20261019-r40-c8-q64"
+      ],
+      "argv": [
+        "scripts/serve_load.py"
+      ],
+      "depends": [
+        "serve",
+        "p1-calibrate"
+      ]
+    },
+    "p1-calibrate": {
+      "anchors": [
+        "runs/20261019-p1-calibrate-100535736151-before-continuous",
+        "runs/20261019-p1-calibrate-100535736151-before-static",
+        "runs/20261019-p1-calibrate-100535736151-decode-1",
+        "runs/20261019-p1-calibrate-100535736151-decode-2",
+        "runs/20261019-p1-calibrate-100535736151-decode-4",
+        "runs/20261019-p1-calibrate-100535736151-decode-8",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1",
+        "runs/20261019-p1-calibrate-100535736151-prefill-128",
+        "runs/20261019-p1-calibrate-100535736151-prefill-32"
+      ],
+      "argv": [
+        "scripts/p1_calibrate.py"
+      ],
+      "depends": [
+        "kvcache",
+        "schedsim"
+      ]
+    },
+    "p4-calibrate": {
+      "anchors": [
+        "runs/20261019-p4-calibrate-114418775926-b1",
+        "runs/20261019-p4-calibrate-114418775926-b2",
+        "runs/20261019-p4-calibrate-114418775926-b4"
+      ],
+      "argv": [
+        "scripts/p4_calibrate.py"
+      ],
+      "depends": [
+        "parallel"
+      ]
+    },
+    "paged": {
+      "anchors": [
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b16-m114688-allocation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b16-m114688-lru-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b16-m114688-sliding-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b16-m131072-allocation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b16-m131072-lru-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b16-m131072-sliding-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b16-m65536-allocation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b16-m65536-lru-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b16-m65536-sliding-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b32-m114688-allocation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b32-m114688-lru-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b32-m114688-sliding-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b32-m131072-allocation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b32-m131072-lru-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b32-m131072-sliding-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b32-m65536-allocation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b32-m65536-lru-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b32-m65536-sliding-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b8-m114688-allocation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b8-m114688-lru-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b8-m114688-sliding-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b8-m131072-allocation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b8-m131072-lru-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b8-m131072-sliding-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b8-m65536-allocation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b8-m65536-lru-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-b8-m65536-sliding-simulation",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-order1-b16-m131072-decode",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-order1-b32-m131072-decode",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-order1-b8-m114688-decode",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-order1-b8-m131072-decode",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-order1-continuous-decode",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-order1-naive-decode",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-order2-b16-m131072-decode",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-order2-b32-m131072-decode",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-order2-b8-m114688-decode",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-order2-b8-m131072-decode",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-order2-continuous-decode",
+        "runs/20261019-p1-calibrate-100535736151-prefill-1/evidence/20261019-p1-paged-095835826274-order2-naive-decode"
+      ],
+      "argv": [
+        "scripts/paged_bench.py"
+      ],
+      "depends": [
+        "kvcache"
+      ]
+    },
+    "parallel": {
+      "anchors": [
+        "runs/20261019-p4-models-095408665699"
+      ],
+      "argv": [
+        "scripts/parallel_scan.py"
+      ],
+      "depends": [
+        "sut"
+      ]
+    },
+    "quant": {
+      "anchors": [
+        "runs/20261019-p2-quant-101317066291-b1-fp32-decode-dequantize",
+        "runs/20261019-p2-quant-101317066291-b1-fp32-decode-full",
+        "runs/20261019-p2-quant-101317066291-b1-fp32-decode-matmul_bias",
+        "runs/20261019-p2-quant-101317066291-b1-fp32-prefill-dequantize",
+        "runs/20261019-p2-quant-101317066291-b1-fp32-prefill-full",
+        "runs/20261019-p2-quant-101317066291-b1-fp32-prefill-matmul_bias",
+        "runs/20261019-p2-quant-101317066291-b1-int4-decode-dequantize",
+        "runs/20261019-p2-quant-101317066291-b1-int4-decode-full",
+        "runs/20261019-p2-quant-101317066291-b1-int4-decode-matmul_bias",
+        "runs/20261019-p2-quant-101317066291-b1-int4-prefill-dequantize",
+        "runs/20261019-p2-quant-101317066291-b1-int4-prefill-full",
+        "runs/20261019-p2-quant-101317066291-b1-int4-prefill-matmul_bias",
+        "runs/20261019-p2-quant-101317066291-b1-int8-decode-dequantize",
+        "runs/20261019-p2-quant-101317066291-b1-int8-decode-full",
+        "runs/20261019-p2-quant-101317066291-b1-int8-decode-matmul_bias",
+        "runs/20261019-p2-quant-101317066291-b1-int8-prefill-dequantize",
+        "runs/20261019-p2-quant-101317066291-b1-int8-prefill-full",
+        "runs/20261019-p2-quant-101317066291-b1-int8-prefill-matmul_bias",
+        "runs/20261019-p2-quant-101317066291-b2-fp32-decode-dequantize",
+        "runs/20261019-p2-quant-101317066291-b2-fp32-decode-full",
+        "runs/20261019-p2-quant-101317066291-b2-fp32-decode-matmul_bias",
+        "runs/20261019-p2-quant-101317066291-b2-fp32-prefill-dequantize",
+        "runs/20261019-p2-quant-101317066291-b2-fp32-prefill-full",
+        "runs/20261019-p2-quant-101317066291-b2-fp32-prefill-matmul_bias",
+        "runs/20261019-p2-quant-101317066291-b2-int4-decode-dequantize",
+        "runs/20261019-p2-quant-101317066291-b2-int4-decode-full",
+        "runs/20261019-p2-quant-101317066291-b2-int4-decode-matmul_bias",
+        "runs/20261019-p2-quant-101317066291-b2-int4-prefill-dequantize",
+        "runs/20261019-p2-quant-101317066291-b2-int4-prefill-full",
+        "runs/20261019-p2-quant-101317066291-b2-int4-prefill-matmul_bias",
+        "runs/20261019-p2-quant-101317066291-b2-int8-decode-dequantize",
+        "runs/20261019-p2-quant-101317066291-b2-int8-decode-full",
+        "runs/20261019-p2-quant-101317066291-b2-int8-decode-matmul_bias",
+        "runs/20261019-p2-quant-101317066291-b2-int8-prefill-dequantize",
+        "runs/20261019-p2-quant-101317066291-b2-int8-prefill-full",
+        "runs/20261019-p2-quant-101317066291-b2-int8-prefill-matmul_bias"
+      ],
+      "argv": [
+        "scripts/quant_bench.py"
+      ],
+      "depends": [
+        "kvcache"
+      ]
+    },
+    "schedsim": {
+      "anchors": [
+        "runs/20261019-p1-calibrate-100535736151-before-continuous",
+        "runs/20261019-p1-calibrate-100535736151-before-static"
+      ],
+      "argv": [
+        "scripts/schedsim.py"
+      ],
+      "depends": [
+        "baseline"
+      ]
+    },
+    "serve": {
+      "anchors": [
+        "runs/20261019-p3-serve-138d0748-stream-c1",
+        "runs/20261019-p3-serve-138d0748-stream-c2",
+        "runs/20261019-p3-serve-138d0748-stream-c4",
+        "runs/20261019-p3-serve-138d0748-stream-c8",
+        "runs/20261019-p3-serve-138d0748-whole-c1",
+        "runs/20261019-p3-serve-138d0748-whole-c2",
+        "runs/20261019-p3-serve-138d0748-whole-c4",
+        "runs/20261019-p3-serve-138d0748-whole-c8"
+      ],
+      "argv": [
+        "scripts/serve_bench.py"
+      ],
+      "depends": [
+        "kvcache",
+        "schedsim"
+      ]
+    },
+    "spec": {
+      "anchors": [
+        "runs/20261019-p2-spec-115630579395-b1-fp32-e2e",
+        "runs/20261019-p2-spec-115630579395-b1-fp32-target-token",
+        "runs/20261019-p2-spec-115630579395-b1-int8-e2e",
+        "runs/20261019-p2-spec-115630579395-b1-spec1-draft-block",
+        "runs/20261019-p2-spec-115630579395-b1-spec1-draft-sync",
+        "runs/20261019-p2-spec-115630579395-b1-spec1-e2e",
+        "runs/20261019-p2-spec-115630579395-b1-spec1-verify-block",
+        "runs/20261019-p2-spec-115630579395-b1-spec2-draft-block",
+        "runs/20261019-p2-spec-115630579395-b1-spec2-draft-sync",
+        "runs/20261019-p2-spec-115630579395-b1-spec2-e2e",
+        "runs/20261019-p2-spec-115630579395-b1-spec2-verify-block",
+        "runs/20261019-p2-spec-115630579395-b1-spec4-draft-block",
+        "runs/20261019-p2-spec-115630579395-b1-spec4-draft-sync",
+        "runs/20261019-p2-spec-115630579395-b1-spec4-e2e",
+        "runs/20261019-p2-spec-115630579395-b1-spec4-verify-block",
+        "runs/20261019-p2-spec-115630579395-b1-spec8-draft-block",
+        "runs/20261019-p2-spec-115630579395-b1-spec8-draft-sync",
+        "runs/20261019-p2-spec-115630579395-b1-spec8-e2e",
+        "runs/20261019-p2-spec-115630579395-b1-spec8-verify-block",
+        "runs/20261019-p2-spec-115630579395-b2-fp32-e2e",
+        "runs/20261019-p2-spec-115630579395-b2-fp32-target-token",
+        "runs/20261019-p2-spec-115630579395-b2-int8-e2e",
+        "runs/20261019-p2-spec-115630579395-b2-spec1-draft-block",
+        "runs/20261019-p2-spec-115630579395-b2-spec1-draft-sync",
+        "runs/20261019-p2-spec-115630579395-b2-spec1-e2e",
+        "runs/20261019-p2-spec-115630579395-b2-spec1-verify-block",
+        "runs/20261019-p2-spec-115630579395-b2-spec2-draft-block",
+        "runs/20261019-p2-spec-115630579395-b2-spec2-draft-sync",
+        "runs/20261019-p2-spec-115630579395-b2-spec2-e2e",
+        "runs/20261019-p2-spec-115630579395-b2-spec2-verify-block",
+        "runs/20261019-p2-spec-115630579395-b2-spec4-draft-block",
+        "runs/20261019-p2-spec-115630579395-b2-spec4-draft-sync",
+        "runs/20261019-p2-spec-115630579395-b2-spec4-e2e",
+        "runs/20261019-p2-spec-115630579395-b2-spec4-verify-block",
+        "runs/20261019-p2-spec-115630579395-b2-spec8-draft-block",
+        "runs/20261019-p2-spec-115630579395-b2-spec8-draft-sync",
+        "runs/20261019-p2-spec-115630579395-b2-spec8-e2e",
+        "runs/20261019-p2-spec-115630579395-b2-spec8-verify-block"
+      ],
+      "argv": [
+        "scripts/spec_bench.py"
+      ],
+      "depends": [
+        "quant"
+      ]
+    },
+    "sut": {
+      "anchors": [],
+      "argv": [
+        "-m",
+        "prism",
+        "sut",
+        "check"
+      ],
+      "depends": []
+    }
+  },
+  "sample": [
+    "baseline",
+    "p1-calibrate",
+    "quant",
+    "serve",
+    "p4-calibrate"
+  ],
+  "t4": {
+    "report": "results/p0/calibration.md",
+    "resolution_ms": 0.092584
+  },
+  "version": 1
+}
