@@ -3,8 +3,12 @@
 - 阶段：P0 测量地基（docs/ROADMAP.md）
 - 分支：`codex/p0-sut`
 - 风险等级：**高**（跨仓库工件复用 + 后续所有基准的被测对象）
-- 门控流程：双阶段——本规格批准后，先 `codex exec -s read-only` 输出实施计划，
-  规划层批准计划后才放行 workspace-write 执行。
+- 门控流程：双阶段——先只读输出实施计划，规划层批准后才放行执行。
+- 版本：v2（2026-10-19）。v1 经只读计划预审发现两处缺陷后由规划层修订：
+  ① generations.json 是随机采样参考而非贪心参考，一致性条款已改用规划层
+  独立生成的贪心 fixture；② 白名单补入规划层提供的两个 fixture 文件。
+  另确认 kaleido `src/kaleido/lm/` 在工件生成 revision（cee0ef8）与当前
+  HEAD（b3b9b4a）之间无改动，架构语义兼容；MANIFEST 需同时记录两个 revision。
 
 ## 1. 研究问题
 
@@ -33,6 +37,13 @@ P0 之后所有"优化收益"的测量都需要一个固定、可信的被测件
 - 修改 `src/prism/cli.py`（仅当需要挂接 `prism sut check` 子命令时）
 - 修改 `tests/test_cli.py`（仅当 CLI 输出变化导致的最小适配）
 
+**规划层已提供的 fixture**（已入库，只读使用，禁止重新生成或修改）：
+
+- `data/sut/kaleido-p3/reference_greedy.json`——贪心解码 golden 参考，
+  由规划层用 kaleido 原生 PyTorch 模型独立生成并自验（含 provenance）
+- `data/sut/kaleido-p3/reference_logits.npz`——within_window 完整 50 token
+  序列的逐步 logits 对照（float32，CPU）
+
 **只读参考**（允许读、禁止改、禁止在 prism 代码中 import）：
 
 - `/Users/wangchen/Developer/kaleido/results/p3/reference/`（工件来源）
@@ -60,12 +71,18 @@ P0 之后所有"优化收益"的测量都需要一个固定、可信的被测件
 3. **前向与解码**：纯 NumPy 实现该架构的前向（因果掩码注意力、LayerNorm、
    MLP，结构以 kaleido `lm/model.py` 为准）与贪心解码；KV cache 暂不需要
    （P1 范畴），允许 O(n²) 朴素实现。
-4. **一致性自证**：`prism sut check`（或 `python -m pytest` 内的等价测试）
-   对 `generations.json` 中 seed=42 的每条样本：用相同 prompt 贪心生成，
-   **生成的 token id 序列必须与 kaleido 参考完全一致**；
-   同时报告 logits 最大绝对误差（作记录，不作门槛）。
-   参考生成结果可从 kaleido `generations.json` 读取（只读），
-   测试需要的参考子集可复制进 `data/sut/kaleido-p3/`（并入 MANIFEST）。
+4. **一致性自证**（v2 修订，替代 v1 的 generations.json 条款——
+   原条款误将 temperature=0.8 的随机采样参考当作贪心参考，已由规划层修正）：
+   - 对 `reference_greedy.json` 的两个用例（within_window：18 token prompt
+     贪心生成 32 token；window_rollover：127 token prompt 贪心生成 16 token；
+     两者均禁用 EOS 停止，滑窗重编号规则见 fixture provenance）：
+     **prism 生成的完整 token id 序列必须与 fixture 完全一致**（逐 token，长度一致）。
+   - 对 `reference_logits.npz`：prism 对同一 50 token 序列一次前向，
+     报告与 fixture logits 的最大绝对误差（作记录，不作门槛）；
+     每个生成位置的 argmax 必须与次一 token 一致。
+   - kaleido `generations.json` 的三条采样记录仅用于校验分词器与结构
+     （`[256] + encode(prompt) == prompt_ids`），不得用于逐 token 生成比对。
+   - 一致性检查经 `prism sut check` 暴露，不一致时以非零状态退出。
 5. 代码风格：ruff line-length 100、全类型注解、docstring 与现有文件一致。
 
 ## 5. 验收命令（规划层将独立重跑）
