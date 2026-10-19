@@ -1,0 +1,56 @@
+{
+  "commands": [
+    {
+      "command": "uv sync --locked",
+      "exit_code": 0,
+      "summary": "Resolved 9 packages in 2ms; Checked 8 packages in 0.16ms"
+    },
+    {
+      "command": "uv run --locked pytest",
+      "exit_code": 0,
+      "summary": "604 passed in 12.61s; includes 115 new speculative tests"
+    },
+    {
+      "command": "uv run --locked ruff check .",
+      "exit_code": 0,
+      "summary": "All checks passed!"
+    },
+    {
+      "command": "uv run --locked ruff format --check .",
+      "exit_code": 0,
+      "summary": "61 files already formatted"
+    },
+    {
+      "command": "uv run --locked prism sut check",
+      "exit_code": 0,
+      "summary": "passed=true; greedy cases=2, argmax positions=32, tokenizer prompts=3; max abs logits error=9.5367431640625e-06"
+    },
+    {
+      "command": "uv run --locked python scripts/spec_bench.py --check",
+      "exit_code": 0,
+      "summary": {
+        "implementation_passed": true,
+        "hard_gate_cases": 80,
+        "measurements": 38,
+        "writes_runs_results": false
+      },
+      "stderr": ""
+    },
+    {
+      "command": "git status --short",
+      "exit_code": 0,
+      "summary": "Five new whitelisted code/config/report files before force-adding ignored formal runs; final status recorded after commit"
+    }
+  ],
+  "verification": {
+    "formal_runs_load_run_validated": 38,
+    "samples_per_run": 30,
+    "source_hashes_match_final": true,
+    "check_writes_runs_results": false,
+    "snapshot_files": 1012,
+    "new_tests": 115
+  },
+  "formal_first_run": "runs/20261019-p2-spec-115630579395-b1-fp32-e2e",
+  "preliminary_excluded_session": "115505217673",
+  "deviations": "无；八项规划层裁决均按用户授权执行。"
+}
