@@ -1,0 +1,24 @@
+{
+  "task": "P0-T6",
+  "phase": "P0",
+  "sut_path": "data/sut/kaleido-p3",
+  "device": "cpu",
+  "threads": 1,
+  "calibration": {
+    "report": "results/p0/calibration.md",
+    "resolution_ms": 0.092584,
+    "rationale": "T4 的全局经验扰动阈值，不是显著性保证。SUT 单次调用已有毫秒级工作量，不以增加 repeat 稀释单样本开销。prefill 预热 100 次、重复 1000 次；decode 每样本包含完整生成回路，预热 10 次、重复 200 次。报告逐项列出 p50/阈值，低于阈值的差异不可分辨。"
+  },
+  "prefill": {
+    "sequence_lengths": [1, 32, 128],
+    "token_id": 42,
+    "warmup": 100,
+    "repeat": 1000
+  },
+  "decode": {
+    "prompt_ids": [256, 316, 32, 396, 337, 32, 270, 32, 259, 32, 385, 32, 356, 279, 32, 268, 32, 299],
+    "max_new_tokens": 32,
+    "warmup": 10,
+    "repeat": 200
+  }
+}
