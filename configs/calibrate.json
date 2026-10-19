@@ -1,0 +1,16 @@
+{
+  "warmup": 100,
+  "repeat": 2000,
+  "probes": {
+    "noop": {},
+    "compute": {
+      "elements": 4096,
+      "initial": 0.0,
+      "increment": 1.0
+    },
+    "allocation": {
+      "objects": 256,
+      "bytes_per_object": 64
+    }
+  }
+}
