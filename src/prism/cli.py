@@ -9,6 +9,7 @@ from pathlib import Path
 
 from prism import __version__
 from prism.env import collect_env, env_fingerprint
+from prism.sut import DEFAULT_SUT_PATH, check_sut
 
 
 def main() -> None:
@@ -17,7 +18,18 @@ def main() -> None:
     subparsers = parser.add_subparsers(dest="command")
     env_parser = subparsers.add_parser("env", help="Describe the experiment environment")
     env_parser.add_argument("--write", action="store_true", help="Write configs/env.lock")
+    sut_parser = subparsers.add_parser("sut", help="Check the reference model")
+    sut_commands = sut_parser.add_subparsers(dest="sut_command", required=True)
+    check_parser = sut_commands.add_parser("check", help="Verify artifacts and greedy consistency")
+    check_parser.add_argument("--path", type=Path, default=DEFAULT_SUT_PATH)
     args = parser.parse_args()
+    if args.command == "sut":
+        try:
+            result = check_sut(args.path)
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            parser.exit(1, f"SUT check failed: {error}\n")
+        print(json.dumps(result, sort_keys=True, indent=2))
+        return
     if args.command == "env":
         env = collect_env()
         output = json.dumps(env, sort_keys=True, indent=2)
