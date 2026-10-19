@@ -1,0 +1,5793 @@
+{
+  "evidence": "单机 CPU 真实训练实测",
+  "implementation": "prism NumPy manual backward + AdamW; actual SUT weights; dropout=0",
+  "linearity": {
+    "b1_anchored_residuals_bytes": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "intercept_bytes": -1.1177718604895825e-09,
+    "max_relative_proportional_error": 0.0,
+    "method": "OLS retained_bytes = intercept + slope * micro_batch; plus B=1 anchored test",
+    "passes_proportionality_1e_minus_6": true,
+    "predicted_slope_bytes_per_micro_batch": 3342336.0,
+    "prediction_minus_measured_slope_bytes": 718847.9999999995,
+    "r_squared": 1.0,
+    "residuals_bytes": [
+      4.656612873077393e-10,
+      0.0,
+      0.0
+    ],
+    "slope_bytes_per_micro_batch": 2623488.0000000005
+  },
+  "memory_scope": "unique ndarray storage at end of forward: layer saved arrays vs P4 retained layers; logits/final norm separately; tracemalloc incremental peak excludes preallocated states; RSS is process lifetime high-water reference, not per-step peak",
+  "model": {
+    "ffn": 512,
+    "heads": 4,
+    "hidden": 128,
+    "layers": 2,
+    "position_capacity": 128,
+    "seq": 128,
+    "vocab": 512
+  },
+  "phase": "P4",
+  "precision": {
+    "activation_bytes": 4,
+    "gradient_bytes": 4,
+    "mask_bytes": 1,
+    "optimizer_bytes": 8,
+    "weight_bytes": 4
+  },
+  "recipe": {
+    "device": "cpu",
+    "hypothetical_compute_flops_per_s": 1000000000000,
+    "micro_batch_sizes": [
+      1,
+      2,
+      4
+    ],
+    "optimizer": {
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 1e-08,
+      "learning_rate": 0.0001,
+      "name": "AdamW",
+      "weight_decay": 0.01
+    },
+    "phase": "P4",
+    "repeat": 30,
+    "seed": 42,
+    "sequence_length": 128,
+    "sut_path": "data/sut/kaleido-p3",
+    "task": "P4-T2",
+    "threads": 1,
+    "warmup": 5
+  },
+  "recipe_hash": "7ce69f0b052305620caedce32d8bbe687f47c17b0d6b9541ecc1a9daad2af0ca",
+  "rows": [
+    {
+      "activation_inventory": {
+        "all_forward_retained_including_logits": [
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.n1"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.ln1.normalized"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.ln1.inverse_std"
+            ],
+            "shape": [
+              1,
+              128,
+              1
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.q",
+              ".layers.0.k",
+              ".layers.0.v"
+            ],
+            "shape": [
+              1,
+              128,
+              384
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.probability"
+            ],
+            "shape": [
+              1,
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.attended"
+            ],
+            "shape": [
+              1,
+              128,
+              4,
+              32
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.n2"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.ln2.normalized"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.ln2.inverse_std"
+            ],
+            "shape": [
+              1,
+              128,
+              1
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.pre_gelu"
+            ],
+            "shape": [
+              1,
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.gelu"
+            ],
+            "shape": [
+              1,
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.n1"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.ln1.normalized"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.ln1.inverse_std"
+            ],
+            "shape": [
+              1,
+              128,
+              1
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.q",
+              ".layers.1.k",
+              ".layers.1.v"
+            ],
+            "shape": [
+              1,
+              128,
+              384
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.probability"
+            ],
+            "shape": [
+              1,
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.attended"
+            ],
+            "shape": [
+              1,
+              128,
+              4,
+              32
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.n2"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.ln2.normalized"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.ln2.inverse_std"
+            ],
+            "shape": [
+              1,
+              128,
+              1
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.pre_gelu"
+            ],
+            "shape": [
+              1,
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.gelu"
+            ],
+            "shape": [
+              1,
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".final_norm.normalized"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".final_norm.inverse_std"
+            ],
+            "shape": [
+              1,
+              128,
+              1
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".head_input"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "logits"
+            ],
+            "shape": [
+              1,
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          }
+        ],
+        "layers": [
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.n1"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.ln1.normalized"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.ln1.inverse_std"
+            ],
+            "shape": [
+              1,
+              128,
+              1
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.q",
+              ".0.k",
+              ".0.v"
+            ],
+            "shape": [
+              1,
+              128,
+              384
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.probability"
+            ],
+            "shape": [
+              1,
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.attended"
+            ],
+            "shape": [
+              1,
+              128,
+              4,
+              32
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.n2"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.ln2.normalized"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.ln2.inverse_std"
+            ],
+            "shape": [
+              1,
+              128,
+              1
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.pre_gelu"
+            ],
+            "shape": [
+              1,
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.gelu"
+            ],
+            "shape": [
+              1,
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.n1"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.ln1.normalized"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.ln1.inverse_std"
+            ],
+            "shape": [
+              1,
+              128,
+              1
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.q",
+              ".1.k",
+              ".1.v"
+            ],
+            "shape": [
+              1,
+              128,
+              384
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.probability"
+            ],
+            "shape": [
+              1,
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.attended"
+            ],
+            "shape": [
+              1,
+              128,
+              4,
+              32
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.n2"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.ln2.normalized"
+            ],
+            "shape": [
+              1,
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.ln2.inverse_std"
+            ],
+            "shape": [
+              1,
+              128,
+              1
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.pre_gelu"
+            ],
+            "shape": [
+              1,
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.gelu"
+            ],
+            "shape": [
+              1,
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          }
+        ]
+      },
+      "compute_time_relative_deviation": -0.9174054470616236,
+      "config_hash": "d870a8806b34198020eb55fc94769d6c11604d52c093c9c59fdce4db9aa0acde",
+      "deviations": {
+        "activations": {
+          "absolute_deviation_bytes": 718848.0,
+          "measured_bytes": 2623488,
+          "predicted_bytes": 3342336.0,
+          "relative_deviation": 0.27400468384074944,
+          "signed_delta_bytes": 718848.0
+        },
+        "gradients": {
+          "absolute_deviation_bytes": 0.0,
+          "measured_bytes": 1914880,
+          "predicted_bytes": 1914880.0,
+          "relative_deviation": 0.0,
+          "signed_delta_bytes": 0.0
+        },
+        "optimizer": {
+          "absolute_deviation_bytes": 0.0,
+          "measured_bytes": 3829760,
+          "predicted_bytes": 3829760.0,
+          "relative_deviation": 0.0,
+          "signed_delta_bytes": 0.0
+        },
+        "parameters": {
+          "absolute_deviation_bytes": 0.0,
+          "measured_bytes": 1914880,
+          "predicted_bytes": 1914880.0,
+          "relative_deviation": 0.0,
+          "signed_delta_bytes": 0.0
+        },
+        "total": {
+          "absolute_deviation_bytes": 718848.0,
+          "measured_bytes": 10283008,
+          "predicted_bytes": 11001856.0,
+          "relative_deviation": 0.06990639314877514,
+          "signed_delta_bytes": 718848.0
+        }
+      },
+      "diagnostic_loss": 12.10296630859375,
+      "effective_flops_per_s_at_p50": 82594552938.37637,
+      "last_loss": 5.483827114105225,
+      "measured_bytes": {
+        "activations": 2623488,
+        "all_forward_retained_including_logits": 3017216,
+        "gradients": 1914880,
+        "model_states": 7659520,
+        "optimizer": 3829760,
+        "parameters": 1914880,
+        "total": 10283008
+      },
+      "measurement": {
+        "captured_at": "2026-10-19T10:20:56.228762+00:00",
+        "config_hash": "d870a8806b34198020eb55fc94769d6c11604d52c093c9c59fdce4db9aa0acde",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 58490880,
+        "mean": 5.049677666666667,
+        "p50": 5.0607285,
+        "p95": 5.19188155,
+        "p99": 5.278225,
+        "peak_tracemalloc_bytes": 5848001,
+        "samples_ms": [
+          5.170959,
+          5.070958,
+          5.3065,
+          5.092292,
+          5.096625,
+          5.110917,
+          5.086417,
+          5.029125,
+          5.020208,
+          5.059791,
+          5.085625,
+          5.065291,
+          5.04575,
+          5.012834,
+          5.071791,
+          5.017375,
+          5.168458,
+          5.061666,
+          5.098833,
+          5.209,
+          5.136542,
+          4.973833,
+          4.95225,
+          4.942708,
+          4.900583,
+          4.972333,
+          4.927375,
+          4.900291,
+          4.979125,
+          4.924875
+        ],
+        "stdev": 0.09439429836424527
+      },
+      "micro_batch": 1,
+      "optimizer_steps": 36,
+      "path": "runs/20261019-p4-calibrate-102056043664-b1",
+      "prediction": {
+        "activation_replicated_bytes": 589824.0,
+        "activation_sharded_bytes": 2752512.0,
+        "assumptions": "解析模型 for dense, tied-embedding GPT training; predictions are not measurements.\n\nSymbols (counts are dimensionless): L layers, h hidden width, f FFN width,\nV vocabulary, S sequence length, C position capacity, H attention heads,\nP parameters; d/t/p DP/TP/PP degrees, b sequences per microbatch per DP rank,\nm microbatches per optimizer step, z ZeRO stage. w/g/o/a/k are bytes per\nweight/gradient/Adam state/activation/dropout mask. o includes master weights\nand both Adam moments (12 bytes for FP32). q=P/(t*p) is the ideal balanced\nparameter count per device; N=d*b*m*S is global tokens per optimizer step.\n\nResident states, in bytes: weights=q*w/(d if z=3 else 1), gradients=\nq*g/(d if z>=2 else 1), optimizer=q*o/(d if z>=1 else 1). In particular,\nZeRO-2 = q*[w+(g+o)/d]. This follows partitioning Adam first, then gradients:\nhttps://arxiv.org/abs/1910.02054 (sections 3 and 7).\n\nRetained activation bytes per layer per microbatch without sequence parallelism:\nA=S*b*[h*(4*a+2*k)+(4*a*h+2*a*f+(2*a+k)*H*S)/t]. At f=4h,a=2,k=1,\nthis is S*b*h*[10+24/t+5*H*S/(h*t)], equation 2 of\nhttps://arxiv.org/abs/2205.05198. Full layer checkpointing retains S*b*h*a\nbytes instead. Flush 1F1B retains at most min(m,p) microbatches on stage 0;\nactivation estimate = (L/p)*min(m,p)*A, a worst-stage retained approximation.\n\nFor a ring over n ranks and X bytes of full payload, R(n)=(n-1)/n,\nall-reduce sends 2*R(n)*X bytes/rank, all-gather and reduce-scatter each\nsend R(n)*X. Volumes count SEND only (receive separately would double them).\nDP z=0: one gradient all-reduce per step. z=1: one gradient reduce-scatter\nand one updated-weight all-gather per step. z=2: m gradient reduce-scatters\nand one weight all-gather. z=3: m gradient reduce-scatters and 2*m weight\nall-gathers (forward/backward, weights released between uses). Gradient\nreduction per microbatch at z>=2 avoids retaining full accumulated gradients.\nTP uses 4 all-reduces/layer/microbatch (6 with full recomputation).\nPP sends one forward activation and one backward activation-gradient per\nboundary/microbatch, each S*b*h*a bytes. Adjacent stages split the sends;\nrank mean is 2*(p-1)/p*m*S*b*h*a, with edge/interior volumes also reported.\n\nBubble idle fraction beta=(p-1)/(m+p-1). With stage forward/backward time\nu [seconds], useful=m*u, idle=(p-1)*u, elapsed=(m+p-1)*u. The fraction\nrelative to useful time in https://arxiv.org/abs/2104.04473 is (p-1)/m;\nnormalizing by elapsed time gives the requested beta.\n\nTraining work F=6*P*N+12*L*N*S*h [FLOP]; full checkpointing multiplies by\n4/3 (one extra forward). Hypothetical per-device compute rate c [FLOP/s]\ngives T=F/[d*t*p*c*(1-beta)] [s] and throughput=N/T [tokens/s]. This is\ncompute-only: no communication/computation overlap, kernel efficiency,\nnetwork time, latency, load imbalance or measured hardware performance.\nParameter placement assumes perfect balance/sharding including embeddings,\nbiases and norms; actual Megatron placement can differ. Memory excludes live\nZeRO gathers, workspaces, logits/loss, allocator fragmentation and temporary\nrecomputed activations. Thus it is retained memory, NOT peak device memory.\nZeRO conserves model states; total memory conservation also needs a fixed\nglobal batch (activations are DP replicated, not sharded by ZeRO).\n",
+        "bubble_fraction": 0.0,
+        "communication_send_bytes_per_step": {
+          "all_gather": 0.0,
+          "all_reduce": 0.0,
+          "dp_all_reduce": 0.0,
+          "p2p": 0.0,
+          "p2p_by_stage": [
+            0
+          ],
+          "reduce_scatter": 0.0,
+          "total": 0.0,
+          "tp_all_reduce": 0.0
+        },
+        "compute_only_step_s": 0.000417988608,
+        "compute_only_tokens_per_s": 306228.44151771715,
+        "devices": 1,
+        "global_tokens_per_step": 128,
+        "hypothetical_compute_flops_per_s": 1000000000000,
+        "memory_bytes": {
+          "activations": 3342336.0,
+          "gradients": 1914880.0,
+          "model_states": 7659520.0,
+          "optimizer": 3829760.0,
+          "parameters": 1914880.0,
+          "total": 11001856.0
+        },
+        "mode": "解析模型",
+        "parameters": 478720,
+        "training_flops_per_step": 417988608
+      },
+      "state_inventory": {
+        "gradients": [
+          {
+            "dtype": "float32",
+            "names": [
+              "token_embedding.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "position_embedding.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "final_norm.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "final_norm.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          }
+        ],
+        "optimizer": [
+          {
+            "dtype": "float32",
+            "names": [
+              "first.token_embedding.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.position_embedding.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.final_norm.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.final_norm.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.token_embedding.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.position_embedding.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.final_norm.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.final_norm.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          }
+        ],
+        "parameters": [
+          {
+            "dtype": "float32",
+            "names": [
+              "token_embedding.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "position_embedding.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "final_norm.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "final_norm.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          }
+        ]
+      }
+    },
+    {
+      "activation_inventory": {
+        "all_forward_retained_including_logits": [
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.n1"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.ln1.normalized"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.ln1.inverse_std"
+            ],
+            "shape": [
+              2,
+              128,
+              1
+            ],
+            "storage_bytes": 1024
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.q",
+              ".layers.0.k",
+              ".layers.0.v"
+            ],
+            "shape": [
+              2,
+              128,
+              384
+            ],
+            "storage_bytes": 393216
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.probability"
+            ],
+            "shape": [
+              2,
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 524288
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.attended"
+            ],
+            "shape": [
+              2,
+              128,
+              4,
+              32
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.n2"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.ln2.normalized"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.ln2.inverse_std"
+            ],
+            "shape": [
+              2,
+              128,
+              1
+            ],
+            "storage_bytes": 1024
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.pre_gelu"
+            ],
+            "shape": [
+              2,
+              128,
+              512
+            ],
+            "storage_bytes": 524288
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.gelu"
+            ],
+            "shape": [
+              2,
+              128,
+              512
+            ],
+            "storage_bytes": 524288
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.n1"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.ln1.normalized"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.ln1.inverse_std"
+            ],
+            "shape": [
+              2,
+              128,
+              1
+            ],
+            "storage_bytes": 1024
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.q",
+              ".layers.1.k",
+              ".layers.1.v"
+            ],
+            "shape": [
+              2,
+              128,
+              384
+            ],
+            "storage_bytes": 393216
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.probability"
+            ],
+            "shape": [
+              2,
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 524288
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.attended"
+            ],
+            "shape": [
+              2,
+              128,
+              4,
+              32
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.n2"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.ln2.normalized"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.ln2.inverse_std"
+            ],
+            "shape": [
+              2,
+              128,
+              1
+            ],
+            "storage_bytes": 1024
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.pre_gelu"
+            ],
+            "shape": [
+              2,
+              128,
+              512
+            ],
+            "storage_bytes": 524288
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.gelu"
+            ],
+            "shape": [
+              2,
+              128,
+              512
+            ],
+            "storage_bytes": 524288
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".final_norm.normalized"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".final_norm.inverse_std"
+            ],
+            "shape": [
+              2,
+              128,
+              1
+            ],
+            "storage_bytes": 1024
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".head_input"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "logits"
+            ],
+            "shape": [
+              2,
+              128,
+              512
+            ],
+            "storage_bytes": 524288
+          }
+        ],
+        "layers": [
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.n1"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.ln1.normalized"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.ln1.inverse_std"
+            ],
+            "shape": [
+              2,
+              128,
+              1
+            ],
+            "storage_bytes": 1024
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.q",
+              ".0.k",
+              ".0.v"
+            ],
+            "shape": [
+              2,
+              128,
+              384
+            ],
+            "storage_bytes": 393216
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.probability"
+            ],
+            "shape": [
+              2,
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 524288
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.attended"
+            ],
+            "shape": [
+              2,
+              128,
+              4,
+              32
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.n2"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.ln2.normalized"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.ln2.inverse_std"
+            ],
+            "shape": [
+              2,
+              128,
+              1
+            ],
+            "storage_bytes": 1024
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.pre_gelu"
+            ],
+            "shape": [
+              2,
+              128,
+              512
+            ],
+            "storage_bytes": 524288
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.gelu"
+            ],
+            "shape": [
+              2,
+              128,
+              512
+            ],
+            "storage_bytes": 524288
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.n1"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.ln1.normalized"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.ln1.inverse_std"
+            ],
+            "shape": [
+              2,
+              128,
+              1
+            ],
+            "storage_bytes": 1024
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.q",
+              ".1.k",
+              ".1.v"
+            ],
+            "shape": [
+              2,
+              128,
+              384
+            ],
+            "storage_bytes": 393216
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.probability"
+            ],
+            "shape": [
+              2,
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 524288
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.attended"
+            ],
+            "shape": [
+              2,
+              128,
+              4,
+              32
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.n2"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.ln2.normalized"
+            ],
+            "shape": [
+              2,
+              128,
+              128
+            ],
+            "storage_bytes": 131072
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.ln2.inverse_std"
+            ],
+            "shape": [
+              2,
+              128,
+              1
+            ],
+            "storage_bytes": 1024
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.pre_gelu"
+            ],
+            "shape": [
+              2,
+              128,
+              512
+            ],
+            "storage_bytes": 524288
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.gelu"
+            ],
+            "shape": [
+              2,
+              128,
+              512
+            ],
+            "storage_bytes": 524288
+          }
+        ]
+      },
+      "compute_time_relative_deviation": -0.8905589010766889,
+      "config_hash": "0a2bc0dedc065f982e9349166193b49534d007f7f28829a1fdbb51d021803c99",
+      "deviations": {
+        "activations": {
+          "absolute_deviation_bytes": 1437696.0,
+          "measured_bytes": 5246976,
+          "predicted_bytes": 6684672.0,
+          "relative_deviation": 0.27400468384074944,
+          "signed_delta_bytes": 1437696.0
+        },
+        "gradients": {
+          "absolute_deviation_bytes": 0.0,
+          "measured_bytes": 1914880,
+          "predicted_bytes": 1914880.0,
+          "relative_deviation": 0.0,
+          "signed_delta_bytes": 0.0
+        },
+        "optimizer": {
+          "absolute_deviation_bytes": 0.0,
+          "measured_bytes": 3829760,
+          "predicted_bytes": 3829760.0,
+          "relative_deviation": 0.0,
+          "signed_delta_bytes": 0.0
+        },
+        "parameters": {
+          "absolute_deviation_bytes": 0.0,
+          "measured_bytes": 1914880,
+          "predicted_bytes": 1914880.0,
+          "relative_deviation": 0.0,
+          "signed_delta_bytes": 0.0
+        },
+        "total": {
+          "absolute_deviation_bytes": 1437696.0,
+          "measured_bytes": 12906496,
+          "predicted_bytes": 14344192.0,
+          "relative_deviation": 0.11139320850523643,
+          "signed_delta_bytes": 1437696.0
+        }
+      },
+      "diagnostic_loss": 12.478195190429688,
+      "effective_flops_per_s_at_p50": 109441098923.31111,
+      "last_loss": 5.810216903686523,
+      "measured_bytes": {
+        "activations": 5246976,
+        "all_forward_retained_including_logits": 6034432,
+        "gradients": 1914880,
+        "model_states": 7659520,
+        "optimizer": 3829760,
+        "parameters": 1914880,
+        "total": 12906496
+      },
+      "measurement": {
+        "captured_at": "2026-10-19T10:20:56.503419+00:00",
+        "config_hash": "0a2bc0dedc065f982e9349166193b49534d007f7f28829a1fdbb51d021803c99",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 101236736,
+        "mean": 7.6791442666666665,
+        "p50": 7.638604,
+        "p95": 7.9980015999999985,
+        "p99": 8.12253675,
+        "peak_tracemalloc_bytes": 11683289,
+        "samples_ms": [
+          7.851333,
+          8.124458,
+          7.819583,
+          7.649083,
+          7.603541,
+          7.691333,
+          7.597458,
+          7.575166,
+          7.601125,
+          7.616042,
+          7.607167,
+          7.529416,
+          7.529875,
+          7.653208,
+          7.584417,
+          8.117833,
+          7.682958,
+          7.496833,
+          7.725083,
+          7.661041,
+          7.672667,
+          7.673959,
+          7.622292,
+          7.610417,
+          7.568333,
+          7.628125,
+          7.689667,
+          7.759916,
+          7.580458,
+          7.851541
+        ],
+        "stdev": 0.14840099495273246
+      },
+      "micro_batch": 2,
+      "optimizer_steps": 36,
+      "path": "runs/20261019-p4-calibrate-102056043664-b2",
+      "prediction": {
+        "activation_replicated_bytes": 1179648.0,
+        "activation_sharded_bytes": 5505024.0,
+        "assumptions": "解析模型 for dense, tied-embedding GPT training; predictions are not measurements.\n\nSymbols (counts are dimensionless): L layers, h hidden width, f FFN width,\nV vocabulary, S sequence length, C position capacity, H attention heads,\nP parameters; d/t/p DP/TP/PP degrees, b sequences per microbatch per DP rank,\nm microbatches per optimizer step, z ZeRO stage. w/g/o/a/k are bytes per\nweight/gradient/Adam state/activation/dropout mask. o includes master weights\nand both Adam moments (12 bytes for FP32). q=P/(t*p) is the ideal balanced\nparameter count per device; N=d*b*m*S is global tokens per optimizer step.\n\nResident states, in bytes: weights=q*w/(d if z=3 else 1), gradients=\nq*g/(d if z>=2 else 1), optimizer=q*o/(d if z>=1 else 1). In particular,\nZeRO-2 = q*[w+(g+o)/d]. This follows partitioning Adam first, then gradients:\nhttps://arxiv.org/abs/1910.02054 (sections 3 and 7).\n\nRetained activation bytes per layer per microbatch without sequence parallelism:\nA=S*b*[h*(4*a+2*k)+(4*a*h+2*a*f+(2*a+k)*H*S)/t]. At f=4h,a=2,k=1,\nthis is S*b*h*[10+24/t+5*H*S/(h*t)], equation 2 of\nhttps://arxiv.org/abs/2205.05198. Full layer checkpointing retains S*b*h*a\nbytes instead. Flush 1F1B retains at most min(m,p) microbatches on stage 0;\nactivation estimate = (L/p)*min(m,p)*A, a worst-stage retained approximation.\n\nFor a ring over n ranks and X bytes of full payload, R(n)=(n-1)/n,\nall-reduce sends 2*R(n)*X bytes/rank, all-gather and reduce-scatter each\nsend R(n)*X. Volumes count SEND only (receive separately would double them).\nDP z=0: one gradient all-reduce per step. z=1: one gradient reduce-scatter\nand one updated-weight all-gather per step. z=2: m gradient reduce-scatters\nand one weight all-gather. z=3: m gradient reduce-scatters and 2*m weight\nall-gathers (forward/backward, weights released between uses). Gradient\nreduction per microbatch at z>=2 avoids retaining full accumulated gradients.\nTP uses 4 all-reduces/layer/microbatch (6 with full recomputation).\nPP sends one forward activation and one backward activation-gradient per\nboundary/microbatch, each S*b*h*a bytes. Adjacent stages split the sends;\nrank mean is 2*(p-1)/p*m*S*b*h*a, with edge/interior volumes also reported.\n\nBubble idle fraction beta=(p-1)/(m+p-1). With stage forward/backward time\nu [seconds], useful=m*u, idle=(p-1)*u, elapsed=(m+p-1)*u. The fraction\nrelative to useful time in https://arxiv.org/abs/2104.04473 is (p-1)/m;\nnormalizing by elapsed time gives the requested beta.\n\nTraining work F=6*P*N+12*L*N*S*h [FLOP]; full checkpointing multiplies by\n4/3 (one extra forward). Hypothetical per-device compute rate c [FLOP/s]\ngives T=F/[d*t*p*c*(1-beta)] [s] and throughput=N/T [tokens/s]. This is\ncompute-only: no communication/computation overlap, kernel efficiency,\nnetwork time, latency, load imbalance or measured hardware performance.\nParameter placement assumes perfect balance/sharding including embeddings,\nbiases and norms; actual Megatron placement can differ. Memory excludes live\nZeRO gathers, workspaces, logits/loss, allocator fragmentation and temporary\nrecomputed activations. Thus it is retained memory, NOT peak device memory.\nZeRO conserves model states; total memory conservation also needs a fixed\nglobal batch (activations are DP replicated, not sharded by ZeRO).\n",
+        "bubble_fraction": 0.0,
+        "communication_send_bytes_per_step": {
+          "all_gather": 0.0,
+          "all_reduce": 0.0,
+          "dp_all_reduce": 0.0,
+          "p2p": 0.0,
+          "p2p_by_stage": [
+            0
+          ],
+          "reduce_scatter": 0.0,
+          "total": 0.0,
+          "tp_all_reduce": 0.0
+        },
+        "compute_only_step_s": 0.000835977216,
+        "compute_only_tokens_per_s": 306228.44151771715,
+        "devices": 1,
+        "global_tokens_per_step": 256,
+        "hypothetical_compute_flops_per_s": 1000000000000,
+        "memory_bytes": {
+          "activations": 6684672.0,
+          "gradients": 1914880.0,
+          "model_states": 7659520.0,
+          "optimizer": 3829760.0,
+          "parameters": 1914880.0,
+          "total": 14344192.0
+        },
+        "mode": "解析模型",
+        "parameters": 478720,
+        "training_flops_per_step": 835977216
+      },
+      "state_inventory": {
+        "gradients": [
+          {
+            "dtype": "float32",
+            "names": [
+              "token_embedding.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "position_embedding.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "final_norm.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "final_norm.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          }
+        ],
+        "optimizer": [
+          {
+            "dtype": "float32",
+            "names": [
+              "first.token_embedding.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.position_embedding.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.final_norm.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.final_norm.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.token_embedding.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.position_embedding.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.final_norm.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.final_norm.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          }
+        ],
+        "parameters": [
+          {
+            "dtype": "float32",
+            "names": [
+              "token_embedding.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "position_embedding.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "final_norm.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "final_norm.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          }
+        ]
+      }
+    },
+    {
+      "activation_inventory": {
+        "all_forward_retained_including_logits": [
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.n1"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.ln1.normalized"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.ln1.inverse_std"
+            ],
+            "shape": [
+              4,
+              128,
+              1
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.q",
+              ".layers.0.k",
+              ".layers.0.v"
+            ],
+            "shape": [
+              4,
+              128,
+              384
+            ],
+            "storage_bytes": 786432
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.probability"
+            ],
+            "shape": [
+              4,
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 1048576
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.attended"
+            ],
+            "shape": [
+              4,
+              128,
+              4,
+              32
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.n2"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.ln2.normalized"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.ln2.inverse_std"
+            ],
+            "shape": [
+              4,
+              128,
+              1
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.pre_gelu"
+            ],
+            "shape": [
+              4,
+              128,
+              512
+            ],
+            "storage_bytes": 1048576
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.0.gelu"
+            ],
+            "shape": [
+              4,
+              128,
+              512
+            ],
+            "storage_bytes": 1048576
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.n1"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.ln1.normalized"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.ln1.inverse_std"
+            ],
+            "shape": [
+              4,
+              128,
+              1
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.q",
+              ".layers.1.k",
+              ".layers.1.v"
+            ],
+            "shape": [
+              4,
+              128,
+              384
+            ],
+            "storage_bytes": 786432
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.probability"
+            ],
+            "shape": [
+              4,
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 1048576
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.attended"
+            ],
+            "shape": [
+              4,
+              128,
+              4,
+              32
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.n2"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.ln2.normalized"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.ln2.inverse_std"
+            ],
+            "shape": [
+              4,
+              128,
+              1
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.pre_gelu"
+            ],
+            "shape": [
+              4,
+              128,
+              512
+            ],
+            "storage_bytes": 1048576
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".layers.1.gelu"
+            ],
+            "shape": [
+              4,
+              128,
+              512
+            ],
+            "storage_bytes": 1048576
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".final_norm.normalized"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".final_norm.inverse_std"
+            ],
+            "shape": [
+              4,
+              128,
+              1
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".head_input"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "logits"
+            ],
+            "shape": [
+              4,
+              128,
+              512
+            ],
+            "storage_bytes": 1048576
+          }
+        ],
+        "layers": [
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.n1"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.ln1.normalized"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.ln1.inverse_std"
+            ],
+            "shape": [
+              4,
+              128,
+              1
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.q",
+              ".0.k",
+              ".0.v"
+            ],
+            "shape": [
+              4,
+              128,
+              384
+            ],
+            "storage_bytes": 786432
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.probability"
+            ],
+            "shape": [
+              4,
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 1048576
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.attended"
+            ],
+            "shape": [
+              4,
+              128,
+              4,
+              32
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.n2"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.ln2.normalized"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.ln2.inverse_std"
+            ],
+            "shape": [
+              4,
+              128,
+              1
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.pre_gelu"
+            ],
+            "shape": [
+              4,
+              128,
+              512
+            ],
+            "storage_bytes": 1048576
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".0.gelu"
+            ],
+            "shape": [
+              4,
+              128,
+              512
+            ],
+            "storage_bytes": 1048576
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.n1"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.ln1.normalized"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.ln1.inverse_std"
+            ],
+            "shape": [
+              4,
+              128,
+              1
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.q",
+              ".1.k",
+              ".1.v"
+            ],
+            "shape": [
+              4,
+              128,
+              384
+            ],
+            "storage_bytes": 786432
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.probability"
+            ],
+            "shape": [
+              4,
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 1048576
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.attended"
+            ],
+            "shape": [
+              4,
+              128,
+              4,
+              32
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.n2"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.ln2.normalized"
+            ],
+            "shape": [
+              4,
+              128,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.ln2.inverse_std"
+            ],
+            "shape": [
+              4,
+              128,
+              1
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.pre_gelu"
+            ],
+            "shape": [
+              4,
+              128,
+              512
+            ],
+            "storage_bytes": 1048576
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              ".1.gelu"
+            ],
+            "shape": [
+              4,
+              128,
+              512
+            ],
+            "storage_bytes": 1048576
+          }
+        ]
+      },
+      "compute_time_relative_deviation": -0.8726313901104796,
+      "config_hash": "da138ec968d5e24219ddcb8c9e59a2d487eba1aad2c401130a114b8e45d4cb7d",
+      "deviations": {
+        "activations": {
+          "absolute_deviation_bytes": 2875392.0,
+          "measured_bytes": 10493952,
+          "predicted_bytes": 13369344.0,
+          "relative_deviation": 0.27400468384074944,
+          "signed_delta_bytes": 2875392.0
+        },
+        "gradients": {
+          "absolute_deviation_bytes": 0.0,
+          "measured_bytes": 1914880,
+          "predicted_bytes": 1914880.0,
+          "relative_deviation": 0.0,
+          "signed_delta_bytes": 0.0
+        },
+        "optimizer": {
+          "absolute_deviation_bytes": 0.0,
+          "measured_bytes": 3829760,
+          "predicted_bytes": 3829760.0,
+          "relative_deviation": 0.0,
+          "signed_delta_bytes": 0.0
+        },
+        "parameters": {
+          "absolute_deviation_bytes": 0.0,
+          "measured_bytes": 1914880,
+          "predicted_bytes": 1914880.0,
+          "relative_deviation": 0.0,
+          "signed_delta_bytes": 0.0
+        },
+        "total": {
+          "absolute_deviation_bytes": 2875392.0,
+          "measured_bytes": 18153472,
+          "predicted_bytes": 21028864.0,
+          "relative_deviation": 0.15839350180505415,
+          "signed_delta_bytes": 2875392.0
+        }
+      },
+      "diagnostic_loss": 12.259621620178223,
+      "effective_flops_per_s_at_p50": 127368609889.52034,
+      "last_loss": 6.050736904144287,
+      "measured_bytes": {
+        "activations": 10493952,
+        "all_forward_retained_including_logits": 12068864,
+        "gradients": 1914880,
+        "model_states": 7659520,
+        "optimizer": 3829760,
+        "parameters": 1914880,
+        "total": 18153472
+      },
+      "measurement": {
+        "captured_at": "2026-10-19T10:20:56.978048+00:00",
+        "config_hash": "da138ec968d5e24219ddcb8c9e59a2d487eba1aad2c401130a114b8e45d4cb7d",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "max_rss_bytes": 173588480,
+        "mean": 13.2006931,
+        "p50": 13.1268955,
+        "p95": 13.8884019,
+        "p99": 14.05920657,
+        "peak_tracemalloc_bytes": 23350886,
+        "samples_ms": [
+          13.437416,
+          13.496583,
+          13.272667,
+          14.110875,
+          13.413708,
+          13.487667,
+          13.202334,
+          12.980959,
+          13.388875,
+          13.115375,
+          12.982042,
+          13.354417,
+          13.052375,
+          12.829542,
+          13.272542,
+          13.125208,
+          12.690459,
+          13.172292,
+          13.83425,
+          12.899917,
+          13.128583,
+          12.994625,
+          12.839667,
+          12.9295,
+          13.115791,
+          13.151666,
+          12.80375,
+          13.932708,
+          13.104,
+          12.901
+        ],
+        "stdev": 0.3344939744974901
+      },
+      "micro_batch": 4,
+      "optimizer_steps": 36,
+      "path": "runs/20261019-p4-calibrate-102056043664-b4",
+      "prediction": {
+        "activation_replicated_bytes": 2359296.0,
+        "activation_sharded_bytes": 11010048.0,
+        "assumptions": "解析模型 for dense, tied-embedding GPT training; predictions are not measurements.\n\nSymbols (counts are dimensionless): L layers, h hidden width, f FFN width,\nV vocabulary, S sequence length, C position capacity, H attention heads,\nP parameters; d/t/p DP/TP/PP degrees, b sequences per microbatch per DP rank,\nm microbatches per optimizer step, z ZeRO stage. w/g/o/a/k are bytes per\nweight/gradient/Adam state/activation/dropout mask. o includes master weights\nand both Adam moments (12 bytes for FP32). q=P/(t*p) is the ideal balanced\nparameter count per device; N=d*b*m*S is global tokens per optimizer step.\n\nResident states, in bytes: weights=q*w/(d if z=3 else 1), gradients=\nq*g/(d if z>=2 else 1), optimizer=q*o/(d if z>=1 else 1). In particular,\nZeRO-2 = q*[w+(g+o)/d]. This follows partitioning Adam first, then gradients:\nhttps://arxiv.org/abs/1910.02054 (sections 3 and 7).\n\nRetained activation bytes per layer per microbatch without sequence parallelism:\nA=S*b*[h*(4*a+2*k)+(4*a*h+2*a*f+(2*a+k)*H*S)/t]. At f=4h,a=2,k=1,\nthis is S*b*h*[10+24/t+5*H*S/(h*t)], equation 2 of\nhttps://arxiv.org/abs/2205.05198. Full layer checkpointing retains S*b*h*a\nbytes instead. Flush 1F1B retains at most min(m,p) microbatches on stage 0;\nactivation estimate = (L/p)*min(m,p)*A, a worst-stage retained approximation.\n\nFor a ring over n ranks and X bytes of full payload, R(n)=(n-1)/n,\nall-reduce sends 2*R(n)*X bytes/rank, all-gather and reduce-scatter each\nsend R(n)*X. Volumes count SEND only (receive separately would double them).\nDP z=0: one gradient all-reduce per step. z=1: one gradient reduce-scatter\nand one updated-weight all-gather per step. z=2: m gradient reduce-scatters\nand one weight all-gather. z=3: m gradient reduce-scatters and 2*m weight\nall-gathers (forward/backward, weights released between uses). Gradient\nreduction per microbatch at z>=2 avoids retaining full accumulated gradients.\nTP uses 4 all-reduces/layer/microbatch (6 with full recomputation).\nPP sends one forward activation and one backward activation-gradient per\nboundary/microbatch, each S*b*h*a bytes. Adjacent stages split the sends;\nrank mean is 2*(p-1)/p*m*S*b*h*a, with edge/interior volumes also reported.\n\nBubble idle fraction beta=(p-1)/(m+p-1). With stage forward/backward time\nu [seconds], useful=m*u, idle=(p-1)*u, elapsed=(m+p-1)*u. The fraction\nrelative to useful time in https://arxiv.org/abs/2104.04473 is (p-1)/m;\nnormalizing by elapsed time gives the requested beta.\n\nTraining work F=6*P*N+12*L*N*S*h [FLOP]; full checkpointing multiplies by\n4/3 (one extra forward). Hypothetical per-device compute rate c [FLOP/s]\ngives T=F/[d*t*p*c*(1-beta)] [s] and throughput=N/T [tokens/s]. This is\ncompute-only: no communication/computation overlap, kernel efficiency,\nnetwork time, latency, load imbalance or measured hardware performance.\nParameter placement assumes perfect balance/sharding including embeddings,\nbiases and norms; actual Megatron placement can differ. Memory excludes live\nZeRO gathers, workspaces, logits/loss, allocator fragmentation and temporary\nrecomputed activations. Thus it is retained memory, NOT peak device memory.\nZeRO conserves model states; total memory conservation also needs a fixed\nglobal batch (activations are DP replicated, not sharded by ZeRO).\n",
+        "bubble_fraction": 0.0,
+        "communication_send_bytes_per_step": {
+          "all_gather": 0.0,
+          "all_reduce": 0.0,
+          "dp_all_reduce": 0.0,
+          "p2p": 0.0,
+          "p2p_by_stage": [
+            0
+          ],
+          "reduce_scatter": 0.0,
+          "total": 0.0,
+          "tp_all_reduce": 0.0
+        },
+        "compute_only_step_s": 0.001671954432,
+        "compute_only_tokens_per_s": 306228.44151771715,
+        "devices": 1,
+        "global_tokens_per_step": 512,
+        "hypothetical_compute_flops_per_s": 1000000000000,
+        "memory_bytes": {
+          "activations": 13369344.0,
+          "gradients": 1914880.0,
+          "model_states": 7659520.0,
+          "optimizer": 3829760.0,
+          "parameters": 1914880.0,
+          "total": 21028864.0
+        },
+        "mode": "解析模型",
+        "parameters": 478720,
+        "training_flops_per_step": 1671954432
+      },
+      "state_inventory": {
+        "gradients": [
+          {
+            "dtype": "float32",
+            "names": [
+              "token_embedding.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "position_embedding.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "final_norm.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "final_norm.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          }
+        ],
+        "optimizer": [
+          {
+            "dtype": "float32",
+            "names": [
+              "first.token_embedding.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.position_embedding.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.0.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.blocks.1.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.final_norm.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "first.final_norm.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.token_embedding.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.position_embedding.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.0.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.blocks.1.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.final_norm.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "second.final_norm.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          }
+        ],
+        "parameters": [
+          {
+            "dtype": "float32",
+            "names": [
+              "token_embedding.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "position_embedding.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.0.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln1.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln1.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.qkv.weight"
+            ],
+            "shape": [
+              384,
+              128
+            ],
+            "storage_bytes": 196608
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.qkv.bias"
+            ],
+            "shape": [
+              384
+            ],
+            "storage_bytes": 1536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.output.weight"
+            ],
+            "shape": [
+              128,
+              128
+            ],
+            "storage_bytes": 65536
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.attention.output.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln2.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.ln2.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.up.weight"
+            ],
+            "shape": [
+              512,
+              128
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.up.bias"
+            ],
+            "shape": [
+              512
+            ],
+            "storage_bytes": 2048
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.down.weight"
+            ],
+            "shape": [
+              128,
+              512
+            ],
+            "storage_bytes": 262144
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "blocks.1.down.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "final_norm.weight"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          },
+          {
+            "dtype": "float32",
+            "names": [
+              "final_norm.bias"
+            ],
+            "shape": [
+              128
+            ],
+            "storage_bytes": 512
+          }
+        ]
+      }
+    }
+  ],
+  "runtime": {
+    "cpu_model": "Apple M4 Max",
+    "device": "cpu",
+    "machine": "arm64",
+    "thread_environment": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "sources_sha256": {
+    "scripts/p4_calibrate.py": "d8f03da65f56d34456489f8fbc6afada823698c854cb770e8dfef907e4578f35",
+    "src/prism/measure.py": "f40ecfdc1052e1f0fa753db6a76f9a099cf61b02eb535648400539a0f14305f5",
+    "src/prism/parallel_models.py": "a69eacdb07248cd755fddb4c4346c60c2573d6583e4fe34ca8b76aa00d9d1bb8",
+    "src/prism/record.py": "d30bc47fe1d82879ad84d7ce99f2ba3a55ae154707a03cf54c9ca035125a1e4c",
+    "src/prism/sut.py": "d4cae3336f899e91e28da89550ecc4cd9ddcfea61d4f37c9d5149982947bf517"
+  },
+  "state_evolution": "each B starts from SUT; 1 diagnostic + warmup + repeat updates",
+  "sut_manifest_sha256": "8f5f36885a574011e647b4fb046862100f5aa6d4ba99e279d42c0975ac3abfb0",
+  "task": "P4-T2",
+  "timing_scope": "forward + mean CE + backward + AdamW update + temporary disposal; fixed seeded synthetic tokens; states preallocated; diagnostic and setup excluded"
+}

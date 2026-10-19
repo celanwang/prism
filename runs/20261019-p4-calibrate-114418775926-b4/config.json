@@ -1,0 +1,79 @@
+{
+  "evidence": "\u5355\u673a CPU \u771f\u5b9e\u8bad\u7ec3\u5b9e\u6d4b",
+  "implementation": "prism NumPy manual backward + AdamW; actual SUT weights; dropout=0",
+  "memory_scope": "unique ndarray storage at end of forward: layer saved arrays vs P4 retained layers; logits/final norm separately; tracemalloc incremental peak excludes preallocated states; RSS is process lifetime high-water reference, not per-step peak",
+  "model": {
+    "ffn": 512,
+    "heads": 4,
+    "hidden": 128,
+    "layers": 2,
+    "position_capacity": 128,
+    "seq": 128,
+    "vocab": 512
+  },
+  "phase": "P4",
+  "precision": {
+    "activation_bytes": 4,
+    "gradient_bytes": 4,
+    "mask_bytes": 1,
+    "optimizer_bytes": 8,
+    "weight_bytes": 4
+  },
+  "recipe": {
+    "device": "cpu",
+    "hypothetical_compute_flops_per_s": 1000000000000,
+    "micro_batch_sizes": [
+      1,
+      2,
+      4
+    ],
+    "optimizer": {
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 1e-08,
+      "learning_rate": 0.0001,
+      "name": "AdamW",
+      "weight_decay": 0.01
+    },
+    "phase": "P4",
+    "repeat": 30,
+    "seed": 42,
+    "sequence_length": 128,
+    "sut_path": "data/sut/kaleido-p3",
+    "task": "P4-T2",
+    "threads": 1,
+    "warmup": 5
+  },
+  "runtime": {
+    "cpu_model": "Apple M4 Max",
+    "device": "cpu",
+    "machine": "arm64",
+    "thread_environment": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "sources_sha256": {
+    "scripts/p4_calibrate.py": "d40537182c5936adb1cfe306dfb8f53b1058558a2cde276fca729d68bc3de028",
+    "src/prism/measure.py": "f40ecfdc1052e1f0fa753db6a76f9a099cf61b02eb535648400539a0f14305f5",
+    "src/prism/parallel_models.py": "a69eacdb07248cd755fddb4c4346c60c2573d6583e4fe34ca8b76aa00d9d1bb8",
+    "src/prism/record.py": "d30bc47fe1d82879ad84d7ce99f2ba3a55ae154707a03cf54c9ca035125a1e4c",
+    "src/prism/sut.py": "d4cae3336f899e91e28da89550ecc4cd9ddcfea61d4f37c9d5149982947bf517"
+  },
+  "state_evolution": "each B starts from SUT; 1 diagnostic + warmup + repeat updates",
+  "strategy": {
+    "dp": 1,
+    "micro_batch": 4,
+    "micro_batches": 1,
+    "pp": 1,
+    "recompute": false,
+    "tp": 1,
+    "zero": 0
+  },
+  "sut_manifest_sha256": "8f5f36885a574011e647b4fb046862100f5aa6d4ba99e279d42c0975ac3abfb0",
+  "task": "P4-T2",
+  "timing_scope": "forward + mean CE + backward + AdamW update + temporary disposal; fixed seeded synthetic tokens; states preallocated; diagnostic and setup excluded"
+}
