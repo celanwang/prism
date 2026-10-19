@@ -1,0 +1,128 @@
+{
+  "batch": 1,
+  "fixture_sha256": "a457353b0412fd06ad4b30eeecaa860623d5fa2b12f85274029ed0f9f3d33bd4",
+  "manifest_sha256": "8f5f36885a574011e647b4fb046862100f5aa6d4ba99e279d42c0975ac3abfb0",
+  "order": [
+    "fp32",
+    "int8",
+    "spec1",
+    "spec2",
+    "spec4",
+    "spec8"
+  ],
+  "phase": "P2",
+  "recipe": {
+    "calibration": {
+      "report": "results/p0/calibration.md",
+      "resolution_ms": 0.092584
+    },
+    "decode_tokens": 32,
+    "device": "cpu",
+    "k_values": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "orders": [
+      [
+        "fp32",
+        "int8",
+        "spec1",
+        "spec2",
+        "spec4",
+        "spec8"
+      ],
+      [
+        "spec8",
+        "spec4",
+        "spec2",
+        "spec1",
+        "int8",
+        "fp32"
+      ]
+    ],
+    "phase": "P2",
+    "prompt_ids": [
+      256,
+      316,
+      32,
+      396,
+      337,
+      32,
+      270,
+      32,
+      259,
+      32,
+      385,
+      32,
+      356,
+      279,
+      32,
+      268,
+      32,
+      299
+    ],
+    "random": {
+      "new_tokens": 8,
+      "prompt_lengths": [
+        1,
+        7,
+        18,
+        64,
+        126,
+        127,
+        128,
+        129,
+        257
+      ],
+      "seeds": [
+        42,
+        20261019
+      ]
+    },
+    "repeat": 30,
+    "sut_path": "data/sut/kaleido-p3",
+    "task": "P2-T2",
+    "threads": 1,
+    "warmup": 3
+  },
+  "runtime": {
+    "cpu_model": "Apple M4 Max",
+    "device": "cpu",
+    "thread_environment": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "sources_sha256": {
+    "scripts/spec_bench.py": "469928ff098c24eec16264ff085f008d0487a844dca3b3c38e7870a6f4fe825a",
+    "src/prism/env.py": "cedd6a413485521a9d05499648627913f54753a64422b348613e8eca82468258",
+    "src/prism/kvcache.py": "88ba181d6b7b714dfcb0f520923dc46c993e54f19bbde558fc65dc9e8aeb988e",
+    "src/prism/measure.py": "f40ecfdc1052e1f0fa753db6a76f9a099cf61b02eb535648400539a0f14305f5",
+    "src/prism/quant.py": "3f3278944ad10e99160c2a31ab68995e5272ab2492acf5fe928a74358d54008a",
+    "src/prism/record.py": "d30bc47fe1d82879ad84d7ce99f2ba3a55ae154707a03cf54c9ca035125a1e4c",
+    "src/prism/speculative.py": "1faed749de06d2b04203351865c5b158379472718e0325882ee8b94a66b3b11e",
+    "src/prism/sut.py": "d4cae3336f899e91e28da89550ecc4cd9ddcfea61d4f37c9d5149982947bf517"
+  },
+  "sut_config": {
+    "context_length": 128,
+    "dropout": 0.0,
+    "heads": 4,
+    "layers": 2,
+    "vocab_size": 512,
+    "width": 128
+  },
+  "task": "P2-T2",
+  "workload": {
+    "arm": "spec1",
+    "batch_size": 1,
+    "component": "draft-sync",
+    "decode_tokens": 32,
+    "eos_id": null,
+    "timing_scope": "fixed first-round prefix; prefill excluded"
+  }
+}
