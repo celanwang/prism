@@ -1,0 +1,264 @@
+{
+  "arrival_rates_per_s": [
+    10,
+    100,
+    400
+  ],
+  "batch_sizes": [
+    1,
+    4,
+    8
+  ],
+  "batch_timeout_ms": 0,
+  "duration_ms": 2000,
+  "max_batched_tokens": 512,
+  "mode": "模拟",
+  "output_length": {
+    "kind": "uniform",
+    "min": 32,
+    "max": 64
+  },
+  "p99_threshold_ms": 1000,
+  "phase": "P3",
+  "policies": [
+    "static",
+    "continuous"
+  ],
+  "prompt_length": {
+    "kind": "uniform",
+    "min": 8,
+    "max": 32
+  },
+  "queue_capacity": 2,
+  "queue_growth": {
+    "min_queue": 20,
+    "min_slope_per_s": 1
+  },
+  "queue_timeout_ms": null,
+  "seed": 20261019,
+  "semantics": {
+    "avalanche": "p99 threshold OR four strictly increasing time-weighted queue means over the final half-window, slope > configured threshold and final queue >= min_queue; finite-window proxy, not proof of unbounded growth",
+    "device": "模拟 single serial server; host environment in env.lock is provenance only",
+    "measurement": "模拟 request E2E statistics in the existing Measurement schema; memory zeros mean not measured; other metrics in summary.json; no completions means save fails without fabricating samples",
+    "quantiles": "NumPy linear p50/p95/p99 across completed requests, including drain; no confidence intervals",
+    "repeat": 1,
+    "throughput": "Output tokens emitted within [0, duration_ms] / duration seconds; drained throughput also saved. Prompt tokens excluded.",
+    "tokens": "Per iteration: admitted prompt tokens + one decode token per active member; unchunked FIFO prefill blocks decode. Static batches keep padded launch width until all members complete.",
+    "warmup": 0
+  },
+  "service_model": {
+    "decode_nodes": [
+      [
+        1,
+        0.5257505
+      ],
+      [
+        2,
+        1.0298335
+      ],
+      [
+        4,
+        2.0622705000000003
+      ],
+      [
+        8,
+        4.163520500000001
+      ]
+    ],
+    "prefill_ms_per_token": 0.00938601263970197,
+    "source": {
+      "evidence": "CPU 实测 / serial batch-one proxy",
+      "limits": "CPU small model serial batch-one proxy, not real concurrent batching. Decode calibrated only at context=32; prefill intercept omitted; no held-out validation. No 0.35 scaling assumption used.",
+      "measurements": {
+        "decode": [
+          {
+            "captured_at": "2026-10-19T10:05:39.168592+00:00",
+            "config_hash": "c62697e09b21a28659c12774d0d2ac5b8d48a26d706a2a2900bfb86f9aef3382",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "max_rss_bytes": 84705280,
+            "mean": 0.54326542,
+            "p50": 0.5257505,
+            "p95": 0.6330211499999999,
+            "p99": 0.6996564199999996,
+            "path": "runs/20261019-p1-calibrate-100535736151-decode-1",
+            "peak_tracemalloc_bytes": 86974,
+            "size": 1,
+            "stdev": 0.04700002071381561
+          },
+          {
+            "captured_at": "2026-10-19T10:05:39.383496+00:00",
+            "config_hash": "6b874c7fcfc2305fd0a40dd44b14c5049e13fdfec3b33873337ccfdd1dd7a2b7",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "max_rss_bytes": 84885504,
+            "mean": 1.041103755,
+            "p50": 1.0298335,
+            "p95": 1.1069348,
+            "p99": 1.15509383,
+            "path": "runs/20261019-p1-calibrate-100535736151-decode-2",
+            "peak_tracemalloc_bytes": 86821,
+            "size": 2,
+            "stdev": 0.03384425844190395
+          },
+          {
+            "captured_at": "2026-10-19T10:05:39.809275+00:00",
+            "config_hash": "344b8ce3a1ebf39abdd96230e4b6d4233e01bb7fc45612389359b903606e73dd",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "max_rss_bytes": 85278720,
+            "mean": 2.076301235,
+            "p50": 2.0622705000000003,
+            "p95": 2.17395145,
+            "p99": 2.2789741699999992,
+            "path": "runs/20261019-p1-calibrate-100535736151-decode-4",
+            "peak_tracemalloc_bytes": 86668,
+            "size": 4,
+            "stdev": 0.06450574601510008
+          },
+          {
+            "captured_at": "2026-10-19T10:05:40.667569+00:00",
+            "config_hash": "6f2a4f1aad9b6334fa9e0af7a6ccb43311d804d28d5e129cc72c757a9fcd8d1e",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "max_rss_bytes": 85819392,
+            "mean": 4.20301001,
+            "p50": 4.163520500000001,
+            "p95": 4.40180625,
+            "p99": 4.639801159999998,
+            "path": "runs/20261019-p1-calibrate-100535736151-decode-8",
+            "peak_tracemalloc_bytes": 86668,
+            "size": 8,
+            "stdev": 0.21484459257346972
+          }
+        ],
+        "prefill": [
+          {
+            "captured_at": "2026-10-19T10:05:36.256064+00:00",
+            "config_hash": "ccf40cb17677fee31be70044e88cc2bad642ba00c4effb5d4fde2bad97327fc1",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "max_rss_bytes": 49577984,
+            "mean": 0.500371885,
+            "p50": 0.49125,
+            "p95": 0.54945805,
+            "p99": 0.60381767,
+            "path": "runs/20261019-p1-calibrate-100535736151-prefill-1",
+            "peak_tracemalloc_bytes": 48777,
+            "size": 1,
+            "stdev": 0.02753178612362322
+          },
+          {
+            "captured_at": "2026-10-19T10:05:37.187473+00:00",
+            "config_hash": "51f4aafce9b535ba6b8cba7f9101cd8dce2b8eea2a2848747853e83c24f9be91",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "max_rss_bytes": 55508992,
+            "mean": 0.876582924,
+            "p50": 0.857542,
+            "p95": 0.96133815,
+            "p99": 1.03310175,
+            "path": "runs/20261019-p1-calibrate-100535736151-prefill-32",
+            "peak_tracemalloc_bytes": 477281,
+            "size": 32,
+            "stdev": 0.05383399089047198
+          },
+          {
+            "captured_at": "2026-10-19T10:05:39.054304+00:00",
+            "config_hash": "3f337bad2ff0063fa8fb3a07dbfb98ef4519ed87af7f83d8f08b6cc7b219026f",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "max_rss_bytes": 84344832,
+            "mean": 1.727491341,
+            "p50": 1.7052295,
+            "p95": 1.9143627999999997,
+            "p99": 2.10538483,
+            "path": "runs/20261019-p1-calibrate-100535736151-prefill-128",
+            "peak_tracemalloc_bytes": 2212849,
+            "size": 128,
+            "stdev": 0.09106845845779206
+          }
+        ]
+      },
+      "original_sim_recipe_sha256": "862a3fcd6647e8f6fc3b25a449ad635968ce6d8ecaae73a8463161674ddce74f",
+      "phase": "P1",
+      "prefill_fit": {
+        "intercept_ms": 0.5142911550026608,
+        "method": "OLS p50_ms = intercept_ms + slope_ms_per_token * T",
+        "residuals_ms": [
+          -0.0324271676423627,
+          0.04289844052687619,
+          -0.010471272884512883
+        ],
+        "simulator_mapping": "Only slope is representable; intercept omitted, not absorbed.",
+        "slope_ms_per_token": 0.00938601263970197
+      },
+      "recipe": {
+        "calibration": {
+          "rationale": "Keep P0/T4 measurement protocol: prefill warmup=100/repeat=1000; decode warmup=10/repeat=200. Every timed decode call advances B independent batch-one caches once, serially in one process; prefill and cache setup are outside timing. Reuse immutable past caches so every sample starts at the same context length, without rollover. The empirical perturbation floor is a reference, not a significance guarantee.",
+          "report": "results/p0/calibration.md",
+          "resolution_ms": 0.092584
+        },
+        "decode": {
+          "batch_sizes": [
+            1,
+            2,
+            4,
+            8
+          ],
+          "context_tokens": 32,
+          "repeat": 200,
+          "token_id": 42,
+          "warmup": 10
+        },
+        "device": "cpu",
+        "phase": "P1",
+        "prefill": {
+          "repeat": 1000,
+          "sequence_lengths": [
+            1,
+            32,
+            128
+          ],
+          "token_id": 42,
+          "warmup": 100
+        },
+        "sim_recipe": "configs/p1_schedsim.json",
+        "sut_path": "data/sut/kaleido-p3",
+        "task": "P1-T4",
+        "threads": 1
+      },
+      "runtime": {
+        "cpu_model": "Apple M4 Max",
+        "device": "cpu",
+        "machine": "arm64",
+        "thread_environment": {
+          "BLIS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1"
+        }
+      },
+      "sources_sha256": {
+        "scripts/p1_calibrate.py": "9f02cd154175c799fc1a71043ee27a6522141de82289e9fa4305f34bdea25c6f",
+        "src/prism/kvcache.py": "88ba181d6b7b714dfcb0f520923dc46c993e54f19bbde558fc65dc9e8aeb988e",
+        "src/prism/measure.py": "f40ecfdc1052e1f0fa753db6a76f9a099cf61b02eb535648400539a0f14305f5",
+        "src/prism/schedsim.py": "6d6d2354f109171039ad10897a24eb7174b21c032ea41bdaa5ed1a3f50a3f3a2",
+        "src/prism/sut.py": "d4cae3336f899e91e28da89550ecc4cd9ddcfea61d4f37c9d5149982947bf517"
+      },
+      "sut": {
+        "config": {
+          "context_length": 128,
+          "dropout": 0.0,
+          "heads": 4,
+          "layers": 2,
+          "vocab_size": 512,
+          "width": 128
+        },
+        "manifest_sha256": "8f5f36885a574011e647b4fb046862100f5aa6d4ba99e279d42c0975ac3abfb0"
+      },
+      "task": "P1-T4"
+    }
+  },
+  "task": "P3-T2",
+  "policy": "static",
+  "batch_size": 1,
+  "arrival_rate_per_s": 160,
+  "client_concurrency": 1,
+  "client_timeout_s": 10,
+  "adapter": "serial T3 batch-one FIFO + ideal bounded client pool"
+}

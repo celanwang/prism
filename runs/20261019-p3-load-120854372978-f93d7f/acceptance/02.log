@@ -1,0 +1,29 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.1.1, pluggy-1.7.0
+rootdir: /Users/wangchen/Developer/prism-wt-p3load
+configfile: pyproject.toml
+testpaths: tests
+collected 666 items
+
+tests/test_baseline.py .............................                     [  4%]
+tests/test_calibrate.py .................                                [  6%]
+tests/test_cli.py .                                                      [  7%]
+tests/test_env.py ......                                                 [  7%]
+tests/test_kvcache.py .......................................            [ 13%]
+tests/test_measure.py ..........................                         [ 17%]
+tests/test_p1_calibrate.py ............                                  [ 19%]
+tests/test_p4_calibrate.py .................                             [ 22%]
+tests/test_paged.py .................................................... [ 29%]
+..........................................................               [ 38%]
+tests/test_parallel_models.py .......................................... [ 44%]
+.......................................................                  [ 53%]
+tests/test_quant.py .............................                        [ 57%]
+tests/test_record.py ..................................................  [ 65%]
+tests/test_schedsim.py .............................................     [ 71%]
+tests/test_serve.py ........................                             [ 75%]
+tests/test_serve_load.py .....................                           [ 78%]
+tests/test_speculative.py .............................................. [ 85%]
+.....................................................................    [ 95%]
+tests/test_sut.py ............................                           [100%]
+
+============================= 666 passed in 20.35s =============================
