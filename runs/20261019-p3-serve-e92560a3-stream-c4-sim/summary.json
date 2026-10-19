@@ -1,0 +1,40 @@
+{
+  "arrivals": 24,
+  "avalanche": false,
+  "avalanche_reasons": [],
+  "completed": 12,
+  "completed_output_tokens": 159,
+  "config_hash": "3285ce8cd41669b7ff8e40e483de0959adcb3be883ab3a5467aae549a4fa450b",
+  "drained_throughput_tokens_per_s": 1103.27544260268,
+  "drained_until_ms": 144.11632296003194,
+  "late_window_mean_queues": [
+    1.5573511187580011,
+    1.7105689409821463,
+    1.371422111138345,
+    1.4621977998225217
+  ],
+  "latency_ms": {
+    "mean": 26.496912699697546,
+    "p50": 27.139128091439556,
+    "p95": 33.43686181900331,
+    "p99": 34.60483599979461,
+    "stdev": 6.3422334075923
+  },
+  "max_queue_length": 2,
+  "mean_in_system": 2.3337787701717247,
+  "mean_queue_length": 1.3895423589136058,
+  "mode": "模拟",
+  "observation_ms": 123.06337500000001,
+  "queue_slope_per_s": -2.0618822117298916,
+  "rejected": 12,
+  "throughput_tokens_per_s": 1088.8698607526405,
+  "timed_out": 0,
+  "wait_ms": {
+    "mean": 15.05909040575222,
+    "p50": 17.172247503505982,
+    "p95": 21.047832333456423,
+    "p99": 21.19559904643521,
+    "stdev": 6.055773974773501
+  },
+  "window_output_tokens": 134
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "command": "uv sync --locked",
+    "exit_code": 0,
+    "output": "Resolved 9 packages in 14ms\nChecked 8 packages in 1ms\n"
+  },
+  {
+    "command": "uv run --locked pytest",
+    "exit_code": 0,
+    "output": "484 passed in 10.02s"
+  },
+  {
+    "command": "uv run --locked ruff check .",
+    "exit_code": 0,
+    "output": "All checks passed!\n"
+  },
+  {
+    "command": "uv run --locked ruff format --check .",
+    "exit_code": 0,
+    "output": "54 files already formatted\n"
+  },
+  {
+    "command": "uv run --locked prism sut check",
+    "exit_code": 0,
+    "output": "{\n  \"greedy_cases\": {\n    \"window_rollover\": {\n      \"passed\": true,\n      \"token_ids\": [\n        396,\n        337,\n        32,\n        283,\n        397,\n        46,\n        32,\n        320,\n        32,\n        385,\n        32,\n        103,\n        338,\n        108,\n        32,\n        396,\n        337,\n        32,\n        283,\n        397,\n        46,\n        32,\n        320,\n        32,\n        385,\n        32,\n        103,\n        338,\n        108,\n        32,\n        396,\n        337,\n        32,\n        283,\n        397,\n        46,\n        32,\n        320,\n        32,\n        385,\n        32,\n        103,\n        338,\n        108,\n        32,\n        396,\n        337,\n        32,\n        283,\n        397,\n        46,\n        32,\n        320,\n        32,\n        385,\n        32,\n        103,\n        338,\n        108,\n        32,\n        396,\n        337,\n        32,\n        283,\n        397,\n        46,\n        32,\n        320,\n        32,\n        385,\n        32,\n        103,\n        338,\n        108,\n        32,\n        396,\n        337,\n        32,\n        283,\n        397,\n        46,\n        32,\n        320,\n        32,\n        385,\n        32,\n        103,\n        338,\n        108,\n        32,\n        396,\n        337,\n        32,\n        283,\n        397,\n        46,\n        32,\n        320,\n        32,\n        385,\n        32,\n        103,\n        338,\n        108,\n        32,\n        396,\n        337,\n        32,\n        283,\n        397,\n        46,\n        32,\n        320,\n        32,\n        385,\n        32,\n        103,\n        338,\n        108,\n        32,\n        396,\n        337,\n        32,\n        283,\n        397,\n        46,\n        32,\n        265,\n        73,\n        32,\n        109,\n        32,\n        301,\n        32,\n        97,\n        32,\n        98,\n        504,\n        32,\n        259,\n        32,\n        103,\n        114\n      ],\n      \"total_tokens\": 143\n    },\n    \"within_window\": {\n      \"passed\": true,\n      \"token_ids\": [\n        256,\n        316,\n        32,\n        396,\n        337,\n        32,\n        270,\n        32,\n        259,\n        32,\n        385,\n        32,\n        356,\n        279,\n        32,\n        268,\n        32,\n        299,\n        32,\n        259,\n        32,\n        103,\n        373,\n        32,\n        103,\n        114,\n        261,\n        103,\n        32,\n        259,\n        32,\n        103,\n        114,\n        261,\n        103,\n        32,\n        284,\n        32,\n        259,\n        32,\n        115,\n        32,\n        98,\n        114,\n        261,\n        103,\n        32,\n        259,\n        32,\n        103\n      ],\n      \"total_tokens\": 50\n    }\n  },\n  \"greedy_cases_passed\": 2,\n  \"logits_argmax_positions_passed\": 32,\n  \"logits_max_abs_error\": 9.5367431640625e-06,\n  \"passed\": true,\n  \"tokenizer_prompts_passed\": 3\n}\n"
+  },
+  {
+    "command": "uv run --locked python scripts/serve_bench.py --check",
+    "exit_code": 0,
+    "output": "8 measured + 8 nominal T3 save_run records; equivalence 6/6; warmup=0, repeat=2; smoke 非实验证据. Full output in check-output.json."
+  }
+]

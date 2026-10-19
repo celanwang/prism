@@ -1,0 +1,50 @@
+{
+  "check_requests": 8,
+  "client_concurrency": 2,
+  "concurrency": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "device": "cpu",
+  "endpoint": "stream",
+  "endpoints": [
+    "whole",
+    "stream"
+  ],
+  "evidence": "\u5b9e\u6d4b loopback CPU engineering evidence",
+  "hardware_device": "Apple M4 Max / CPU / 1 native thread",
+  "http_pending": 0,
+  "http_workers": 16,
+  "max_new_tokens": 300,
+  "measurement_unit": "complete client round (not request latency)",
+  "native_threads": 1,
+  "output_length": {
+    "kind": "uniform",
+    "max": 16,
+    "min": 8
+  },
+  "phase": "P3",
+  "prompt_length": {
+    "kind": "uniform",
+    "max": 32,
+    "min": 8
+  },
+  "queue_capacity": 2,
+  "repeat": 5,
+  "requests_per_round": 32,
+  "seed": 20261019,
+  "semantics": {
+    "arrival": "Fixed seeded request sequence, barrier-synchronized waves of C clients, next wave after all responses; HTTP scheduling/admission order and rejection count are not deterministic.",
+    "comparison": "T3 nominal parameters: serial batch_size=1, batch_timeout_ms=0, same queue capacity and length distributions; offered rate is requests / measured round wall time. T3 uses Poisson arrivals, HTTP uses closed-loop waves, so compare distributions only, never per-request trajectories. T3 retains its P0 uncached analytical service proxy; it is not calibrated cached HTTP cost.",
+    "limits": "Loopback CPU small-model engineering evidence; no production performance claim; tracemalloc instrumentation and local clients share this process. Slow SSE clients backpressure the single inference worker.",
+    "measurement": "P0 measure() times complete rounds; warmup rounds excluded from request records; request p50/p95/p99 are separate NumPy linear quantiles over successful requests.",
+    "stream": "SSE meta/token/done/error; token_ids include the entire prompt; client records TTFT from request start. eos_id defaults to null.",
+    "wait": "Server queue admission to inference start; excludes HTTP/socket parsing. Client E2E covers connection through full response. Rejections retain E2E but have no inference wait."
+  },
+  "sim_recipe": "configs/p1_schedsim.json",
+  "sut_path": "data/sut/kaleido-p3",
+  "task": "P3-T1",
+  "warmup": 2
+}

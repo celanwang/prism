@@ -1,0 +1,76 @@
+{
+  "mode": "实测",
+  "concurrency": 8,
+  "endpoint": "stream",
+  "requests": 160,
+  "completed": 60,
+  "429": 100,
+  "503": 0,
+  "request_e2e_ms": {
+    "p50": 22.41618750122143,
+    "p95": 33.83408540030359,
+    "p99": 34.36483625046093
+  },
+  "request_queue_wait_ms": {
+    "p50": 11.976104498899076,
+    "p95": 21.459537850751076,
+    "p99": 22.502145282560374
+  },
+  "request_ttft_ms": {
+    "p50": 18.568062499980442,
+    "p95": 27.62539855102659,
+    "p99": 29.567580056973377
+  },
+  "rejection_e2e_ms": {
+    "p50": 3.897750000760425,
+    "p95": 4.58905204795883,
+    "p99": 4.680143748773845
+  },
+  "round_measurement_ms": {
+    "p50": 124.338125,
+    "p95": 129.9609664,
+    "p99": 130.35675967999998
+  },
+  "config_hash": "70ad66ee73bef2f80471da3e26ac57fe89c2660176fff028fade599ec1c5f2f6",
+  "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+  "simulation": {
+    "mode": "模拟",
+    "config_hash": "170b28e374e08e23b4f638352cbdf96f142b343d1c1f438eb3e3d7db69ca6ea1",
+    "arrivals": 172,
+    "completed": 60,
+    "rejected": 112,
+    "timed_out": 0,
+    "wait_ms": {
+      "mean": 17.544699414604768,
+      "stdev": 5.541172465692806,
+      "p50": 18.409965349070234,
+      "p95": 25.864663936034084,
+      "p99": 26.96959522670886
+    },
+    "latency_ms": {
+      "mean": 28.307040939864994,
+      "stdev": 5.871311814194945,
+      "p50": 29.36228713923655,
+      "p95": 36.07560282687754,
+      "p99": 38.44543093153125
+    },
+    "max_queue_length": 2,
+    "mean_queue_length": 1.6456262453913573,
+    "mean_in_system": 2.6400498865171707,
+    "window_output_tokens": 724,
+    "throughput_tokens_per_s": 1148.4857363885353,
+    "completed_output_tokens": 746,
+    "drained_throughput_tokens_per_s": 1149.0078299299353,
+    "observation_ms": 630.395291,
+    "drained_until_ms": 649.2558018908278,
+    "late_window_mean_queues": [
+      1.7532530291904953,
+      1.8464531457835924,
+      1.611903639813465,
+      1.428037864379226
+    ],
+    "queue_slope_per_s": -1.3757089430681013,
+    "avalanche": false,
+    "avalanche_reasons": []
+  }
+}

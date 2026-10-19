@@ -1,0 +1,76 @@
+{
+  "mode": "实测",
+  "concurrency": 2,
+  "endpoint": "stream",
+  "requests": 16,
+  "completed": 16,
+  "429": 0,
+  "503": 0,
+  "request_e2e_ms": {
+    "p50": 14.045854499272536,
+    "p95": 21.468833499966422,
+    "p99": 21.618933103309246
+  },
+  "request_queue_wait_ms": {
+    "p50": 3.560874996765051,
+    "p95": 10.441145746881375,
+    "p99": 10.481796344538452
+  },
+  "request_ttft_ms": {
+    "p50": 9.582728500390658,
+    "p95": 18.117687503035995,
+    "p99": 18.187137503628037
+  },
+  "rejection_e2e_ms": {
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "round_measurement_ms": {
+    "p50": 78.0595835,
+    "p95": 78.29403395,
+    "p99": 78.31487399
+  },
+  "config_hash": "5b796aa909a8e756a78006a6493b1e0af890deb424109b78aa7b907eaa78922a",
+  "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+  "simulation": {
+    "mode": "模拟",
+    "config_hash": "d23f00bde7959d08ca7c0b57799e5d197ae3c0dbdc59070a27802c8ff9dfabcc",
+    "arrivals": 24,
+    "completed": 16,
+    "rejected": 8,
+    "timed_out": 0,
+    "wait_ms": {
+      "mean": 10.48140279205541,
+      "stdev": 5.7800394779017905,
+      "p50": 10.72393334346065,
+      "p95": 16.464551667438926,
+      "p99": 17.75767157672384
+    },
+    "latency_ms": {
+      "mean": 21.024555870668706,
+      "stdev": 4.889394513159942,
+      "p50": 21.664491421557152,
+      "p95": 26.308264443466026,
+      "p99": 28.914090777882716
+    },
+    "max_queue_length": 2,
+    "mean_queue_length": 1.0252757308653244,
+    "mean_in_system": 1.9695121421234427,
+    "window_output_tokens": 169,
+    "throughput_tokens_per_s": 1082.506416396649,
+    "completed_output_tokens": 195,
+    "drained_throughput_tokens_per_s": 1099.2342806762308,
+    "observation_ms": 156.119167,
+    "drained_until_ms": 177.39621428112596,
+    "late_window_mean_queues": [
+      0.7708465795930277,
+      0.786205979638825,
+      1.401873819526581,
+      1.0655874432456705
+    ],
+    "queue_slope_per_s": 5.034459583089162,
+    "avalanche": false,
+    "avalanche_reasons": []
+  }
+}

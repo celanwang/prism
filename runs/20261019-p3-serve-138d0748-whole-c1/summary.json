@@ -1,0 +1,76 @@
+{
+  "mode": "实测",
+  "concurrency": 1,
+  "endpoint": "whole",
+  "requests": 160,
+  "completed": 160,
+  "429": 0,
+  "503": 0,
+  "request_e2e_ms": {
+    "p50": 8.083354503469309,
+    "p95": 9.321305902631138,
+    "p99": 9.465432839206187
+  },
+  "request_queue_wait_ms": {
+    "p50": 0.024082997697405517,
+    "p95": 0.031158347337623116,
+    "p99": 0.03658853136585093
+  },
+  "request_ttft_ms": {
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "rejection_e2e_ms": {
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "round_measurement_ms": {
+    "p50": 250.073208,
+    "p95": 250.9021666,
+    "p99": 251.04503332
+  },
+  "config_hash": "7e01398714811cbedafe57b36e762da04ff7dcb2a8c781fd9c9d76461b0ef040",
+  "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+  "simulation": {
+    "mode": "模拟",
+    "config_hash": "9d880f268a026e0cd7e368a2b23e1f0aeb312767d3d73e50f9869c0bbd085fe6",
+    "arrivals": 172,
+    "completed": 112,
+    "rejected": 60,
+    "timed_out": 0,
+    "wait_ms": {
+      "mean": 12.538753899809521,
+      "stdev": 6.7154735321909715,
+      "p50": 13.484517510678927,
+      "p95": 21.93377955468245,
+      "p99": 23.642927702844947
+    },
+    "latency_ms": {
+      "mean": 23.03556990127411,
+      "stdev": 6.985912868639167,
+      "p50": 23.829514516025228,
+      "p95": 33.13815342369061,
+      "p99": 34.93306645824925
+    },
+    "max_queue_length": 2,
+    "mean_queue_length": 1.122010389500534,
+    "mean_in_system": 2.0546939878452686,
+    "window_output_tokens": 1340,
+    "throughput_tokens_per_s": 1076.5594817507572,
+    "completed_output_tokens": 1358,
+    "drained_throughput_tokens_per_s": 1078.2634085264517,
+    "observation_ms": 1244.705957,
+    "drained_until_ms": 1259.4325183081514,
+    "late_window_mean_queues": [
+      1.383525359348909,
+      1.0010493747158857,
+      1.0970779758241431,
+      1.0235649365176418
+    ],
+    "queue_slope_per_s": -0.7711817039880843,
+    "avalanche": false,
+    "avalanche_reasons": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "task": "P3-T1",
+  "phase": "P3",
+  "sut_path": "data/sut/kaleido-p3",
+  "device": "cpu",
+  "native_threads": 1,
+  "seed": 20261019,
+  "concurrency": [1, 2, 4, 8],
+  "endpoints": ["whole", "stream"],
+  "queue_capacity": 2,
+  "http_workers": 16,
+  "http_pending": 0,
+  "max_new_tokens": 300,
+  "requests_per_round": 32,
+  "warmup": 2,
+  "repeat": 5,
+  "check_requests": 8,
+  "prompt_length": {"kind": "uniform", "min": 8, "max": 32},
+  "output_length": {"kind": "uniform", "min": 8, "max": 16},
+  "sim_recipe": "configs/p1_schedsim.json",
+  "semantics": {
+    "arrival": "Fixed seeded request sequence, barrier-synchronized waves of C clients, next wave after all responses; HTTP scheduling/admission order and rejection count are not deterministic.",
+    "measurement": "P0 measure() times complete rounds; warmup rounds excluded from request records; request p50/p95/p99 are separate NumPy linear quantiles over successful requests.",
+    "wait": "Server queue admission to inference start; excludes HTTP/socket parsing. Client E2E covers connection through full response. Rejections retain E2E but have no inference wait.",
+    "stream": "SSE meta/token/done/error; token_ids include the entire prompt; client records TTFT from request start. eos_id defaults to null.",
+    "comparison": "T3 nominal parameters: serial batch_size=1, batch_timeout_ms=0, same queue capacity and length distributions; offered rate is requests / measured round wall time. T3 uses Poisson arrivals, HTTP uses closed-loop waves, so compare distributions only, never per-request trajectories. T3 retains its P0 uncached analytical service proxy; it is not calibrated cached HTTP cost.",
+    "limits": "Loopback CPU small-model engineering evidence; no production performance claim; tracemalloc instrumentation and local clients share this process. Slow SSE clients backpressure the single inference worker."
+  }
+}
