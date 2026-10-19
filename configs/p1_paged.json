@@ -1,0 +1,24 @@
+{
+  "task": "P1-T2",
+  "phase": "P1",
+  "sut_path": "data/sut/kaleido-p3",
+  "device": "cpu",
+  "threads": 1,
+  "block_sizes": [8, 16, 32],
+  "budgets_bytes": [65536, 114688, 131072],
+  "policies": ["sliding", "lru"],
+  "orders": [["naive", "continuous", "paged"], ["paged", "continuous", "naive"]],
+  "calibration": {
+    "report": "results/p0/calibration.md",
+    "resolution_ms": 0.092584,
+    "rationale": "P0 T4 empirical perturbation reference, not a significance guarantee. Full decode calls retain P0 warmup=10/repeat=200; allocation and simulation timings are separate microbenchmarks."
+  },
+  "decode": {
+    "prompt_ids": [256, 316, 32, 396, 337, 32, 270, 32, 259, 32, 385, 32, 356, 279, 32, 268, 32, 299],
+    "max_new_tokens": 32,
+    "warmup": 10,
+    "repeat": 200
+  },
+  "allocation": {"warmup": 10, "repeat": 200},
+  "simulation": {"tokens": 257, "passes": 2, "warmup": 10, "repeat": 200}
+}

@@ -1,0 +1,1296 @@
+saved 20261019-p1-paged-095427544541-b8-m65536-allocation
+saved 20261019-p1-paged-095427544541-b8-m65536-sliding-simulation
+saved 20261019-p1-paged-095427544541-b8-m65536-lru-simulation
+saved 20261019-p1-paged-095427544541-b8-m114688-allocation
+saved 20261019-p1-paged-095427544541-b8-m114688-sliding-simulation
+saved 20261019-p1-paged-095427544541-b8-m114688-lru-simulation
+saved 20261019-p1-paged-095427544541-b8-m131072-allocation
+saved 20261019-p1-paged-095427544541-b8-m131072-sliding-simulation
+saved 20261019-p1-paged-095427544541-b8-m131072-lru-simulation
+saved 20261019-p1-paged-095427544541-b16-m65536-allocation
+saved 20261019-p1-paged-095427544541-b16-m65536-sliding-simulation
+saved 20261019-p1-paged-095427544541-b16-m65536-lru-simulation
+saved 20261019-p1-paged-095427544541-b16-m114688-allocation
+saved 20261019-p1-paged-095427544541-b16-m114688-sliding-simulation
+saved 20261019-p1-paged-095427544541-b16-m114688-lru-simulation
+saved 20261019-p1-paged-095427544541-b16-m131072-allocation
+saved 20261019-p1-paged-095427544541-b16-m131072-sliding-simulation
+saved 20261019-p1-paged-095427544541-b16-m131072-lru-simulation
+saved 20261019-p1-paged-095427544541-b32-m65536-allocation
+saved 20261019-p1-paged-095427544541-b32-m65536-sliding-simulation
+saved 20261019-p1-paged-095427544541-b32-m65536-lru-simulation
+saved 20261019-p1-paged-095427544541-b32-m114688-allocation
+saved 20261019-p1-paged-095427544541-b32-m114688-sliding-simulation
+saved 20261019-p1-paged-095427544541-b32-m114688-lru-simulation
+saved 20261019-p1-paged-095427544541-b32-m131072-allocation
+saved 20261019-p1-paged-095427544541-b32-m131072-sliding-simulation
+saved 20261019-p1-paged-095427544541-b32-m131072-lru-simulation
+saved 20261019-p1-paged-095427544541-order1-naive-decode
+saved 20261019-p1-paged-095427544541-order1-continuous-decode
+saved 20261019-p1-paged-095427544541-order1-b8-m114688-decode
+saved 20261019-p1-paged-095427544541-order1-b8-m131072-decode
+saved 20261019-p1-paged-095427544541-order1-b16-m131072-decode
+saved 20261019-p1-paged-095427544541-order1-b32-m131072-decode
+saved 20261019-p1-paged-095427544541-order2-b8-m114688-decode
+saved 20261019-p1-paged-095427544541-order2-b8-m131072-decode
+saved 20261019-p1-paged-095427544541-order2-b16-m131072-decode
+saved 20261019-p1-paged-095427544541-order2-b32-m131072-decode
+saved 20261019-p1-paged-095427544541-order2-continuous-decode
+saved 20261019-p1-paged-095427544541-order2-naive-decode
+{
+  "task": "P1-T2",
+  "runtime": {
+    "device": "cpu",
+    "cpu_model": "Apple M4 Max",
+    "thread_environment": {
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1"
+    }
+  },
+  "warmup": 10,
+  "repeat": 200,
+  "correctness": {
+    "cases": {
+      "within_window": {
+        "naive": {
+          "matched_tokens": 50,
+          "cache_rebuilds": 0,
+          "max_abs_logit_error_vs_naive": 0.0
+        },
+        "continuous": {
+          "matched_tokens": 50,
+          "cache_rebuilds": 0,
+          "max_abs_logit_error_vs_naive": 9.5367431640625e-06
+        },
+        "paged-b8": {
+          "matched_tokens": 50,
+          "cache_rebuilds": 0,
+          "max_abs_logit_error_vs_naive": 9.5367431640625e-06
+        },
+        "paged-b16": {
+          "matched_tokens": 50,
+          "cache_rebuilds": 0,
+          "max_abs_logit_error_vs_naive": 9.5367431640625e-06
+        },
+        "paged-b32": {
+          "matched_tokens": 50,
+          "cache_rebuilds": 0,
+          "max_abs_logit_error_vs_naive": 9.5367431640625e-06
+        }
+      },
+      "window_rollover": {
+        "naive": {
+          "matched_tokens": 143,
+          "cache_rebuilds": 0,
+          "max_abs_logit_error_vs_naive": 0.0
+        },
+        "continuous": {
+          "matched_tokens": 143,
+          "cache_rebuilds": 14,
+          "max_abs_logit_error_vs_naive": 6.198883056640625e-06
+        },
+        "paged-b8": {
+          "matched_tokens": 143,
+          "cache_rebuilds": 14,
+          "max_abs_logit_error_vs_naive": 6.198883056640625e-06
+        },
+        "paged-b16": {
+          "matched_tokens": 143,
+          "cache_rebuilds": 14,
+          "max_abs_logit_error_vs_naive": 6.198883056640625e-06
+        },
+        "paged-b32": {
+          "matched_tokens": 143,
+          "cache_rebuilds": 14,
+          "max_abs_logit_error_vs_naive": 6.198883056640625e-06
+        }
+      }
+    },
+    "random_prompt_paged_comparisons": 54
+  },
+  "positions": 49,
+  "bytes_per_token": 2048,
+  "continuous_final_payload_bytes": 100352,
+  "points": [
+    {
+      "block_size": 8,
+      "budget_bytes": 65536,
+      "required_bytes": 114688,
+      "status": "infeasible",
+      "reason": "K/V pool cannot retain the complete correct window",
+      "allocation_probe_tokens": 32,
+      "allocation_stats": {
+        "resident_pages": 4,
+        "allocated_bytes": 65536,
+        "used_bytes": 65536,
+        "peak_allocated_bytes": 65536,
+        "peak_used_bytes": 65536,
+        "allocations": 4,
+        "releases": 0,
+        "evictions": 0,
+        "hits": 0,
+        "misses": 4
+      },
+      "allocation_fragmentation": 0.0,
+      "analytic_bytes": 65536,
+      "actual_minus_analytic_bytes": 0,
+      "allocation_measurement": {
+        "mean": 0.058259825,
+        "stdev": 0.002467847874165894,
+        "p50": 0.05725,
+        "p95": 0.06333715,
+        "p99": 0.06473341999999997,
+        "peak_tracemalloc_bytes": 73780,
+        "max_rss_bytes": 67534848,
+        "config_hash": "97a9e292016a0198624ef62a3e60edd6eae7c1aa58d08838ac52f14b932824b6",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "captured_at": "2026-10-19T09:54:27.561805+00:00",
+        "path": "runs/20261019-p1-paged-095427544541-b8-m65536-allocation"
+      },
+      "simulations": {
+        "sliding": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 4,
+            "allocated_bytes": 65536,
+            "used_bytes": 51200,
+            "peak_allocated_bytes": 65536,
+            "peak_used_bytes": 65536,
+            "allocations": 120,
+            "releases": 116,
+            "evictions": 116,
+            "hits": 12,
+            "misses": 120
+          },
+          "hit_rate": 0.09090909090909091,
+          "fragmentation": 0.21875,
+          "measurement": {
+            "mean": 3.25070456,
+            "stdev": 0.07374375202742134,
+            "p50": 3.2431254999999997,
+            "p95": 3.3732569,
+            "p99": 3.59710824,
+            "peak_tracemalloc_bytes": 89372,
+            "max_rss_bytes": 68976640,
+            "config_hash": "d7cdf511bcaef4141adbc891facdb344c0e5ed7228a1ef8f3de237e4ca5a75ea",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:28.222519+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b8-m65536-sliding-simulation"
+          }
+        },
+        "lru": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 4,
+            "allocated_bytes": 65536,
+            "used_bytes": 51200,
+            "peak_allocated_bytes": 65536,
+            "peak_used_bytes": 65536,
+            "allocations": 65,
+            "releases": 61,
+            "evictions": 61,
+            "hits": 67,
+            "misses": 65
+          },
+          "hit_rate": 0.5075757575757576,
+          "fragmentation": 0.21875,
+          "measurement": {
+            "mean": 1.840884575,
+            "stdev": 0.022117608904959386,
+            "p50": 1.8411244999999998,
+            "p95": 1.8697226,
+            "p99": 1.88353676,
+            "peak_tracemalloc_bytes": 89420,
+            "max_rss_bytes": 69009408,
+            "config_hash": "f60304451a0df918c9d24d5d803a45e1950e848ffa053e3c02a0ea43e7e25508",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:28.597547+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b8-m65536-lru-simulation"
+          }
+        }
+      }
+    },
+    {
+      "block_size": 8,
+      "budget_bytes": 114688,
+      "required_bytes": 114688,
+      "status": "feasible",
+      "reason": null,
+      "allocation_probe_tokens": 49,
+      "allocation_stats": {
+        "resident_pages": 7,
+        "allocated_bytes": 114688,
+        "used_bytes": 100352,
+        "peak_allocated_bytes": 114688,
+        "peak_used_bytes": 100352,
+        "allocations": 7,
+        "releases": 0,
+        "evictions": 0,
+        "hits": 0,
+        "misses": 7
+      },
+      "allocation_fragmentation": 0.125,
+      "analytic_bytes": 114688,
+      "actual_minus_analytic_bytes": 0,
+      "allocation_measurement": {
+        "mean": 0.09779652999999999,
+        "stdev": 0.005730883722455159,
+        "p50": 0.097,
+        "p95": 0.10592739999999999,
+        "p99": 0.10876083999999998,
+        "peak_tracemalloc_bytes": 121988,
+        "max_rss_bytes": 69074944,
+        "config_hash": "ee5fb47a7f9affbc9805db601123de0c9bbdb73aa4058df92dc4107e434caf7b",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "captured_at": "2026-10-19T09:54:28.619951+00:00",
+        "path": "runs/20261019-p1-paged-095427544541-b8-m114688-allocation"
+      },
+      "simulations": {
+        "sliding": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 7,
+            "allocated_bytes": 114688,
+            "used_bytes": 100352,
+            "peak_allocated_bytes": 114688,
+            "peak_used_bytes": 114688,
+            "allocations": 111,
+            "releases": 104,
+            "evictions": 104,
+            "hits": 21,
+            "misses": 111
+          },
+          "hit_rate": 0.1590909090909091,
+          "fragmentation": 0.125,
+          "measurement": {
+            "mean": 3.207806455,
+            "stdev": 0.04128105105796395,
+            "p50": 3.2147505,
+            "p95": 3.25767225,
+            "p99": 3.269119409999999,
+            "peak_tracemalloc_bytes": 140948,
+            "max_rss_bytes": 69124096,
+            "config_hash": "87059acb93df052839faa9bc11bbf1f4de80c5b3bb71a3a69c92b16a91eb2907",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:29.271495+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b8-m114688-sliding-simulation"
+          }
+        },
+        "lru": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 7,
+            "allocated_bytes": 114688,
+            "used_bytes": 100352,
+            "peak_allocated_bytes": 114688,
+            "peak_used_bytes": 114688,
+            "allocations": 65,
+            "releases": 58,
+            "evictions": 58,
+            "hits": 67,
+            "misses": 65
+          },
+          "hit_rate": 0.5075757575757576,
+          "fragmentation": 0.125,
+          "measurement": {
+            "mean": 1.95265043,
+            "stdev": 0.030248392046056918,
+            "p50": 1.956083,
+            "p95": 1.988942,
+            "p99": 2.00594542,
+            "peak_tracemalloc_bytes": 141284,
+            "max_rss_bytes": 69124096,
+            "config_hash": "05fdddec73af8754ba602dbc22d5805bc7992a4e585a7e7e78fcf11e37639cc0",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:29.669342+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b8-m114688-lru-simulation"
+          }
+        }
+      },
+      "generation_stats": {
+        "resident_pages": 7,
+        "allocated_bytes": 114688,
+        "used_bytes": 100352,
+        "peak_allocated_bytes": 114688,
+        "peak_used_bytes": 100352,
+        "allocations": 7,
+        "releases": 0,
+        "evictions": 0,
+        "hits": 437,
+        "misses": 7
+      },
+      "generation_hit_rate": 0.9842342342342343,
+      "generation_fragmentation": 0.125,
+      "cache_rebuilds": 0
+    },
+    {
+      "block_size": 8,
+      "budget_bytes": 131072,
+      "required_bytes": 114688,
+      "status": "feasible",
+      "reason": null,
+      "allocation_probe_tokens": 49,
+      "allocation_stats": {
+        "resident_pages": 7,
+        "allocated_bytes": 114688,
+        "used_bytes": 100352,
+        "peak_allocated_bytes": 114688,
+        "peak_used_bytes": 100352,
+        "allocations": 7,
+        "releases": 0,
+        "evictions": 0,
+        "hits": 0,
+        "misses": 7
+      },
+      "allocation_fragmentation": 0.125,
+      "analytic_bytes": 114688,
+      "actual_minus_analytic_bytes": 0,
+      "allocation_measurement": {
+        "mean": 0.09539038999999999,
+        "stdev": 0.0047598488899518515,
+        "p50": 0.0926665,
+        "p95": 0.103,
+        "p99": 0.10513007999999996,
+        "peak_tracemalloc_bytes": 122036,
+        "max_rss_bytes": 69124096,
+        "config_hash": "209c27bc59a188a6f23eea0ca16f48d57ab0e42ea7d23518a60538380dae1af4",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "captured_at": "2026-10-19T09:54:29.696301+00:00",
+        "path": "runs/20261019-p1-paged-095427544541-b8-m131072-allocation"
+      },
+      "simulations": {
+        "sliding": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 8,
+            "allocated_bytes": 131072,
+            "used_bytes": 116736,
+            "peak_allocated_bytes": 131072,
+            "peak_used_bytes": 131072,
+            "allocations": 108,
+            "releases": 100,
+            "evictions": 100,
+            "hits": 24,
+            "misses": 108
+          },
+          "hit_rate": 0.18181818181818182,
+          "fragmentation": 0.109375,
+          "measurement": {
+            "mean": 3.190074395,
+            "stdev": 0.044665492048657864,
+            "p50": 3.1961250000000003,
+            "p95": 3.2432788500000003,
+            "p99": 3.26130866,
+            "peak_tracemalloc_bytes": 157636,
+            "max_rss_bytes": 69156864,
+            "config_hash": "40bf86734ee586fe2e79b32e3049e5ec6332c98a73e9f097ddabde6c59829e4e",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:30.344045+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b8-m131072-sliding-simulation"
+          }
+        },
+        "lru": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 8,
+            "allocated_bytes": 131072,
+            "used_bytes": 116736,
+            "peak_allocated_bytes": 131072,
+            "peak_used_bytes": 131072,
+            "allocations": 65,
+            "releases": 57,
+            "evictions": 57,
+            "hits": 67,
+            "misses": 65
+          },
+          "hit_rate": 0.5075757575757576,
+          "fragmentation": 0.109375,
+          "measurement": {
+            "mean": 2.00184331,
+            "stdev": 0.02724998173977351,
+            "p50": 2.0047915,
+            "p95": 2.0318892999999996,
+            "p99": 2.0625829199999997,
+            "peak_tracemalloc_bytes": 157780,
+            "max_rss_bytes": 69189632,
+            "config_hash": "1cf369ab25cc8603003e62ef4dd4ecd1f865c769026aaf2297ed9f4a61ffa408",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:30.751694+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b8-m131072-lru-simulation"
+          }
+        }
+      },
+      "generation_stats": {
+        "resident_pages": 7,
+        "allocated_bytes": 114688,
+        "used_bytes": 100352,
+        "peak_allocated_bytes": 114688,
+        "peak_used_bytes": 100352,
+        "allocations": 7,
+        "releases": 0,
+        "evictions": 0,
+        "hits": 437,
+        "misses": 7
+      },
+      "generation_hit_rate": 0.9842342342342343,
+      "generation_fragmentation": 0.125,
+      "cache_rebuilds": 0
+    },
+    {
+      "block_size": 16,
+      "budget_bytes": 65536,
+      "required_bytes": 131072,
+      "status": "infeasible",
+      "reason": "K/V pool cannot retain the complete correct window",
+      "allocation_probe_tokens": 32,
+      "allocation_stats": {
+        "resident_pages": 2,
+        "allocated_bytes": 65536,
+        "used_bytes": 65536,
+        "peak_allocated_bytes": 65536,
+        "peak_used_bytes": 65536,
+        "allocations": 2,
+        "releases": 0,
+        "evictions": 0,
+        "hits": 0,
+        "misses": 2
+      },
+      "allocation_fragmentation": 0.0,
+      "analytic_bytes": 65536,
+      "actual_minus_analytic_bytes": 0,
+      "allocation_measurement": {
+        "mean": 0.037651075,
+        "stdev": 0.002475418973598056,
+        "p50": 0.036479,
+        "p95": 0.0412952,
+        "p99": 0.04829241,
+        "peak_tracemalloc_bytes": 71652,
+        "max_rss_bytes": 69189632,
+        "config_hash": "717e60bf7981bd655741e4010be38e822bc65d16f62009643b7d270e1722ec86",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "captured_at": "2026-10-19T09:54:30.766829+00:00",
+        "path": "runs/20261019-p1-paged-095427544541-b16-m65536-allocation"
+      },
+      "simulations": {
+        "sliding": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 2,
+            "allocated_bytes": 65536,
+            "used_bytes": 34816,
+            "peak_allocated_bytes": 65536,
+            "peak_used_bytes": 65536,
+            "allocations": 62,
+            "releases": 60,
+            "evictions": 60,
+            "hits": 6,
+            "misses": 62
+          },
+          "hit_rate": 0.08823529411764706,
+          "fragmentation": 0.46875,
+          "measurement": {
+            "mean": 1.63788255,
+            "stdev": 0.051350722753766294,
+            "p50": 1.6304375,
+            "p95": 1.6987231999999999,
+            "p99": 1.8514374999999998,
+            "peak_tracemalloc_bytes": 105532,
+            "max_rss_bytes": 69206016,
+            "config_hash": "28764c5f2b84153442a3f10719bc65332771cefd350c2459f1ee26af5840ccb5",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:31.101061+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b16-m65536-sliding-simulation"
+          }
+        },
+        "lru": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 2,
+            "allocated_bytes": 65536,
+            "used_bytes": 34816,
+            "peak_allocated_bytes": 65536,
+            "peak_used_bytes": 65536,
+            "allocations": 33,
+            "releases": 31,
+            "evictions": 31,
+            "hits": 35,
+            "misses": 33
+          },
+          "hit_rate": 0.5147058823529411,
+          "fragmentation": 0.46875,
+          "measurement": {
+            "mean": 0.924347275,
+            "stdev": 0.04285452610082166,
+            "p50": 0.91125,
+            "p95": 1.0115723,
+            "p99": 1.0338104099999998,
+            "peak_tracemalloc_bytes": 105580,
+            "max_rss_bytes": 69206016,
+            "config_hash": "9ebabf4584cda78271161fb9781766dfe342806c589790df9be709fa2c0d5580",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:31.291043+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b16-m65536-lru-simulation"
+          }
+        }
+      }
+    },
+    {
+      "block_size": 16,
+      "budget_bytes": 114688,
+      "required_bytes": 131072,
+      "status": "infeasible",
+      "reason": "K/V pool cannot retain the complete correct window",
+      "allocation_probe_tokens": 48,
+      "allocation_stats": {
+        "resident_pages": 3,
+        "allocated_bytes": 98304,
+        "used_bytes": 98304,
+        "peak_allocated_bytes": 98304,
+        "peak_used_bytes": 98304,
+        "allocations": 3,
+        "releases": 0,
+        "evictions": 0,
+        "hits": 0,
+        "misses": 3
+      },
+      "allocation_fragmentation": 0.0,
+      "analytic_bytes": 98304,
+      "actual_minus_analytic_bytes": 0,
+      "allocation_measurement": {
+        "mean": 0.04845998,
+        "stdev": 0.0032059546073395376,
+        "p50": 0.047083,
+        "p95": 0.0537625,
+        "p99": 0.058856069999999976,
+        "peak_tracemalloc_bytes": 104516,
+        "max_rss_bytes": 69206016,
+        "config_hash": "3bc81d7900c274be63c0fe2f2115f835cf9ed43133993b51bc0513e0e51a5464",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "captured_at": "2026-10-19T09:54:31.303459+00:00",
+        "path": "runs/20261019-p1-paged-095427544541-b16-m114688-allocation"
+      },
+      "simulations": {
+        "sliding": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 3,
+            "allocated_bytes": 98304,
+            "used_bytes": 67584,
+            "peak_allocated_bytes": 98304,
+            "peak_used_bytes": 98304,
+            "allocations": 59,
+            "releases": 56,
+            "evictions": 56,
+            "hits": 9,
+            "misses": 59
+          },
+          "hit_rate": 0.1323529411764706,
+          "fragmentation": 0.3125,
+          "measurement": {
+            "mean": 1.57726958,
+            "stdev": 0.03854506171517609,
+            "p50": 1.5733125000000001,
+            "p95": 1.6417479499999998,
+            "p99": 1.6938870799999999,
+            "peak_tracemalloc_bytes": 138412,
+            "max_rss_bytes": 69419008,
+            "config_hash": "204bfda48c1809afd57974f3025e65a25019b18064c4955652fd2f2ca2c48c09",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:31.625558+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b16-m114688-sliding-simulation"
+          }
+        },
+        "lru": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 3,
+            "allocated_bytes": 98304,
+            "used_bytes": 67584,
+            "peak_allocated_bytes": 98304,
+            "peak_used_bytes": 98304,
+            "allocations": 33,
+            "releases": 30,
+            "evictions": 30,
+            "hits": 35,
+            "misses": 33
+          },
+          "hit_rate": 0.5147058823529411,
+          "fragmentation": 0.3125,
+          "measurement": {
+            "mean": 0.92194687,
+            "stdev": 0.015668143036882867,
+            "p50": 0.9227915,
+            "p95": 0.9395680999999999,
+            "p99": 0.9640274099999998,
+            "peak_tracemalloc_bytes": 138460,
+            "max_rss_bytes": 70352896,
+            "config_hash": "94197524521e9c570249788c28ff6e69710a78678ba0df3df569e8f7f5e97994",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:31.814972+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b16-m114688-lru-simulation"
+          }
+        }
+      }
+    },
+    {
+      "block_size": 16,
+      "budget_bytes": 131072,
+      "required_bytes": 131072,
+      "status": "feasible",
+      "reason": null,
+      "allocation_probe_tokens": 49,
+      "allocation_stats": {
+        "resident_pages": 4,
+        "allocated_bytes": 131072,
+        "used_bytes": 100352,
+        "peak_allocated_bytes": 131072,
+        "peak_used_bytes": 100352,
+        "allocations": 4,
+        "releases": 0,
+        "evictions": 0,
+        "hits": 0,
+        "misses": 4
+      },
+      "allocation_fragmentation": 0.234375,
+      "analytic_bytes": 131072,
+      "actual_minus_analytic_bytes": 0,
+      "allocation_measurement": {
+        "mean": 0.06037664,
+        "stdev": 0.003935502352206272,
+        "p50": 0.0585,
+        "p95": 0.0672625,
+        "p99": 0.07135383999999997,
+        "peak_tracemalloc_bytes": 137396,
+        "max_rss_bytes": 70844416,
+        "config_hash": "aed0b3aee03f182e90c87f0046a5747507eccd2bf3c474a59723d3fdb9ad3275",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "captured_at": "2026-10-19T09:54:31.829609+00:00",
+        "path": "runs/20261019-p1-paged-095427544541-b16-m131072-allocation"
+      },
+      "simulations": {
+        "sliding": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 4,
+            "allocated_bytes": 131072,
+            "used_bytes": 100352,
+            "peak_allocated_bytes": 131072,
+            "peak_used_bytes": 131072,
+            "allocations": 56,
+            "releases": 52,
+            "evictions": 52,
+            "hits": 12,
+            "misses": 56
+          },
+          "hit_rate": 0.17647058823529413,
+          "fragmentation": 0.234375,
+          "measurement": {
+            "mean": 1.534726255,
+            "stdev": 0.026636942983712726,
+            "p50": 1.5330415,
+            "p95": 1.57084135,
+            "p99": 1.59431051,
+            "peak_tracemalloc_bytes": 171292,
+            "max_rss_bytes": 71663616,
+            "config_hash": "e5495f392d4649afcd3783eedb7404118b9c08c2fbb68cb77ef712908c4d2a2b",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:32.142842+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b16-m131072-sliding-simulation"
+          }
+        },
+        "lru": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 4,
+            "allocated_bytes": 131072,
+            "used_bytes": 100352,
+            "peak_allocated_bytes": 131072,
+            "peak_used_bytes": 131072,
+            "allocations": 33,
+            "releases": 29,
+            "evictions": 29,
+            "hits": 35,
+            "misses": 33
+          },
+          "hit_rate": 0.5147058823529411,
+          "fragmentation": 0.234375,
+          "measurement": {
+            "mean": 0.952502705,
+            "stdev": 0.010289486808480023,
+            "p50": 0.9525205000000001,
+            "p95": 0.96928125,
+            "p99": 0.9783974999999999,
+            "peak_tracemalloc_bytes": 171340,
+            "max_rss_bytes": 72187904,
+            "config_hash": "c8f199af8bc3a17cf63f58b88e3ea27ad3f957f94251a58a1729c79336f28812",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:32.338759+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b16-m131072-lru-simulation"
+          }
+        }
+      },
+      "generation_stats": {
+        "resident_pages": 4,
+        "allocated_bytes": 131072,
+        "used_bytes": 100352,
+        "peak_allocated_bytes": 131072,
+        "peak_used_bytes": 100352,
+        "allocations": 4,
+        "releases": 0,
+        "evictions": 0,
+        "hits": 242,
+        "misses": 4
+      },
+      "generation_hit_rate": 0.983739837398374,
+      "generation_fragmentation": 0.234375,
+      "cache_rebuilds": 0
+    },
+    {
+      "block_size": 32,
+      "budget_bytes": 65536,
+      "required_bytes": 131072,
+      "status": "infeasible",
+      "reason": "K/V pool cannot retain the complete correct window",
+      "allocation_probe_tokens": 32,
+      "allocation_stats": {
+        "resident_pages": 1,
+        "allocated_bytes": 65536,
+        "used_bytes": 65536,
+        "peak_allocated_bytes": 65536,
+        "peak_used_bytes": 65536,
+        "allocations": 1,
+        "releases": 0,
+        "evictions": 0,
+        "hits": 0,
+        "misses": 1
+      },
+      "allocation_fragmentation": 0.0,
+      "analytic_bytes": 65536,
+      "actual_minus_analytic_bytes": 0,
+      "allocation_measurement": {
+        "mean": 0.026269165,
+        "stdev": 0.0012007883916756168,
+        "p50": 0.026084,
+        "p95": 0.02721105,
+        "p99": 0.032725499999999984,
+        "peak_tracemalloc_bytes": 71540,
+        "max_rss_bytes": 72826880,
+        "config_hash": "3f952539da3b05926524c636f91c124317495c2d5d3b3d8c9934aa5ce10b291e",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "captured_at": "2026-10-19T09:54:32.351319+00:00",
+        "path": "runs/20261019-p1-paged-095427544541-b32-m65536-allocation"
+      },
+      "simulations": {
+        "sliding": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 1,
+            "allocated_bytes": 65536,
+            "used_bytes": 65536,
+            "peak_allocated_bytes": 65536,
+            "peak_used_bytes": 65536,
+            "allocations": 33,
+            "releases": 32,
+            "evictions": 32,
+            "hits": 3,
+            "misses": 33
+          },
+          "hit_rate": 0.08333333333333333,
+          "fragmentation": 0.0,
+          "measurement": {
+            "mean": 0.84758518,
+            "stdev": 0.017466934039818114,
+            "p50": 0.849125,
+            "p95": 0.8671809,
+            "p99": 0.8972915799999996,
+            "peak_tracemalloc_bytes": 137548,
+            "max_rss_bytes": 73007104,
+            "config_hash": "2252fe6bdde0fd0fd050b0d91d264902fb60d38e69207b78266fdca6954c7c0b",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:32.525815+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b32-m65536-sliding-simulation"
+          }
+        },
+        "lru": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 1,
+            "allocated_bytes": 65536,
+            "used_bytes": 65536,
+            "peak_allocated_bytes": 65536,
+            "peak_used_bytes": 65536,
+            "allocations": 33,
+            "releases": 32,
+            "evictions": 32,
+            "hits": 3,
+            "misses": 33
+          },
+          "hit_rate": 0.08333333333333333,
+          "fragmentation": 0.0,
+          "measurement": {
+            "mean": 0.868894815,
+            "stdev": 0.01617750697544209,
+            "p50": 0.8686045,
+            "p95": 0.8941100999999999,
+            "p99": 0.9246060799999999,
+            "peak_tracemalloc_bytes": 137596,
+            "max_rss_bytes": 73711616,
+            "config_hash": "8745f2ca676c6b8326cf2a7dcfefbb00aeb73996b6cd98e40fad07dbee747c08",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:32.704616+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b32-m65536-lru-simulation"
+          }
+        }
+      }
+    },
+    {
+      "block_size": 32,
+      "budget_bytes": 114688,
+      "required_bytes": 131072,
+      "status": "infeasible",
+      "reason": "K/V pool cannot retain the complete correct window",
+      "allocation_probe_tokens": 32,
+      "allocation_stats": {
+        "resident_pages": 1,
+        "allocated_bytes": 65536,
+        "used_bytes": 65536,
+        "peak_allocated_bytes": 65536,
+        "peak_used_bytes": 65536,
+        "allocations": 1,
+        "releases": 0,
+        "evictions": 0,
+        "hits": 0,
+        "misses": 1
+      },
+      "allocation_fragmentation": 0.0,
+      "analytic_bytes": 65536,
+      "actual_minus_analytic_bytes": 0,
+      "allocation_measurement": {
+        "mean": 0.026902099999999998,
+        "stdev": 0.0015512108319716347,
+        "p50": 0.026292,
+        "p95": 0.029583,
+        "p99": 0.030251249999999997,
+        "peak_tracemalloc_bytes": 71492,
+        "max_rss_bytes": 74088448,
+        "config_hash": "75daa5e580e8ba1276b4845b21448233ee47ad27eae86caf03134c9e43ff4058",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "captured_at": "2026-10-19T09:54:32.712562+00:00",
+        "path": "runs/20261019-p1-paged-095427544541-b32-m114688-allocation"
+      },
+      "simulations": {
+        "sliding": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 1,
+            "allocated_bytes": 65536,
+            "used_bytes": 65536,
+            "peak_allocated_bytes": 65536,
+            "peak_used_bytes": 65536,
+            "allocations": 33,
+            "releases": 32,
+            "evictions": 32,
+            "hits": 3,
+            "misses": 33
+          },
+          "hit_rate": 0.08333333333333333,
+          "fragmentation": 0.0,
+          "measurement": {
+            "mean": 0.851164625,
+            "stdev": 0.014131364187984193,
+            "p50": 0.8523755,
+            "p95": 0.8693455,
+            "p99": 0.88337551,
+            "peak_tracemalloc_bytes": 137548,
+            "max_rss_bytes": 74121216,
+            "config_hash": "8d03f69e2ab9043955b95f185da54d0d89f14727045fa35be81ba10b3cf25e14",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:32.887580+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b32-m114688-sliding-simulation"
+          }
+        },
+        "lru": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 1,
+            "allocated_bytes": 65536,
+            "used_bytes": 65536,
+            "peak_allocated_bytes": 65536,
+            "peak_used_bytes": 65536,
+            "allocations": 33,
+            "releases": 32,
+            "evictions": 32,
+            "hits": 3,
+            "misses": 33
+          },
+          "hit_rate": 0.08333333333333333,
+          "fragmentation": 0.0,
+          "measurement": {
+            "mean": 0.87776354,
+            "stdev": 0.011650231529538774,
+            "p50": 0.8781455,
+            "p95": 0.8949416499999999,
+            "p99": 0.9040355899999999,
+            "peak_tracemalloc_bytes": 137596,
+            "max_rss_bytes": 74137600,
+            "config_hash": "c8b7373f587f7f21fc981e916728c3d889fbd4695ae40cfc842894e86bdb8e03",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:33.067991+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b32-m114688-lru-simulation"
+          }
+        }
+      }
+    },
+    {
+      "block_size": 32,
+      "budget_bytes": 131072,
+      "required_bytes": 131072,
+      "status": "feasible",
+      "reason": null,
+      "allocation_probe_tokens": 49,
+      "allocation_stats": {
+        "resident_pages": 2,
+        "allocated_bytes": 131072,
+        "used_bytes": 100352,
+        "peak_allocated_bytes": 131072,
+        "peak_used_bytes": 100352,
+        "allocations": 2,
+        "releases": 0,
+        "evictions": 0,
+        "hits": 0,
+        "misses": 2
+      },
+      "allocation_fragmentation": 0.234375,
+      "analytic_bytes": 131072,
+      "actual_minus_analytic_bytes": 0,
+      "allocation_measurement": {
+        "mean": 0.038106665,
+        "stdev": 0.0022182002942706773,
+        "p50": 0.03725,
+        "p95": 0.0414601,
+        "p99": 0.04388082999999999,
+        "peak_tracemalloc_bytes": 137140,
+        "max_rss_bytes": 74137600,
+        "config_hash": "4562c5d1040233cb828649669104ff78d4cc5ef027816ff8874e87a6031199e6",
+        "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+        "captured_at": "2026-10-19T09:54:33.078090+00:00",
+        "path": "runs/20261019-p1-paged-095427544541-b32-m131072-allocation"
+      },
+      "simulations": {
+        "sliding": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 2,
+            "allocated_bytes": 131072,
+            "used_bytes": 67584,
+            "peak_allocated_bytes": 131072,
+            "peak_used_bytes": 131072,
+            "allocations": 30,
+            "releases": 28,
+            "evictions": 28,
+            "hits": 6,
+            "misses": 30
+          },
+          "hit_rate": 0.16666666666666666,
+          "fragmentation": 0.484375,
+          "measurement": {
+            "mean": 0.821473965,
+            "stdev": 0.015230144496712061,
+            "p50": 0.823542,
+            "p95": 0.8419753,
+            "p99": 0.8546779099999999,
+            "peak_tracemalloc_bytes": 203836,
+            "max_rss_bytes": 74137600,
+            "config_hash": "16a7b9fda3e54999251eb8ce76a553c3b8ed45333d4a311de5083dec6cb95d4b",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:33.246941+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b32-m131072-sliding-simulation"
+          }
+        },
+        "lru": {
+          "evidence": "memory simulation only",
+          "stats": {
+            "resident_pages": 2,
+            "allocated_bytes": 131072,
+            "used_bytes": 67584,
+            "peak_allocated_bytes": 131072,
+            "peak_used_bytes": 131072,
+            "allocations": 17,
+            "releases": 15,
+            "evictions": 15,
+            "hits": 19,
+            "misses": 17
+          },
+          "hit_rate": 0.5277777777777778,
+          "fragmentation": 0.484375,
+          "measurement": {
+            "mean": 0.485049825,
+            "stdev": 0.012172245355287645,
+            "p50": 0.485271,
+            "p95": 0.5053107499999999,
+            "p99": 0.5133253299999999,
+            "peak_tracemalloc_bytes": 203884,
+            "max_rss_bytes": 74137600,
+            "config_hash": "6c180ef15f7d38a221ac15c23180a21cd948c6d61b82a579c7e872c3534d09c1",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:33.347664+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-b32-m131072-lru-simulation"
+          }
+        }
+      },
+      "generation_stats": {
+        "resident_pages": 2,
+        "allocated_bytes": 131072,
+        "used_bytes": 100352,
+        "peak_allocated_bytes": 131072,
+        "peak_used_bytes": 100352,
+        "allocations": 2,
+        "releases": 0,
+        "evictions": 0,
+        "hits": 145,
+        "misses": 2
+      },
+      "generation_hit_rate": 0.9863945578231292,
+      "generation_fragmentation": 0.234375,
+      "cache_rebuilds": 0
+    }
+  ],
+  "comparisons": [
+    {
+      "batch": 1,
+      "order": [
+        "naive",
+        "continuous",
+        "paged"
+      ],
+      "arms": {
+        "naive": {
+          "mean": 25.408593175,
+          "stdev": 1.253278134727734,
+          "p50": 24.822938,
+          "p95": 28.2108601,
+          "p99": 28.88427075,
+          "peak_tracemalloc_bytes": 615145,
+          "max_rss_bytes": 83656704,
+          "config_hash": "75bb646e967f04ae9512b6f15626e4224eff6103377e9ca0e35acee13bfe8c99",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "captured_at": "2026-10-19T09:54:38.570880+00:00",
+          "path": "runs/20261019-p1-paged-095427544541-order1-naive-decode",
+          "tokens_per_second_at_p50": 1289.1302391360764
+        },
+        "continuous": {
+          "mean": 17.54549247,
+          "stdev": 0.47413655453366427,
+          "p50": 17.553604,
+          "p95": 18.292041649999998,
+          "p99": 18.748832999999998,
+          "peak_tracemalloc_bytes": 255573,
+          "max_rss_bytes": 83689472,
+          "config_hash": "cc657382705c7c8d1facdda8d027e50d259e37ca43b3d1002db07d6e292c2a0c",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "captured_at": "2026-10-19T09:54:42.126010+00:00",
+          "path": "runs/20261019-p1-paged-095427544541-order1-continuous-decode",
+          "tokens_per_second_at_p50": 1822.9874617201117
+        },
+        "paged": [
+          {
+            "mean": 17.790040465,
+            "stdev": 0.16772219137639266,
+            "p50": 17.780833,
+            "p95": 18.046212500000003,
+            "p99": 18.18307575,
+            "peak_tracemalloc_bytes": 288568,
+            "max_rss_bytes": 83705856,
+            "config_hash": "a2bc78678e69cb2dee94c079821dfb9586bc94a8c7c4947c80999e35c4dee39e",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:45.733290+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-order1-b8-m114688-decode",
+            "block_size": 8,
+            "budget_bytes": 114688,
+            "tokens_per_second_at_p50": 1799.6907119030923,
+            "continuous_over_paged_p50": 0.9872205649757803,
+            "continuous_minus_paged_p50_ms": -0.22722900000000124,
+            "difference_label": "超过 T4 经验参照；不自动证明显著性"
+          },
+          {
+            "mean": 17.90699228,
+            "stdev": 0.22957828722196366,
+            "p50": 17.906604,
+            "p95": 18.224383649999996,
+            "p99": 18.48212574,
+            "peak_tracemalloc_bytes": 288058,
+            "max_rss_bytes": 83722240,
+            "config_hash": "b882671fa4180cfc7299f158f94d72c331a0deea06a388e2da3e2cbf3a63cab8",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:49.364425+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-order1-b8-m131072-decode",
+            "block_size": 8,
+            "budget_bytes": 131072,
+            "tokens_per_second_at_p50": 1787.050185506978,
+            "continuous_over_paged_p50": 0.9802866026411261,
+            "continuous_minus_paged_p50_ms": -0.35300000000000153,
+            "difference_label": "超过 T4 经验参照；不自动证明显著性"
+          },
+          {
+            "mean": 17.296518325,
+            "stdev": 0.1553519445055894,
+            "p50": 17.2833125,
+            "p95": 17.52270205,
+            "p99": 17.641136760000002,
+            "peak_tracemalloc_bytes": 304127,
+            "max_rss_bytes": 83738624,
+            "config_hash": "52a8f8b88900ad0113f9183d4f1005d871aa93cc45e1bcdcbac7c39a659083f0",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:52.873472+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-order1-b16-m131072-decode",
+            "block_size": 16,
+            "budget_bytes": 131072,
+            "tokens_per_second_at_p50": 1851.4969280339055,
+            "continuous_over_paged_p50": 1.0156388713101148,
+            "continuous_minus_paged_p50_ms": 0.270291499999999,
+            "difference_label": "超过 T4 经验参照；不自动证明显著性"
+          },
+          {
+            "mean": 17.0736933,
+            "stdev": 0.21286863642549175,
+            "p50": 17.049916500000002,
+            "p95": 17.39259855,
+            "p99": 17.70167325,
+            "peak_tracemalloc_bytes": 303760,
+            "max_rss_bytes": 83738624,
+            "config_hash": "e18843a76c49e77ee956d0dd060a69fda84a6aad3973eea7f281c91d1be0b9df",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:56.337098+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-order1-b32-m131072-decode",
+            "block_size": 32,
+            "budget_bytes": 131072,
+            "tokens_per_second_at_p50": 1876.842036147215,
+            "continuous_over_paged_p50": 1.0295419335338092,
+            "continuous_minus_paged_p50_ms": 0.5036874999999981,
+            "difference_label": "超过 T4 经验参照；不自动证明显著性"
+          }
+        ]
+      }
+    },
+    {
+      "batch": 2,
+      "order": [
+        "paged",
+        "continuous",
+        "naive"
+      ],
+      "arms": {
+        "paged": [
+          {
+            "mean": 17.881479965,
+            "stdev": 0.17167800683540882,
+            "p50": 17.883833,
+            "p95": 18.116833,
+            "p99": 18.263202579999998,
+            "peak_tracemalloc_bytes": 288355,
+            "max_rss_bytes": 83755008,
+            "config_hash": "ff8b5db9029b4f7f427de67e69f59bcc7f449a694a1c8bc9899565f2e2165a38",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:54:59.962166+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-order2-b8-m114688-decode",
+            "block_size": 8,
+            "budget_bytes": 114688,
+            "tokens_per_second_at_p50": 1789.3255880884149,
+            "continuous_over_paged_p50": 0.9460499882771216,
+            "continuous_minus_paged_p50_ms": -0.9648329999999987,
+            "difference_label": "超过 T4 经验参照；不自动证明显著性"
+          },
+          {
+            "mean": 17.96420376,
+            "stdev": 0.17216674516358713,
+            "p50": 17.9543125,
+            "p95": 18.2065077,
+            "p99": 18.27418783,
+            "peak_tracemalloc_bytes": 288058,
+            "max_rss_bytes": 83804160,
+            "config_hash": "7d4aa90dd0f22036e5254537134602fb02b400d80382335215835ad222c07d08",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:55:03.605132+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-order2-b8-m131072-decode",
+            "block_size": 8,
+            "budget_bytes": 131072,
+            "tokens_per_second_at_p50": 1782.301605811974,
+            "continuous_over_paged_p50": 0.9423362771478997,
+            "continuous_minus_paged_p50_ms": -1.0353124999999999,
+            "difference_label": "超过 T4 经验参照；不自动证明显著性"
+          },
+          {
+            "mean": 17.442599445,
+            "stdev": 0.21354833060261286,
+            "p50": 17.399,
+            "p95": 17.7907598,
+            "p99": 18.07110375,
+            "peak_tracemalloc_bytes": 303719,
+            "max_rss_bytes": 83804160,
+            "config_hash": "22cdab7a8ed7b8bea50a3569915e52bbbc20e26f014523e25cf0d7bf126205a7",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:55:07.142110+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-order2-b16-m131072-decode",
+            "block_size": 16,
+            "budget_bytes": 131072,
+            "tokens_per_second_at_p50": 1839.1861601241449,
+            "continuous_over_paged_p50": 0.9724122075981378,
+            "continuous_minus_paged_p50_ms": -0.4800000000000004,
+            "difference_label": "超过 T4 经验参照；不自动证明显著性"
+          },
+          {
+            "mean": 17.11002922,
+            "stdev": 0.22028175646742382,
+            "p50": 17.1120415,
+            "p95": 17.34891905,
+            "p99": 17.780377829999995,
+            "peak_tracemalloc_bytes": 303658,
+            "max_rss_bytes": 83820544,
+            "config_hash": "e049705322341112504f599154483ed81f1a8e402f07238114a32981663e9763",
+            "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+            "captured_at": "2026-10-19T09:55:10.611099+00:00",
+            "path": "runs/20261019-p1-paged-095427544541-order2-b32-m131072-decode",
+            "block_size": 32,
+            "budget_bytes": 131072,
+            "tokens_per_second_at_p50": 1870.0281903827781,
+            "continuous_over_paged_p50": 0.9887189672839445,
+            "continuous_minus_paged_p50_ms": -0.19304149999999964,
+            "difference_label": "超过 T4 经验参照；不自动证明显著性"
+          }
+        ],
+        "continuous": {
+          "mean": 16.90678437,
+          "stdev": 0.22186166292537587,
+          "p50": 16.919,
+          "p95": 17.25042435,
+          "p99": 17.440689759999998,
+          "peak_tracemalloc_bytes": 255828,
+          "max_rss_bytes": 83836928,
+          "config_hash": "119e518266c55075aa69ad787d955b7f51d6dc30ee78d19cff5db8a5b9a8db54",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "captured_at": "2026-10-19T09:55:14.038778+00:00",
+          "path": "runs/20261019-p1-paged-095427544541-order2-continuous-decode",
+          "tokens_per_second_at_p50": 1891.3647378686683
+        },
+        "naive": {
+          "mean": 27.71391106,
+          "stdev": 0.3324138201471784,
+          "p50": 27.739874999999998,
+          "p95": 28.14978125,
+          "p99": 28.361587999999998,
+          "peak_tracemalloc_bytes": 614818,
+          "max_rss_bytes": 83869696,
+          "config_hash": "662560d6b0aa7185bb897f74e83a220ef5c869e0592c7e155211a2dd83e5341d",
+          "env_fingerprint": "bddd54542eebe6920420c857c2911fde714098898a8c2a68366c44dc6b6fade3",
+          "captured_at": "2026-10-19T09:55:19.749716+00:00",
+          "path": "runs/20261019-p1-paged-095427544541-order2-naive-decode",
+          "tokens_per_second_at_p50": 1153.5740517936727
+        }
+      }
+    }
+  ],
+  "limitations": "Decode is CPU measurement; LRU and sliding traces are memory simulations. Infeasible points have no generation timing or throughput. Pool budgets cover only owning K/V page arrays, excluding metadata, weights, gather and forward temporaries. Actual nbytes equals pages * block_size * bytes_per_token; unused budget is not fragmentation. Allocation microbenchmarks include Python management, not attention. Single-sequence lazy pages need not save memory versus T1 exact-size arrays. Tracemalloc peaks are auxiliary and miss some native allocations; RSS is a process lifetime peak. P0 tracing perturbs timing. Counterbalanced sequential orders share one process, without confidence intervals. This decode recipe stays within the window; fixture checks independently exercise full invalidation and rebuilding. Lookup hit rates include writes and per-layer block gathers; simulation hit rates refer to the synthetic trace and are not comparable generation hit rates."
+}

@@ -1,0 +1,43 @@
+$ uv sync --locked
+Resolved 9 packages in 2ms
+Checked 8 packages in 0.15ms
+exit 0
+
+$ uv run --locked pytest
+collected 351 items
+351 passed in 5.84s
+exit 0
+
+$ uv run --locked ruff check .
+All checks passed!
+exit 0
+
+$ uv run --locked ruff format --check .
+42 files already formatted
+exit 0
+
+$ uv run --locked prism sut check
+passed: true; greedy_cases_passed: 2 (50, 143 tokens)
+logits_argmax_positions_passed: 32
+logits_max_abs_error: 9.5367431640625e-06
+ tokenizer_prompts_passed: 3
+exit 0
+
+$ uv run --locked python scripts/paged_bench.py --check
+39 save_run records published; see bench-check.log and summary.json
+fixtures: 50/50, 143/143 for all three adapters, paged block sizes 8/16/32
+continuous/paged rollover: 14 rebuilds
+random_prompt_paged_comparisons: 54
+exit 0
+
+$ git status --short
+A  configs/p1_paged.json
+A  scripts/paged_bench.py
+A  src/prism/paged.py
+A  tests/test_paged.py
+?? .idea/
+exit 0 (before force-adding ignored run artifacts)
+
+Additional artifact integrity check:
+39/39 load_run records valid; 200 samples each; all four source hashes match current files;
+UTC directory date matches each record's created_at.
