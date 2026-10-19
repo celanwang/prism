@@ -5,10 +5,13 @@ Placeholder until P0 (measurement foundation) lands; see docs/ROADMAP.md.
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 from prism import __version__
 from prism.env import collect_env, env_fingerprint
+from prism.measure import Measurement
+from prism.record import save_run, summarize
 from prism.sut import DEFAULT_SUT_PATH, check_sut
 
 
@@ -22,7 +25,36 @@ def main() -> None:
     sut_commands = sut_parser.add_subparsers(dest="sut_command", required=True)
     check_parser = sut_commands.add_parser("check", help="Verify artifacts and greedy consistency")
     check_parser.add_argument("--path", type=Path, default=DEFAULT_SUT_PATH)
+    record_parser = subparsers.add_parser("record", help="Save and summarize experiment records")
+    record_commands = record_parser.add_subparsers(dest="record_command", required=True)
+    save_parser = record_commands.add_parser("save", help="Save a complete experiment run")
+    save_parser.add_argument("--slug", required=True)
+    save_parser.add_argument("--config", required=True, type=Path)
+    save_parser.add_argument(
+        "--measurement", type=Path, help="Measurement JSON file (default: stdin)"
+    )
+    save_parser.add_argument("--runs-dir", type=Path, default=Path("runs"))
+    summary_parser = record_commands.add_parser(
+        "summary", help="Summarize validated experiment runs"
+    )
+    summary_parser.add_argument("--runs-dir", type=Path, default=Path("runs"))
     args = parser.parse_args()
+    if args.command == "record":
+        try:
+            if args.record_command == "summary":
+                output = summarize(args.runs_dir)
+            else:
+                config = json.loads(args.config.read_text(encoding="utf-8"))
+                value = (
+                    args.measurement.read_text(encoding="utf-8")
+                    if args.measurement is not None
+                    else sys.stdin.read()
+                )
+                output = save_run(args.runs_dir, args.slug, config, Measurement.from_json(value))
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            parser.exit(1, f"Record failed: {error}\n")
+        print(output)
+        return
     if args.command == "sut":
         try:
             result = check_sut(args.path)
