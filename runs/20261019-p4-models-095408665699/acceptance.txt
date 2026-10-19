@@ -1,0 +1,54 @@
+解析模型 P4-T1 — 最终验收原始输出（非训练性能实测）
+
+$ uv sync --locked
+Resolved 9 packages in 2ms
+Checked 8 packages in 0.19ms
+[exit_code=0]
+
+$ uv run --locked pytest
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.1.1, pluggy-1.7.0
+rootdir: /Users/wangchen/Developer/prism-wt-p4
+configfile: pyproject.toml
+testpaths: tests
+collected 338 items
+
+tests/test_baseline.py .............................                     [  8%]
+tests/test_calibrate.py .................                                [ 13%]
+tests/test_cli.py .                                                      [ 13%]
+tests/test_env.py ......                                                 [ 15%]
+tests/test_kvcache.py .......................................            [ 27%]
+tests/test_measure.py ..........................                         [ 34%]
+tests/test_parallel_models.py .......................................... [ 47%]
+.......................................................                  [ 63%]
+tests/test_record.py ..................................................  [ 78%]
+tests/test_schedsim.py .............................................     [ 91%]
+tests/test_sut.py ............................                           [100%]
+
+============================= 338 passed in 3.41s ==============================
+[exit_code=0]
+
+$ uv run --locked ruff check .
+All checks passed!
+[exit_code=0]
+
+$ uv run --locked ruff format --check .
+42 files already formatted
+[exit_code=0]
+
+$ uv run --locked python scripts/parallel_scan.py --check
+解析模型: --check passed, 128 grid points, no artifacts written
+[exit_code=0]
+
+$ git status --short
+A  configs/p4_models.json
+A  runs/20261019-p4-models-095408665699/config.json
+A  runs/20261019-p4-models-095408665699/env.lock
+A  runs/20261019-p4-models-095408665699/measurement.json
+A  runs/20261019-p4-models-095408665699/meta.json
+A  runs/20261019-p4-models-095408665699/predictions.json
+A  runs/20261019-p4-models-095408665699/scan.md
+A  scripts/parallel_scan.py
+A  src/prism/parallel_models.py
+A  tests/test_parallel_models.py
+[exit_code=0]

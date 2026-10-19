@@ -1,0 +1,34 @@
+{
+  "task": "P4-T1",
+  "phase": "P4",
+  "mode": "解析模型",
+  "models": [
+    {
+      "name": "prism-sut-0.5M",
+      "provenance": "解析模型：SUT data/sut/kaleido-p3/manifest.json；精确参数量 478720；训练激活采用带 dropout 的保守 GPT 近似，并非 SUT 实测。",
+      "spec": {"layers": 2, "hidden": 128, "ffn": 512, "vocab": 512, "seq": 128, "heads": 4, "position_capacity": 128}
+    },
+    {
+      "name": "hypothetical-7B",
+      "provenance": "解析模型：假想约 7B dense GPT（非 LLaMA、非真实 checkpoint）；GeLU、tied embeddings、learned positions、含 bias/norm，精确参数量由公式计算。",
+      "spec": {"layers": 32, "hidden": 4096, "ffn": 16384, "vocab": 32000, "seq": 2048, "heads": 32, "position_capacity": 2048}
+    }
+  ],
+  "strategies": [
+    {"dp": 1, "tp": 1, "pp": 1, "zero": 0},
+    {"dp": 4, "tp": 1, "pp": 1, "zero": 0},
+    {"dp": 4, "tp": 1, "pp": 1, "zero": 1},
+    {"dp": 4, "tp": 1, "pp": 1, "zero": 2},
+    {"dp": 4, "tp": 1, "pp": 1, "zero": 3},
+    {"dp": 1, "tp": 2, "pp": 1, "zero": 0},
+    {"dp": 1, "tp": 1, "pp": 2, "zero": 0},
+    {"dp": 2, "tp": 2, "pp": 2, "zero": 3}
+  ],
+  "micro_batch_sizes": [1, 4],
+  "micro_batch_counts": [1, 16],
+  "recompute": [false, true],
+  "precision": {"weight_bytes": 2, "gradient_bytes": 2, "optimizer_bytes": 12, "activation_bytes": 2, "mask_bytes": 1},
+  "hypothetical_compute_flops_per_s": 1000000000000,
+  "rate_provenance": "解析模型：假想每设备 1 TFLOP/s，仅作为可线性缩放的计算速率；不对应任何真实硬件。无网络时间、通信计算重叠或 kernel 效率。",
+  "record_semantics": "解析模型：measurement.json 保存第0格点的确定性计算时间预测的兼容封装（预热0、解析求值1次，p50=p95=p99，非采样分位数）；内存字段0表示未测量。完整显存与通信预测在 predictions.json。"
+}
