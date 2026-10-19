@@ -1,0 +1,77 @@
+{
+  "evidence": "CPU \u5b9e\u6d4b / serial batch-one proxy",
+  "original_sim_recipe_sha256": "862a3fcd6647e8f6fc3b25a449ad635968ce6d8ecaae73a8463161674ddce74f",
+  "phase": "P1",
+  "recipe": {
+    "calibration": {
+      "rationale": "Keep P0/T4 measurement protocol: prefill warmup=100/repeat=1000; decode warmup=10/repeat=200. Every timed decode call advances B independent batch-one caches once, serially in one process; prefill and cache setup are outside timing. Reuse immutable past caches so every sample starts at the same context length, without rollover. The empirical perturbation floor is a reference, not a significance guarantee.",
+      "report": "results/p0/calibration.md",
+      "resolution_ms": 0.092584
+    },
+    "decode": {
+      "batch_sizes": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "context_tokens": 32,
+      "repeat": 200,
+      "token_id": 42,
+      "warmup": 10
+    },
+    "device": "cpu",
+    "phase": "P1",
+    "prefill": {
+      "repeat": 1000,
+      "sequence_lengths": [
+        1,
+        32,
+        128
+      ],
+      "token_id": 42,
+      "warmup": 100
+    },
+    "sim_recipe": "configs/p1_schedsim.json",
+    "sut_path": "data/sut/kaleido-p3",
+    "task": "P1-T4",
+    "threads": 1
+  },
+  "runtime": {
+    "cpu_model": "Apple M4 Max",
+    "device": "cpu",
+    "machine": "arm64",
+    "thread_environment": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "sources_sha256": {
+    "scripts/p1_calibrate.py": "9f02cd154175c799fc1a71043ee27a6522141de82289e9fa4305f34bdea25c6f",
+    "src/prism/kvcache.py": "88ba181d6b7b714dfcb0f520923dc46c993e54f19bbde558fc65dc9e8aeb988e",
+    "src/prism/measure.py": "f40ecfdc1052e1f0fa753db6a76f9a099cf61b02eb535648400539a0f14305f5",
+    "src/prism/schedsim.py": "6d6d2354f109171039ad10897a24eb7174b21c032ea41bdaa5ed1a3f50a3f3a2",
+    "src/prism/sut.py": "d4cae3336f899e91e28da89550ecc4cd9ddcfea61d4f37c9d5149982947bf517"
+  },
+  "sut": {
+    "config": {
+      "context_length": 128,
+      "dropout": 0.0,
+      "heads": 4,
+      "layers": 2,
+      "vocab_size": 512,
+      "width": 128
+    },
+    "manifest_sha256": "8f5f36885a574011e647b4fb046862100f5aa6d4ba99e279d42c0975ac3abfb0"
+  },
+  "task": "P1-T4",
+  "workload": {
+    "context_tokens": 0,
+    "kind": "prefill",
+    "size": 1,
+    "timing_scope": "fresh cached prefill including result disposal"
+  }
+}
