@@ -1,0 +1,17 @@
+{
+  "task": "P2-T1",
+  "phase": "P2",
+  "sut_path": "data/sut/kaleido-p3",
+  "device": "cpu",
+  "threads": 1,
+  "quantize_embedding": false,
+  "schemes": {"fp32": null, "int8": 8, "int4": 4},
+  "group_size": 32,
+  "orders": [["fp32", "int8", "int4"], ["int4", "int8", "fp32"]],
+  "warmup": 3,
+  "repeat": 30,
+  "prompt_ids": [256, 316, 32, 396, 337, 32, 270, 32, 259, 32, 385, 32, 356, 279, 32, 268, 32, 299],
+  "decode_tokens": 32,
+  "random": {"seed": 42, "count": 8, "prompt_length": 12, "new_tokens": 16},
+  "calibration": {"report": "results/p0/calibration.md", "resolution_ms": 0.092584}
+}
