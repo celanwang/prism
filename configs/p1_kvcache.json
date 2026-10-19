@@ -1,0 +1,19 @@
+{
+  "task": "P1-T1",
+  "phase": "P1",
+  "sut_path": "data/sut/kaleido-p3",
+  "device": "cpu",
+  "threads": 1,
+  "calibration": {
+    "report": "results/p0/calibration.md",
+    "resolution_ms": 0.092584,
+    "rationale": "T4 全局经验扰动尺度，仅作参照，不是显著性保证；低于此阈值的差异标注不可分辨。沿用 P0 decode 完整回路的 warmup=10、repeat=200，每样本从空 cache 开始，包含 prompt prefill 和 32 token 生成，不以 repeat 稀释 tracemalloc 单样本扰动。"
+  },
+  "orders": [["naive", "cached"], ["cached", "naive"]],
+  "decode": {
+    "prompt_ids": [256, 316, 32, 396, 337, 32, 270, 32, 259, 32, 385, 32, 356, 279, 32, 268, 32, 299],
+    "max_new_tokens": 32,
+    "warmup": 10,
+    "repeat": 200
+  }
+}

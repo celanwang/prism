@@ -171,9 +171,14 @@ class SUT:
         return self._norm(x, "final_norm") @ self.arrays["token_embedding.weight"].T
 
     def generate(
-        self, prompt: list[int], *, max_new_tokens: int, eos_id: int | None = None
+        self,
+        prompt: list[int],
+        *,
+        max_new_tokens: int,
+        eos_id: int | None = None,
+        use_cache: bool = False,
     ) -> list[int]:
-        """Greedily append tokens, cropping and renumbering positions at each step."""
+        """Greedily append tokens with optional caching and renumbered cropped windows."""
         if not prompt or any(
             type(t) is not int or not 0 <= t < self.config.vocab_size for t in prompt
         ):
@@ -184,6 +189,12 @@ class SUT:
             type(eos_id) is not int or not 0 <= eos_id < self.config.vocab_size
         ):
             raise ValueError("invalid EOS ID")
+        if use_cache:
+            from prism.kvcache import _generate_cached
+
+            return _generate_cached(
+                self, prompt, max_new_tokens=max_new_tokens, eos_id=eos_id
+            ).token_ids
         tokens = list(prompt)
         for _ in range(max_new_tokens):
             window = np.array([tokens[-self.config.context_length :]], dtype=np.int64)
